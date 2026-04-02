@@ -1,0 +1,30 @@
+pip install fastapi[all] uvicorn python-dotenv sqlalchemy
+
+////////////////////////////////////////////////////
+
+fastapi[all]
+fastapi is a modern, fast (high-performance) web framework for building APIs with Python. It’s designed for speed and simplicity.
+[all] means “install FastAPI with all optional dependencies.” These extras include features like:
+pydantic (data validation)
+jinja2 (templating)
+email-validator
+python-multipart (handling file uploads)
+and more, depending on what FastAPI supports.
+So fastapi[all] ensures your FastAPI setup has everything you might need for development.
+
+///////////////////////////////////////////////////
+
+venv\Scripts\activate |=> for activate window
+source venv/Scripts/activate |=> for activate git 
+fastapi run app/main.py |=>  basic
+uvicorn app.main:app --reload |=> auto raload or uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+fastapi dev app.main.py |=> also
+
+/////////////////////////////////
+alembic\env.py |=> make alembic init
+///////////////////////////////////////////////////
+
+pip install -r requirements.txt  |=> package install
+pip freeze > requirements.txt    |=> run set all was install into requirements.txt
+
+

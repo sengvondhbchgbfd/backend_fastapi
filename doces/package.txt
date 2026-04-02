@@ -1,0 +1,19 @@
+pip install alembic |=> database migrate
+alembic init app/db/migrations  |=> with directions
+pip install sqlmodel             |=>
+alembic revision --autogenerate -m "initial migrations" |=> migrate
+alembic upgrade head  |=> up to database
+
+/////////////////////////////////////////////////////
+
+pip install fastapi-jwt-auth
+pip install pyjwt
+pip install python-jose
+
+/////////////////////////////////////////////////////////
+
+pip install qrcode
+
+//////////////////////////////////////////////////////////
+
+npm install cloudinary

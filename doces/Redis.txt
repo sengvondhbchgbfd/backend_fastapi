@@ -1,0 +1,181 @@
+KEYS *              # show all keys
+KEYS users:*        # show keys matching pattern
+EXISTS users:all    # check if key exists (1=yes, 0=no)
+TYPE users:all      # check key type (string, list, hash, set)
+RENAME old new      # rename a key
+DEL users:all       # delete one key
+DEL key1 key2 key3  # delete multiple keys
+
+///////////////////////////////////////////////////////////////////
+
+SET name "john"              # set a value
+GET name                     # get a value
+MSET k1 "v1" k2 "v2"       # set multiple at once
+MGET k1 k2                  # get multiple at once
+APPEND name "doe"           # append to value
+
+/////////////////////////////////////////////////////
+docker exec -it redis_cache redis-cli -a redis_password  |=> go login
+////////////////////////////////////////////////////
+
+STRLEN name                  # length of value
+INCR counter                 # increment by 1
+INCRBY counter 5             # increment by 5
+DECR counter                 # decrement by 1
+
+/////////////////////////////////////////////////////////////////////
+
+TTL users:all           # time left in seconds (-1=no expiry, -2=gone)
+PTTL users:all          # time left in milliseconds
+EXPIRE users:all 300    # set expiry 300 seconds
+PERSIST users:all       # remove expiry (keep forever)
+EXPIREAT key 1234567890 # expire at unix timestamp
+
+//////////////////////////////////////////////////////////////////
+
+LPUSH mylist "a"        # add to left
+RPUSH mylist "b"        # add to right
+LPOP mylist             # remove from left
+RPOP mylist             # remove from right
+LRANGE mylist 0 -1      # get all items
+LLEN mylist             # length of list
+LINDEX mylist 0         # get item at index
+
+//////////////////////////////////////////////////////////////////////
+
+LPUSH mylist "a"        # add to left
+RPUSH mylist "b"        # add to right
+LPOP mylist             # remove from left
+RPOP mylist             # remove from right
+LRANGE mylist 0 -1      # get all items
+LLEN mylist             # length of list
+LINDEX mylist 0         # get item at index
+
+///////////////////////////////////////////////////////////////////
+
+SADD myset "a" "b" "c"     # add members
+SMEMBERS myset              # get all members
+SISMEMBER myset "a"         # check if member exists
+SREM myset "a"              # remove member
+SCARD myset                 # count members
+SUNION set1 set2            # combine two sets
+SINTER set1 set2            # common members
+SDIFF set1 set2             # difference between sets
+
+//////////////////////////////////////////////////////////////////////
+
+SADD myset "a" "b" "c"     # add members
+SMEMBERS myset              # get all members
+SISMEMBER myset "a"         # check if member exists
+SREM myset "a"              # remove member
+SCARD myset                 # count members
+SUNION set1 set2            # combine two sets
+SINTER set1 set2            # common members
+SDIFF set1 set2             # difference between sets
+
+/////////////////////////////////////////////////////////////////////////
+
+SELECT 0        # switch to DB 0 (default)
+SELECT 1        # switch to DB 1
+FLUSHDB         # delete all keys in current DB
+FLUSHALL        # delete all keys in ALL databases ⚠️
+MOVE key 1      # move key to DB 1
+SWAPDB 0 1      # swap two databases
+
+/////////////////////////////////////////////////////////////////////
+
+SCAN 0                      # scan keys safely (better than KEYS * in production)
+SCAN 0 MATCH users:*        # scan with pattern
+SCAN 0 COUNT 100            # scan 100 at a time
+OBJECT ENCODING users:all   # check how data is stored
+DEBUG OBJECT users:all      # detailed key info
+
+/////////////////////////////////////////////////////////////////////
+
+SCAN 0                      # scan keys safely (better than KEYS * in production)
+SCAN 0 MATCH users:*        # scan with pattern
+SCAN 0 COUNT 100            # scan 100 at a time
+OBJECT ENCODING users:all   # check how data is stored
+DEBUG OBJECT users:all      # detailed key info
+
+///////////////////////////// Test ////////////////////////////////
+
+# check your cache keys
+KEYS *
+
+# see cached user data
+GET users:all
+GET users:1
+
+# check expiry
+TTL users:all
+
+# manually clear cache to force DB refresh
+DEL users:all
+
+# watch live API cache activity
+MONITOR
+
+# memory used by one key
+MEMORY USAGE users:all
+
+# check cache hit ratio
+INFO stats | grep hits
+```
+
+---
+
+## 📌 Quick Reference
+```
+SET / GET       → store and read data
+TTL / EXPIRE    → manage expiry
+KEYS *          → list all keys
+DEL             → delete keys
+MONITOR         → watch live activity
+INFO stats      → hits vs misses
+FLUSHDB         → clear everything ⚠️
+
+
+///////////////////////////////////////////////
+
+**What Redis stores vs Postgres:**
+```
+Postgres  → stores REAL data permanently 💾
+Redis     → stores COPY of data temporarily ⚡
+
+Postgres  → always has your data
+Redis     → only has it for TTL seconds (300s)
+           → empty on first request
+           → filled after first GET
+           → cleared after POST/PUT/DELET
+
+//////////////////////////////////////////////////
+
+✅ Caching          → temporary copies of DB data
+✅ Sessions         → user login sessions
+✅ Rate limiting    → count API requests
+✅ Queues           → background job queues
+✅ Pub/Sub          → real time messaging
+✅ Leaderboards     → sorted scores
+✅ OTP codes        → temporary codes with TTL
+
+////////////////////////////////////////////////
+❌ Primary database     → no relationships
+❌ Complex queries      → no SQL, no JOIN
+❌ Permanent storage    → data can vanish
+❌ Large data           → RAM is expensive
+❌ Transactions         → limited support
+❌ Foreign keys         → doesn't exist
+❌ Data integrity       → no constraints
+
+///////////////////////////////////////////
+
+Need data FOREVER?        → Postgres 💾
+Need data TEMPORARILY?    → Redis    ⚡
+Need it FAST?             → Redis    ⚡
+Need RELATIONSHIPS?       → Postgres 💾
+Need QUERIES?             → Postgres 💾
+
+////////////////////////////////////////////
+
+docker run -d \ -p 8081:8081 \ rediscommander/redis-commander

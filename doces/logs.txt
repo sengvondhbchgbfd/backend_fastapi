@@ -1,0 +1,88 @@
+pip install loguru |=>
+
+from app.core.logger import logger
+
+
+def login(email: str, password: str, db: Session) -> dict:
+    from app.repositories.user_repo import get_by_email
+    user = get_by_email(db, email)
+
+    if not user or not verify_password(password, user.hashed_password):
+        # SECURITY log → brute force detection
+        logger.warning(
+            f"SECURITY | Login failed | email:{email}"
+        )
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid email or password."
+        )
+
+    # Normal info log
+    logger.info(f"Login success | user_id:{user.id} | email:{email}")
+
+    return {
+        "access_token":  create_access_token({
+            "sub":        str(user.id),
+            "company_id": user.company_id,
+        }),
+        "refresh_token": create_refresh_token(user.id, user.company_id),
+    }
+
+
+def refresh_tokens(refresh_token: str, db: Session) -> dict:
+    from app.repositories.user_repo import get_by_id
+
+    try:
+        user_id = decode_refresh_token(refresh_token)
+    except HTTPException as e:
+        logger.warning(f"SECURITY | Refresh token expired or invalid")
+        raise e
+
+    user = get_by_id(db, user_id)
+    if not user:
+        logger.warning(f"SECURITY | Refresh token user not found | user_id:{user_id}")
+        raise HTTPException(status_code=401, detail="User not found.")
+
+    logger.info(f"Token refreshed | user_id:{user_id}")
+
+    return {
+        "access_token":  create_access_token({
+            "sub":        str(user.id),
+            "company_id": user.company_id,
+        }),
+        "refresh_token": create_refresh_token(user.id, user.company_id),
+    }
+
+    /////////////////////////////////////////////////////////
+
+    from slowapi import Limiter
+from slowapi.util import get_remote_address
+from fastapi import Request
+from app.core.config import settings
+
+
+def get_user_or_ip(request: Request) -> str:
+    """
+    Rate limit key:
+    - logged in user  → user:42
+    - not logged in   → ip:192.168.1.1
+    """
+    user_id = getattr(request.state, "user_id", None)
+    if user_id:
+        return f"user:{user_id}"
+    return f"ip:{get_remote_address(request)}"
+
+
+# IP-based → for auth endpoints (login, refresh, logout)
+ip_limiter = Limiter(
+    key_func=get_remote_address,
+    storage_uri=settings.REDIS_URL,    # ← Redis
+    default_limits=["200/minute"],     # global fallback
+)
+
+# User-based → for protected API endpoints
+user_limiter = Limiter(
+    key_func=get_user_or_ip,
+    storage_uri=settings.REDIS_URL,    # ← Redis
+    default_limits=["1000/minute"],    # global fallback
+)

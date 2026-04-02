@@ -1,0 +1,106 @@
+// Login — gets both tokens
+final res = await http.post(Uri.parse("$base/auth/login"),
+    body: jsonEncode({"email": email, "password": password}));
+final data = jsonDecode(res.body);
+
+await storage.write(key: "access_token",  value: data["access_token"]);
+await storage.write(key: "refresh_token", value: data["refresh_token"]);
+
+// Refresh — send refresh_token in body
+final refreshToken = await storage.read(key: "refresh_token");
+final res = await http.post(Uri.parse("$base/auth/refresh"),
+    body: jsonEncode({"refresh_token": refreshToken}));
+final data = jsonDecode(res.body);
+
+await storage.write(key: "access_token",  value: data["access_token"]);
+await storage.write(key: "refresh_token", value: data["refresh_token"]);
+
+========================================================================
+
+// Without this interceptor → user gets 401 error and nothing happens
+// With this interceptor    → refresh happens silently, user notices nothing
+
+api.interceptors.response.use(
+    (response) => response,  // success → pass through
+
+    async (error) => {
+        const original = error.config
+
+        // Step 1: detect expired access token
+        if (error.response?.status === 401 && !original._retry) {
+            original._retry = true
+
+            try {
+                // Step 2: call refresh (cookie sent automatically by browser)
+                const { data } = await axios.post("/auth/refresh", {},
+                    { withCredentials: true }
+                )
+
+                // Step 3: save new access token
+                localStorage.setItem("access_token", data.access_token)
+
+                // Step 4: retry original request with new token
+                original.headers.Authorization = `Bearer ${data.access_token}`
+                return api(original)
+
+            } catch {
+                // Refresh also expired → force login
+                localStorage.clear()
+                window.location.href = "/login"
+            }
+        }
+
+        return Promise.reject(error)
+    }
+)
+
+======================================================================
+
+// dio is the axios equivalent for Flutter
+
+dio.interceptors.add(
+  InterceptorsWrapper(
+    onError: (error, handler) async {
+
+      // Step 1: detect 401
+      if (error.response?.statusCode == 401) {
+        final refreshToken = await storage.read(key: "refresh_token");
+
+        try {
+          // Step 2: call refresh manually
+          final res = await dio.post("/auth/refresh",
+              data: {"refresh_token": refreshToken});
+
+          // Step 3: save new tokens
+          await storage.write(
+              key: "access_token",  value: res.data["access_token"]);
+          await storage.write(
+              key: "refresh_token", value: res.data["refresh_token"]);
+
+          // Step 4: retry original request
+          error.requestOptions.headers["Authorization"] =
+              "Bearer ${res.data["access_token"]}";
+          return handler.resolve(
+              await dio.fetch(error.requestOptions));
+
+        } catch {
+          // Refresh expired → force logout
+          await storage.deleteAll();
+          navigateTo("/login");
+        }
+      }
+
+      return handler.next(error);
+    },
+  ),
+);
+```
+
+---
+
+## Summary
+```
+Browser sends cookie automatically    ✅ (built-in, free)
+Your interceptor detects 401          ✅ (you write once)
+Your interceptor calls /auth/refresh  ✅ (you write once)
+User sees anything                    ❌ (completely silent)

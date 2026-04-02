@@ -1,0 +1,17 @@
+pip install slowapi redis |=>
+pip install limits        |=>
+
+
+
+
+
+
+
+
+
+
+
+Why auth endpoints need rate limiting
+Without rate limit → attacker can try millions of passwords (brute force)
+Without rate limit → attacker can spam /auth/refresh to overload server
+Without rate limit → attacker can generate thousands of tokens

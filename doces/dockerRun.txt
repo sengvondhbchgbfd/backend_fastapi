@@ -1,0 +1,77 @@
+docker-compose up --build -d |=>  
+docker compose up -d --build |=>
+
+docker compose build --no-cache |=>
+
+docker compose up |=>
+
+docker-compose exec app alembic revision --autogenerate -m "create roles and users" |=> add table with docker Then create new migration
+
+docker-compose exec app alembic upgrade head  |=>  set to db i docker Then apply new migration
+
+
+alembic downgrade -1                          |=> Go back (undo) ONE migration step
+alembic downgrade base                        |=> Reset ALL migrations (⚠️ dangerous)
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+docker-compose exec app alembic revision --autogenerate -m "fix user department models" => 
+docker-compose exec app alembic upgrade head
+
+docker compose exec app alembic current
+
+//////////////////////////////////////////////////////////////////////////////////////
+docker-compose restart app
+
+----------------------------------------
+
+docker exec -it postgres_db psql -U postgres |=> connect postgres_db
+
+\c financaildb |=> to connect
+\d table |=> check table 
+q |=> out
+{
+ALTER TABLE users ALTER COLUMN created_at SET DEFAULT now();
+ALTER TABLE users ALTER COLUMN updated_at SET DEFAULT now();
+}
+DROP TABLE staff_roles CASCADE; |=>
+
+
+============================
+
+
+INSERT INTO staff_roles (role_name, description, base_salary, is_manager, created_at)
+VALUES ('Manager', 'Test Role', 500, true, now());
+
+SELECT staff_role_id, role_name, is_manager FROM staff_roles;
+
+================================
+
+docker compose exec app alembic revision --autogenerate -m "fix created_at server_default"
+docker compose exec app alembic upgrade head
+
+
+=============================
+
+ALTER TABLE roles DROP CONSTRAINT roles_role_name_key;
+ALTER TABLE roles ADD CONSTRAINT uq_roles_company_role
+    UNIQUE (company_id, role_name);
+
+docker compose exec app alembic revision --autogenerate -m "fix roles unique per company"
+docker compose exec app alembic upgrade head
+
+
+==================================
+
+ALTER TYPE notificationtype ADD VALUE 'success'
+
+
+////////////////
+SELECT staff_id, avatar_url, avatar_public_id FROM staff WHERE company_id = 5;
+
+
+///////////////////////////////////////////////
+
+ALTER TABLE salaries ALTER COLUMN updated_at SET DEFAULT now();
+
+ALTER TABLE salary_adjustments ADD COLUMN reason VARCHAR;

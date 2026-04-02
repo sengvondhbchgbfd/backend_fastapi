@@ -1,0 +1,9 @@
+// Login — only gets access_token back, cookie set automatically
+const { access_token } = await axios.post("/auth/login", { email, password },
+    { withCredentials: true }  // required to send/receive cookies
+);
+
+// Refresh — cookie sent automatically by browser
+const { access_token: newToken } = await axios.post("/auth/refresh", {},
+    { withCredentials: true }
+);

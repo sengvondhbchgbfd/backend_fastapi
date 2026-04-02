@@ -1,0 +1,641 @@
+2026-03-31 17:21:49 | INFO | app.middleware.logging_middleware:18 | [6dddf611] → GET /docs | ip:172.18.0.1 | ua:Mozilla/5.0 (Windows NT 10.0; Win64; x64
+2026-03-31 17:21:49 | INFO | app.middleware.logging_middleware:31 | [6dddf611] ← 200 | GET /docs | 5.66ms
+2026-03-31 17:21:50 | INFO | app.middleware.logging_middleware:18 | [2cdc4f98] → GET /openapi.json | ip:172.18.0.1 | ua:Mozilla/5.0 (Windows NT 10.0; Win64; x64
+2026-03-31 17:21:51 | INFO | app.middleware.logging_middleware:31 | [2cdc4f98] ← 200 | GET /openapi.json | 1067.13ms
+2026-03-31 17:30:33 | INFO | app.middleware.logging_middleware:18 | [34d234ee] → GET /docs | ip:172.18.0.1 | ua:Mozilla/5.0 (Windows NT 10.0; Win64; x64
+2026-03-31 17:30:33 | INFO | app.middleware.logging_middleware:31 | [34d234ee] ← 200 | GET /docs | 7.0ms
+2026-03-31 17:30:34 | INFO | app.middleware.logging_middleware:18 | [b67d0be6] → GET /openapi.json | ip:172.18.0.1 | ua:Mozilla/5.0 (Windows NT 10.0; Win64; x64
+2026-03-31 17:30:35 | INFO | app.middleware.logging_middleware:31 | [b67d0be6] ← 200 | GET /openapi.json | 1035.65ms
+2026-03-31 17:47:33 | INFO | app.middleware.logging_middleware:18 | [d76b5805] → GET /docs | ip:172.18.0.1 | ua:Mozilla/5.0 (Windows NT 10.0; Win64; x64
+2026-03-31 17:47:33 | INFO | app.middleware.logging_middleware:38 | [d76b5805] ← 200 | GET /docs | 3.35ms
+2026-03-31 17:47:33 | INFO | app.middleware.logging_middleware:18 | [ee45e2eb] → GET /openapi.json | ip:172.18.0.1 | ua:Mozilla/5.0 (Windows NT 10.0; Win64; x64
+2026-03-31 17:47:34 | INFO | app.middleware.logging_middleware:38 | [ee45e2eb] ← 200 | GET /openapi.json | 1006.14ms
+2026-03-31 17:48:32 | INFO | app.middleware.logging_middleware:59 | [39dea3ba] → GET /docs | ip:172.18.0.1
+2026-03-31 17:48:32 | INFO | app.middleware.logging_middleware:72 | [39dea3ba] ← 200 GET /docs | 3.43ms
+2026-03-31 17:48:32 | INFO | app.middleware.logging_middleware:59 | [30caf8dd] → GET /openapi.json | ip:172.18.0.1
+2026-03-31 17:48:33 | INFO | app.middleware.logging_middleware:72 | [30caf8dd] ← 200 GET /openapi.json | 1295.69ms
+2026-03-31 17:48:39 | INFO | app.middleware.logging_middleware:59 | [6c539e15] → GET /docs | ip:172.18.0.1
+2026-03-31 17:48:39 | INFO | app.middleware.logging_middleware:72 | [6c539e15] ← 200 GET /docs | 2.7ms
+2026-03-31 17:48:41 | INFO | app.middleware.logging_middleware:59 | [90e09b91] → GET /openapi.json | ip:172.18.0.1
+2026-03-31 17:48:41 | INFO | app.middleware.logging_middleware:72 | [90e09b91] ← 200 GET /openapi.json | 14.67ms
+2026-03-31 17:53:25 | INFO | app.middleware.logging_middleware:59 | [ff78fdd0] → GET /docs | ip:172.18.0.1
+2026-03-31 17:53:25 | INFO | app.middleware.logging_middleware:72 | [ff78fdd0] ← 200 GET /docs | 3.33ms
+2026-03-31 17:53:25 | INFO | app.middleware.logging_middleware:59 | [20bd4e94] → GET /openapi.json | ip:172.18.0.1
+2026-03-31 17:53:26 | INFO | app.middleware.logging_middleware:72 | [20bd4e94] ← 200 GET /openapi.json | 1032.43ms
+2026-03-31 17:54:07 | INFO | app.middleware.logging_middleware:59 | [789ff990] → GET /docs | ip:172.18.0.1
+2026-03-31 17:54:07 | INFO | app.middleware.logging_middleware:72 | [789ff990] ← 200 GET /docs | 3.55ms
+2026-03-31 17:54:07 | INFO | app.middleware.logging_middleware:59 | [1b5b6857] → GET /openapi.json | ip:172.18.0.1
+2026-03-31 17:54:07 | INFO | app.middleware.logging_middleware:72 | [1b5b6857] ← 200 GET /openapi.json | 16.32ms
+2026-03-31 17:55:16 | INFO | app.middleware.logging_middleware:59 | [91b75bb3] → GET /docs | ip:172.18.0.1
+2026-03-31 17:55:16 | INFO | app.middleware.logging_middleware:72 | [91b75bb3] ← 200 GET /docs | 2.95ms
+2026-03-31 17:55:16 | INFO | app.middleware.logging_middleware:59 | [7a71fa71] → GET /openapi.json | ip:172.18.0.1
+2026-03-31 17:55:17 | INFO | app.middleware.logging_middleware:72 | [7a71fa71] ← 200 GET /openapi.json | 1022.48ms
+2026-04-01 14:10:35 | INFO | app.main:54 | Server starting...
+2026-04-01 14:10:35 | INFO | app.main:67 | Redis connected successfully
+2026-04-01 14:10:35 | INFO | app.main:73 | Cloudinary initialized
+2026-04-01 14:10:35 | INFO | app.main:78 | WebSocket listeners started
+2026-04-01 14:11:00 | INFO | app.main:83 | Server shutting down...
+2026-04-01 14:11:06 | INFO | app.main:54 | Server starting...
+2026-04-01 14:11:06 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:11:06 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:11:06 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:12:02 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:12:02 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:12:08 | INFO | app.main:54 | Server starting...
+2026-04-01 14:12:08 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:12:08 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:12:08 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:14:40 | INFO | app.middleware.logging_middleware:57 | [0ef2d65b] → GET /docs | ip:172.18.0.1
+2026-04-01 14:14:40 | INFO | app.middleware.logging_middleware:70 | [0ef2d65b] ← 200 GET /docs | 3.6ms
+2026-04-01 14:14:40 | INFO | app.middleware.logging_middleware:57 | [9ad07a33] → GET /openapi.json | ip:172.18.0.1
+2026-04-01 14:14:41 | INFO | app.middleware.logging_middleware:70 | [9ad07a33] ← 200 GET /openapi.json | 1013.39ms
+2026-04-01 14:14:51 | INFO | app.middleware.logging_middleware:57 | [cbf13de1] → GET /docs | ip:172.18.0.1
+2026-04-01 14:14:51 | INFO | app.middleware.logging_middleware:70 | [cbf13de1] ← 200 GET /docs | 2.39ms
+2026-04-01 14:14:51 | INFO | app.middleware.logging_middleware:57 | [65e7f383] → GET /openapi.json | ip:172.18.0.1
+2026-04-01 14:14:51 | INFO | app.middleware.logging_middleware:70 | [65e7f383] ← 200 GET /openapi.json | 13.15ms
+2026-04-01 14:14:51 | INFO | app.middleware.logging_middleware:57 | [2a180468] → GET /docs | ip:172.18.0.1
+2026-04-01 14:14:51 | INFO | app.middleware.logging_middleware:70 | [2a180468] ← 200 GET /docs | 2.95ms
+2026-04-01 14:14:52 | INFO | app.middleware.logging_middleware:57 | [6cc0bd32] → GET /openapi.json | ip:172.18.0.1
+2026-04-01 14:14:52 | INFO | app.middleware.logging_middleware:70 | [6cc0bd32] ← 200 GET /openapi.json | 12.64ms
+2026-04-01 14:15:46 | INFO | app.middleware.logging_middleware:57 | [77446113] → POST /auth/login | ip:172.18.0.1
+2026-04-01 14:15:47 | INFO | app.middleware.logging_middleware:70 | [77446113] ← 200 POST /auth/login | 1140.06ms
+2026-04-01 14:16:53 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:16:53 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:16:58 | INFO | app.main:54 | Server starting...
+2026-04-01 14:16:58 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:16:58 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:16:58 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:17:09 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:17:14 | INFO | app.main:54 | Server starting...
+2026-04-01 14:17:14 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:17:14 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:17:14 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:18:22 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:18:29 | INFO | app.main:54 | Server starting...
+2026-04-01 14:18:29 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:18:29 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:18:29 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:18:54 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:19:01 | INFO | app.main:54 | Server starting...
+2026-04-01 14:19:01 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:19:01 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:19:01 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:19:10 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:19:15 | INFO | app.main:54 | Server starting...
+2026-04-01 14:19:15 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:19:15 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:19:15 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:21:25 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:21:25 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:21:32 | INFO | app.main:54 | Server starting...
+2026-04-01 14:21:32 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:21:32 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:21:32 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:22:12 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:22:12 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:22:20 | INFO | app.main:54 | Server starting...
+2026-04-01 14:22:20 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:22:20 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:22:20 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:22:29 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:22:35 | INFO | app.main:54 | Server starting...
+2026-04-01 14:22:35 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:22:35 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:22:35 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:22:43 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:22:43 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:22:49 | INFO | app.main:54 | Server starting...
+2026-04-01 14:22:49 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:22:49 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:22:49 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:23:00 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:23:00 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:23:06 | INFO | app.main:54 | Server starting...
+2026-04-01 14:23:06 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:23:06 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:23:06 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:23:14 | INFO | app.middleware.logging_middleware:57 | [8c219e25] → POST /auth/refresh | ip:172.18.0.1
+2026-04-01 14:23:15 | ERROR | app.middleware.error_middleware:70 | [8c219e25] UNHANDLED EXCEPTION: AuthRepository.get_by_id() missing 1 required positional argument: 'company_id'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 10
+               └ <function _main at 0x7bc1c8982160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7bc1c8a53740>
+           └ <SpawnProcess name='SpawnProcess-15' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7bc1c8a52ca0>
+    └ <SpawnProcess name='SpawnProcess-15' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7bc1c7a913d0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-15' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-15' parent=1 started>
+    │    └ <function subprocess_started at 0x7bc1c7902e80>
+    └ <SpawnProcess name='SpawnProcess-15' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7bc1c77f3f50>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x7bc1c7a8dee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x7bc1c7a913d0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x7bc1c77f3f50>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7bc1c7901c60>
+           │           └ <uvicorn.server.Server object at 0x7bc1c77f3f50>
+           └ <function asyncio_run at 0x7bc1c7a62700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7bc1c77b5a80>
+           │      └ <function Runner.run at 0x7bc1c7ceb100>
+           └ <asyncio.runners.Runner object at 0x7bc1c85e9410>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7bc1c7838580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7bc1c85e9410>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7bc1c0fe1120>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c0fe1080>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7bc1c10642d0>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7bc1c3a21710>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7bc1c0fe13a0>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7bc1c0fe7790>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x7bc1c10642d0>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7bc1c10642d0>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7bc1c0fe7790>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7bc1c0fe13a0>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ TypeError("AuthRepository.get_by_id() missing 1 required positional argument: 'company_id'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ TypeError("AuthRepository.get_by_id() missing 1 required positional argument: 'company_id'")
+          └ TypeError("AuthRepository.get_by_id() missing 1 required positional argument: 'company_id'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7bc1c0fe14e0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c0fe1440>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7bc1c1118650>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7bc1c10642d0>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7bc1c0fe14e0>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c0fe1440>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x7bc1c0fe7d90>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7bc1c2c60a10>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7bc1c1118650>
+          └ <function wrap_app_handling_exceptions at 0x7bc1c666d4e0>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c0fe1800>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c0fe1440>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7bc1c2c60a10>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c0fe1800>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c0fe1440>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x7bc1c2a86510>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7bc1c2c60a10>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c0fe1800>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c0fe1440>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7bc1c2a86510>>
+          └ <fastapi.routing.APIRouter object at 0x7bc1c2a86510>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c0fe1800>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c0fe1440>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │     └ <function Route.handle at 0x7bc1c666eac0>
+          └ APIRoute(path='/auth/refresh', name='refresh', methods=['POST'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c0fe1800>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c0fe1440>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x7bc1c2a98860>
+          └ APIRoute(path='/auth/refresh', name='refresh', methods=['POST'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c0fe1800>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c0fe1440>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x7bc1c3ba9750>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7bc1c0fe18a0>
+          └ <function wrap_app_handling_exceptions at 0x7bc1c666d4e0>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c0fe19e0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c0fe1440>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7bc1c0fe18a0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7bc1c3ba9750>
+                     └ <function get_request_handler.<locals>.app at 0x7bc1c2a987c0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7bc1c668cf40>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'service': <app.services.auth_service.AuthService object at 0x7bc1c2c6c0d0>, 'cookie_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...
+                 │         └ <function refresh at 0x7bc1c3d43740>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[ModelField(field_info=Cookie(None), name='cookie_...
+
+  File "/app/app/routers/auth_router.py", line 123, in refresh
+    tokens = await service.refresh(refresh_token)
+                   │       │       └ 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNSwiY29tcGFueV9pZCI6NSwidG9rZW5fdHlwZSI6InJlZnJlc2giLCJqdGkiOiI2MWE4MDJ...
+                   │       └ <function AuthService.refresh at 0x7bc1c3d42d40>
+                   └ <app.services.auth_service.AuthService object at 0x7bc1c2c6c0d0>
+
+  File "/app/app/services/auth_service.py", line 187, in refresh
+    user = await self.auth_repo.get_by_id(user_id)  # no company_id needed here
+                 │    │         │         └ 15
+                 │    │         └ <function AuthRepository.get_by_id at 0x7bc1c3d427a0>
+                 │    └ <app.repositories.auth_repository.AuthRepository object at 0x7bc1c3d4e610>
+                 └ <app.services.auth_service.AuthService object at 0x7bc1c2c6c0d0>
+
+TypeError: AuthRepository.get_by_id() missing 1 required positional argument: 'company_id'
+2026-04-01 14:23:15 | WARNING | app.middleware.logging_middleware:70 | [8c219e25] ← 500 POST /auth/refresh | 119.18ms
+2026-04-01 14:25:55 | INFO | app.middleware.logging_middleware:57 | [158e1704] → POST /auth/refresh | ip:172.18.0.1
+2026-04-01 14:25:55 | ERROR | app.middleware.error_middleware:70 | [158e1704] UNHANDLED EXCEPTION: AuthRepository.get_by_id() missing 1 required positional argument: 'company_id'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 10
+               └ <function _main at 0x7bc1c8982160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7bc1c8a53740>
+           └ <SpawnProcess name='SpawnProcess-15' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7bc1c8a52ca0>
+    └ <SpawnProcess name='SpawnProcess-15' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7bc1c7a913d0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-15' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-15' parent=1 started>
+    │    └ <function subprocess_started at 0x7bc1c7902e80>
+    └ <SpawnProcess name='SpawnProcess-15' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7bc1c77f3f50>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x7bc1c7a8dee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x7bc1c7a913d0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x7bc1c77f3f50>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7bc1c7901c60>
+           │           └ <uvicorn.server.Server object at 0x7bc1c77f3f50>
+           └ <function asyncio_run at 0x7bc1c7a62700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7bc1c77b5a80>
+           │      └ <function Runner.run at 0x7bc1c7ceb100>
+           └ <asyncio.runners.Runner object at 0x7bc1c85e9410>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7bc1c7838580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7bc1c85e9410>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7bc1c0fe1260>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c0fe20c0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7bc1c10642d0>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7bc1c3a21710>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7bc1c2a7eb60>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7bc1c050a510>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x7bc1c10642d0>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7bc1c10642d0>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7bc1c050a510>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7bc1c2a7eb60>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ TypeError("AuthRepository.get_by_id() missing 1 required positional argument: 'company_id'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ TypeError("AuthRepository.get_by_id() missing 1 required positional argument: 'company_id'")
+          └ TypeError("AuthRepository.get_by_id() missing 1 required positional argument: 'company_id'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7bc1c064e8e0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c064e700>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7bc1c1118650>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7bc1c10642d0>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7bc1c064e8e0>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c064e700>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x7bc1c050aa10>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7bc1c2c60a10>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7bc1c1118650>
+          └ <function wrap_app_handling_exceptions at 0x7bc1c666d4e0>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c064ec00>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c064e700>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7bc1c2c60a10>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c064ec00>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c064e700>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x7bc1c2a86510>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7bc1c2c60a10>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c064ec00>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c064e700>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7bc1c2a86510>>
+          └ <fastapi.routing.APIRouter object at 0x7bc1c2a86510>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c064ec00>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c064e700>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │     └ <function Route.handle at 0x7bc1c666eac0>
+          └ APIRoute(path='/auth/refresh', name='refresh', methods=['POST'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c064ec00>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c064e700>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x7bc1c2a98860>
+          └ APIRoute(path='/auth/refresh', name='refresh', methods=['POST'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c064ec00>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c064e700>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x7bc1c050aa90>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7bc1c064eca0>
+          └ <function wrap_app_handling_exceptions at 0x7bc1c666d4e0>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7bc1c064ede0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7bc1c064e700>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.5', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7bc1c064eca0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7bc1c050aa90>
+                     └ <function get_request_handler.<locals>.app at 0x7bc1c2a987c0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7bc1c668cf40>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'service': <app.services.auth_service.AuthService object at 0x7bc1c050bd50>, 'cookie_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...
+                 │         └ <function refresh at 0x7bc1c3d43740>
+                 └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[ModelField(field_info=Cookie(None), name='cookie_...
+
+  File "/app/app/routers/auth_router.py", line 123, in refresh
+    tokens = await service.refresh(refresh_token)
+                   │       │       └ 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNSwiY29tcGFueV9pZCI6NSwidG9rZW5fdHlwZSI6InJlZnJlc2giLCJqdGkiOiI2MWE4MDJ...
+                   │       └ <function AuthService.refresh at 0x7bc1c3d42d40>
+                   └ <app.services.auth_service.AuthService object at 0x7bc1c050bd50>
+
+  File "/app/app/services/auth_service.py", line 187, in refresh
+    user = await self.auth_repo.get_by_id(user_id)  # no company_id needed here
+                 │    │         │         └ 15
+                 │    │         └ <function AuthRepository.get_by_id at 0x7bc1c3d427a0>
+                 │    └ <app.repositories.auth_repository.AuthRepository object at 0x7bc1c050bcd0>
+                 └ <app.services.auth_service.AuthService object at 0x7bc1c050bd50>
+
+TypeError: AuthRepository.get_by_id() missing 1 required positional argument: 'company_id'
+2026-04-01 14:25:55 | WARNING | app.middleware.logging_middleware:70 | [158e1704] ← 500 POST /auth/refresh | 57.46ms
+2026-04-01 14:26:01 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:26:06 | INFO | app.main:54 | Server starting...
+2026-04-01 14:26:06 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:26:06 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:26:06 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:26:14 | INFO | app.middleware.logging_middleware:57 | [fb602ae9] → POST /auth/refresh | ip:172.18.0.1
+2026-04-01 14:26:14 | WARNING | app.middleware.logging_middleware:70 | [fb602ae9] ← 401 POST /auth/refresh | 46.06ms
+2026-04-01 14:26:38 | INFO | app.middleware.logging_middleware:57 | [04732120] → POST /auth/refresh | ip:172.18.0.1
+2026-04-01 14:26:38 | WARNING | app.middleware.logging_middleware:70 | [04732120] ← 401 POST /auth/refresh | 5.86ms
+2026-04-01 14:28:04 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:28:04 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:28:10 | INFO | app.main:54 | Server starting...
+2026-04-01 14:28:10 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:28:10 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:28:10 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:28:19 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:28:25 | INFO | app.main:54 | Server starting...
+2026-04-01 14:28:25 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:28:25 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:28:25 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:28:28 | INFO | app.middleware.logging_middleware:57 | [5f0da08c] → POST /auth/login | ip:172.18.0.1
+2026-04-01 14:28:29 | INFO | app.middleware.logging_middleware:70 | [5f0da08c] ← 200 POST /auth/login | 907.35ms
+2026-04-01 14:29:06 | INFO | app.middleware.logging_middleware:57 | [a0491764] → GET /auth/users/15 | ip:172.18.0.1
+2026-04-01 14:29:06 | INFO | app.middleware.logging_middleware:70 | [a0491764] ← 200 GET /auth/users/15 | 76.9ms
+2026-04-01 14:30:20 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:30:26 | INFO | app.main:54 | Server starting...
+2026-04-01 14:30:26 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:30:26 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:30:26 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:31:33 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:31:33 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:31:40 | INFO | app.main:54 | Server starting...
+2026-04-01 14:31:40 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:31:40 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:31:40 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:31:51 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:31:51 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:31:57 | INFO | app.main:54 | Server starting...
+2026-04-01 14:31:57 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:31:57 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:31:57 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:32:06 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:32:06 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:32:32 | INFO | app.main:54 | Server starting...
+2026-04-01 14:32:32 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:32:32 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:32:32 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:32:43 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:33:06 | INFO | app.main:54 | Server starting...
+2026-04-01 14:33:06 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:33:06 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:33:06 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:33:15 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:33:21 | INFO | app.main:54 | Server starting...
+2026-04-01 14:33:21 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:33:21 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:33:21 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:33:43 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:33:43 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:33:49 | INFO | app.main:54 | Server starting...
+2026-04-01 14:33:49 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:33:49 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:33:49 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:33:59 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:33:59 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:34:04 | INFO | app.main:54 | Server starting...
+2026-04-01 14:34:04 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:34:04 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:34:04 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:34:37 | INFO | app.middleware.logging_middleware:57 | [34c23874] → GET /audit-logs/ | ip:172.18.0.1
+2026-04-01 14:34:38 | INFO | app.middleware.logging_middleware:70 | [34c23874] ← 200 GET /audit-logs/ | 545.57ms
+2026-04-01 14:35:43 | INFO | app.main:54 | Server starting...
+2026-04-01 14:35:43 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:35:43 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:35:43 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:35:51 | INFO | app.middleware.logging_middleware:57 | [243adec5] → GET /auth/users/15 | ip:172.18.0.1
+2026-04-01 14:35:51 | INFO | app.middleware.logging_middleware:70 | [243adec5] ← 200 GET /auth/users/15 | 502.84ms
+2026-04-01 14:36:06 | INFO | app.middleware.logging_middleware:57 | [ec2554a0] → POST /auth/refresh | ip:172.18.0.1
+2026-04-01 14:36:06 | WARNING | app.middleware.logging_middleware:70 | [ec2554a0] ← 401 POST /auth/refresh | 19.52ms
+2026-04-01 14:37:17 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:37:17 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:37:22 | INFO | app.main:54 | Server starting...
+2026-04-01 14:37:22 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:37:22 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:37:22 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:37:30 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:37:30 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:37:36 | INFO | app.main:54 | Server starting...
+2026-04-01 14:37:37 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:37:37 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:37:37 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:37:46 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:37:52 | INFO | app.main:54 | Server starting...
+2026-04-01 14:37:52 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:37:52 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:37:52 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:38:42 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:38:42 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:38:46 | INFO | app.main:54 | Server starting...
+2026-04-01 14:38:46 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:38:46 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:38:46 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:39:47 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:39:53 | INFO | app.main:54 | Server starting...
+2026-04-01 14:39:53 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:39:53 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:39:53 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:40:44 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:40:44 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:40:50 | INFO | app.main:54 | Server starting...
+2026-04-01 14:40:50 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:40:50 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:40:50 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:41:28 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:41:34 | INFO | app.main:54 | Server starting...
+2026-04-01 14:41:34 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:41:34 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:41:34 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:41:40 | INFO | app.middleware.logging_middleware:57 | [c5859e93] → POST /auth/login | ip:172.18.0.1
+2026-04-01 14:41:41 | INFO | app.middleware.logging_middleware:70 | [c5859e93] ← 200 POST /auth/login | 851.39ms
+2026-04-01 14:41:47 | INFO | app.middleware.logging_middleware:57 | [a7e7dbc1] → POST /auth/login | ip:172.18.0.1
+2026-04-01 14:41:47 | INFO | app.middleware.logging_middleware:70 | [a7e7dbc1] ← 200 POST /auth/login | 424.97ms
+2026-04-01 14:42:11 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:42:11 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:42:17 | INFO | app.main:54 | Server starting...
+2026-04-01 14:42:17 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:42:17 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:42:17 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:42:17 | INFO | app.middleware.logging_middleware:57 | [9aefc430] → POST /auth/login | ip:172.18.0.1
+2026-04-01 14:42:18 | INFO | app.middleware.logging_middleware:70 | [9aefc430] ← 200 POST /auth/login | 840.59ms
+2026-04-01 14:42:24 | INFO | app.middleware.logging_middleware:57 | [378eb197] → POST /auth/login | ip:172.18.0.1
+2026-04-01 14:42:24 | INFO | app.middleware.logging_middleware:70 | [378eb197] ← 200 POST /auth/login | 346.39ms
+2026-04-01 14:43:23 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:43:30 | INFO | app.main:54 | Server starting...
+2026-04-01 14:43:30 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:43:30 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:43:30 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:43:39 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:43:39 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:44:00 | INFO | app.main:54 | Server starting...
+2026-04-01 14:44:00 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:44:00 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:44:00 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:44:01 | INFO | app.middleware.logging_middleware:57 | [d83dfa03] → POST /auth/login | ip:172.18.0.1
+2026-04-01 14:44:01 | INFO | app.middleware.logging_middleware:70 | [d83dfa03] ← 200 POST /auth/login | 762.62ms
+2026-04-01 14:44:22 | INFO | app.middleware.logging_middleware:57 | [7feef551] → POST /auth/refresh | ip:172.18.0.1
+2026-04-01 14:44:22 | WARNING | app.middleware.logging_middleware:70 | [7feef551] ← 401 POST /auth/refresh | 59.95ms
+2026-04-01 14:44:40 | INFO | app.middleware.logging_middleware:57 | [4065bb71] → POST /auth/refresh | ip:172.18.0.1
+2026-04-01 14:44:40 | WARNING | app.middleware.logging_middleware:70 | [4065bb71] ← 401 POST /auth/refresh | 7.42ms
+2026-04-01 14:45:00 | INFO | app.middleware.logging_middleware:57 | [979ef0a1] → POST /auth/refresh | ip:172.18.0.1
+2026-04-01 14:45:00 | WARNING | app.middleware.logging_middleware:70 | [979ef0a1] ← 401 POST /auth/refresh | 7.33ms
+2026-04-01 14:45:29 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:45:29 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:45:39 | INFO | app.main:54 | Server starting...
+2026-04-01 14:45:39 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:45:39 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:45:39 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:51:27 | INFO | app.middleware.logging_middleware:57 | [2a6f68cd] → POST /auth/refresh | ip:172.18.0.1
+2026-04-01 14:51:27 | WARNING | app.middleware.logging_middleware:70 | [2a6f68cd] ← 422 POST /auth/refresh | 260.52ms
+2026-04-01 14:53:43 | INFO | app.middleware.logging_middleware:57 | [988bd408] → POST /auth/login | ip:172.18.0.1
+2026-04-01 14:53:45 | INFO | app.middleware.logging_middleware:70 | [988bd408] ← 200 POST /auth/login | 1756.3ms
+2026-04-01 14:53:52 | INFO | app.middleware.logging_middleware:57 | [e3d552c1] → POST /auth/login | ip:172.18.0.1
+2026-04-01 14:53:52 | INFO | app.middleware.logging_middleware:70 | [e3d552c1] ← 200 POST /auth/login | 332.89ms
+2026-04-01 14:55:44 | INFO | app.middleware.logging_middleware:57 | [1f16f35d] → POST /auth/login | ip:172.18.0.1
+2026-04-01 14:55:45 | INFO | app.middleware.logging_middleware:70 | [1f16f35d] ← 200 POST /auth/login | 382.56ms
+2026-04-01 14:56:15 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:56:15 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:56:24 | INFO | app.main:54 | Server starting...
+2026-04-01 14:56:24 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:56:24 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:56:24 | INFO | app.main:80 | WebSocket listeners started
+2026-04-01 14:56:24 | INFO | app.middleware.logging_middleware:57 | [c0534695] → POST /auth/login | ip:172.18.0.1
+2026-04-01 14:56:25 | INFO | app.middleware.logging_middleware:70 | [c0534695] ← 200 POST /auth/login | 933.87ms
+2026-04-01 14:56:32 | INFO | app.main:85 | Server shutting down...
+2026-04-01 14:56:32 | INFO | app.main:96 | Redis disconnected
+2026-04-01 14:56:38 | INFO | app.main:54 | Server starting...
+2026-04-01 14:56:38 | INFO | app.main:69 | Redis connected successfully
+2026-04-01 14:56:38 | INFO | app.main:75 | Cloudinary initialized
+2026-04-01 14:56:38 | INFO | app.main:80 | WebSocket listeners started

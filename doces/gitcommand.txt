@@ -1,0 +1,19 @@
+git init |=>
+git config --global --add safe.directory E:/FlutterProject/last_year_app/backend_app |=> Just run exactly what Git told you
+
+
+{
+git config --global
+Sets a configuration for all Git projects of your user on this computer.
+Changes are saved in your global Git config file (~/.gitconfig).
+--add safe.directory <path>
+Adds the specified folder to Git’s list of “safe” directories.
+Git will now trust this folder and allow operations like git status, git commit, git push, etc.
+The path
+E:/FlutterProject/last_year_app/backend_app → the folder Git thought was “dubious” because of ownership/SID mismatch.
+}
+
+
+git config user.name "sengvondhbchgbfd"        |=>
+git config user.email "youremail@example.com"  |=>
+rm -rf .git |=> 
