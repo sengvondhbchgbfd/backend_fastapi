@@ -6,6 +6,7 @@ from app.schemas.schema import (
     SystemSettingUpdate,
     SystemSettingResponse,
     BulkUpdateRequest,
+    BulkCreateRequest,       
 )
 from app.services.system_setting_service import SystemSettingService
 from app.dependencies import get_db
@@ -17,31 +18,100 @@ system_setting_router = APIRouter(
 )
 
 
-def get_service(
-    db: AsyncSession = Depends(get_db),
-) -> SystemSettingService:
+def get_service(db: AsyncSession = Depends(get_db)) -> SystemSettingService:
     return SystemSettingService(db)
 
 
 # ===========================================================================
-# All endpoints require admin or superuser
-# company_id always comes from JWT — staff only see their own company settings
+# GET ALL
 # ===========================================================================
 
 @system_setting_router.get(
     "/",
     response_model=list[SystemSettingResponse],
-    summary="[Admin] Get all settings for current company",
+    summary="[Admin] Get all settings",
 )
 async def get_all_settings(
     current_user: dict = Depends(require_admin),
     service:      SystemSettingService = Depends(get_service),
 ):
-    """Returns all settings for the logged-in user's company."""
-    return await service.get_all(
-        company_id=current_user["company_id"]
+    return await service.get_all(company_id=current_user["company_id"])
+
+
+# ===========================================================================
+# ✅ STATIC ROUTES FIRST — before any {param} routes
+# ===========================================================================
+
+@system_setting_router.get(
+    "/key/{key}",
+    response_model=SystemSettingResponse,
+    summary="[Admin] Get setting by key",
+)
+async def get_setting_by_key(
+    key:          str,
+    current_user: dict = Depends(require_admin),
+    service:      SystemSettingService = Depends(get_service),
+):
+    return await service.get_by_key(key=key, company_id=current_user["company_id"])
+
+
+@system_setting_router.patch(
+    "/key/{key}",
+    response_model=SystemSettingResponse,
+    summary="[Admin] Upsert setting by key",
+)
+async def upsert_setting(
+    key:          str,
+    data:         SystemSettingUpdate,
+    current_user: dict = Depends(require_admin),
+    service:      SystemSettingService = Depends(get_service),
+):
+    return await service.upsert_by_key(
+        key        = key,
+        value      = data.value,
+        company_id = current_user["company_id"],
     )
 
+
+
+
+@system_setting_router.post(
+    "/bulk",                              
+    response_model=list[SystemSettingResponse],
+    status_code=status.HTTP_201_CREATED,
+    summary="[Admin] Bulk create settings",
+)
+async def bulk_create_settings(
+    data:         BulkCreateRequest,
+    current_user: dict = Depends(require_admin),
+    service:      SystemSettingService = Depends(get_service),
+):
+    return await service.bulk_create(
+        data       = data.settings,
+        company_id = current_user["company_id"],
+    )
+
+
+
+
+@system_setting_router.patch(
+    "/bulk",                               
+    summary="[Admin] Bulk update settings",
+)
+async def bulk_update_settings(
+    data:         BulkUpdateRequest,
+    current_user: dict = Depends(require_admin),
+    service:      SystemSettingService = Depends(get_service),
+):
+    return await service.bulk_update(
+        data       = data,
+        company_id = current_user["company_id"],
+    )
+
+
+# ===========================================================================
+# ✅ DYNAMIC {setting_id} ROUTES LAST
+# ===========================================================================
 
 @system_setting_router.get(
     "/{setting_id}",
@@ -59,28 +129,11 @@ async def get_setting(
     )
 
 
-@system_setting_router.get(
-    "/key/{key}",
-    response_model=SystemSettingResponse,
-    summary="[Admin] Get setting by key",
-)
-async def get_setting_by_key(
-    key:          str,
-    current_user: dict = Depends(require_admin),
-    service:      SystemSettingService = Depends(get_service),
-):
-    """Useful for fetching a specific setting like 'office_open_time'."""
-    return await service.get_by_key(
-        key        = key,
-        company_id = current_user["company_id"],
-    )
-
-
 @system_setting_router.post(
     "/",
     response_model=SystemSettingResponse,
     status_code=status.HTTP_201_CREATED,
-    summary="[Admin] Create new setting",
+    summary="[Admin] Create single setting",
 )
 async def create_setting(
     data:         SystemSettingCreate,
@@ -106,58 +159,6 @@ async def update_setting(
 ):
     return await service.update(
         setting_id = setting_id,
-        data       = data,
-        company_id = current_user["company_id"],
-    )
-
-
-@system_setting_router.patch(
-    "/key/{key}",
-    response_model=SystemSettingResponse,
-    summary="[Admin] Upsert setting by key (create or update)",
-)
-async def upsert_setting(
-    key:          str,
-    data:         SystemSettingUpdate,
-    current_user: dict = Depends(require_admin),
-    service:      SystemSettingService = Depends(get_service),
-):
-    """
-    Update by key if exists, create if not.
-    Useful when you don't know the setting_id.
-    """
-    return await service.upsert_by_key(
-        key        = key,
-        value      = data.value,
-        company_id = current_user["company_id"],
-    )
-
-
-@system_setting_router.patch(
-    "/bulk",
-    summary="[Admin] Bulk update multiple settings at once",
-)
-async def bulk_update_settings(
-    data:         BulkUpdateRequest,
-    current_user: dict = Depends(require_admin),
-    service:      SystemSettingService = Depends(get_service),
-):
-    """
-    Update multiple settings in one request.
-    Creates setting if key does not exist.
-
-    Example body:
-    {
-      "settings": [
-        { "key": "office_open_time",  "value": "08:00" },
-        { "key": "office_close_time", "value": "17:00" },
-        { "key": "office_latitude",   "value": "11.5564" },
-        { "key": "office_longitude",  "value": "104.9282" },
-        { "key": "office_radius_meters", "value": "100" }
-      ]
-    }
-    """
-    return await service.bulk_update(
         data       = data,
         company_id = current_user["company_id"],
     )

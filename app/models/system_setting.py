@@ -17,10 +17,13 @@ class SystemSetting(Base):
     key:         Mapped[str]           = mapped_column(String(100), nullable=False)
     value:       Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    # ✅ FIX 1: added DateTime type
-    
-    updated_at:  Mapped[datetime]      = mapped_column(DateTime, server_default=func.now(), onupdate=func.now(), nullable=False)
 
-    # ✅ FIX 2: removed duplicate "= Mapped[...] =" syntax error
-    # ✅ FIX 3: "Comapy" typo → "Company"
+    created_at:  Mapped[datetime]      = mapped_column(DateTime, server_default=func.now(), nullable=False)
+    updated_at:  Mapped[datetime]      = mapped_column(
+                                            DateTime,
+                                            server_default = func.now(),
+                                            onupdate       = func.now(),  # ✅ ORM update()
+                                            nullable       = False,
+                                        )
+
     company: Mapped["Company"] = relationship("Company", back_populates="system_settings")

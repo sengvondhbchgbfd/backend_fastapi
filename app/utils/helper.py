@@ -76,16 +76,18 @@ def is_mobile(request: Request) -> bool:
     agent = request.headers.get("user-agent", "").lower()
     return any(k in agent for k in ["dart", "okhttp", "swift", "android", "ios"])
 
+
+
+
 def set_refresh_cookie(response: Response, token: str):
     response.set_cookie(
         key="refresh_token",
         value=token,
         httponly=True,
-        secure=True,
+        secure=settings.ENVIRONMENT == "production",  # ← False on localhost
         samesite="lax",
         max_age=60 * 60 * 24 * 30,
         path="/auth/refresh",
     )
-
 
 

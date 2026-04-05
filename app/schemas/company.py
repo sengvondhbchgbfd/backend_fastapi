@@ -100,6 +100,23 @@ class UpdateStatusRequest(BaseModel):
     status: CompanyStatusEnum
     reason: Optional[str] = None
 
+class SystemSettingResponse(BaseModel):
+    key: str
+    value: Optional[str]
+    description: Optional[str]
+    updated_at: datetime
+
+
+class CompanyStatusHistoryResponse(BaseModel):
+        old_status: CompanyStatusEnum
+        new_status: CompanyStatusEnum
+        reason: str | None
+        changed_by: int
+        changed_at: datetime
+
+        class Config:
+            orm_mode = True
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Settings

@@ -94,8 +94,6 @@ class StaffRolesRepository:
         await self.db.delete(staff_role)
         await self.db.commit()
         return True
-
-
 # ===========================================================================
 # STAFF REPOSITORY
 # ===========================================================================
@@ -118,46 +116,23 @@ class StaffRepository:
             .order_by(Staff.name)
         )
         return result.scalars().all()
-
     # -----------------------------------------------------------------------
     # GET one staff by id (full detail)
     # -----------------------------------------------------------------------
 
-    # async def get_by_id(
-    #     self, staff_id: int, company_id: int
-    # ) -> Staff | None:
-    #     result = await self.db.execute(
-    #         select(Staff)
-    #         .options(
-    #             selectinload(Staff.user),
-    #             selectinload(Staff.staff_role),
-    #             selectinload(Staff.salaries),
-    #             selectinload(Staff.leave_requests),
-    #             selectinload(Staff.attendance_records),
-    #             selectinload(Staff.invoices),
-    #         )
-    #         .where(
-    #             Staff.staff_id   == staff_id,
-    #             Staff.company_id == company_id,   
-    #         )
-    #     )
-    #     return result.scalar_one_or_none()
 
 
-
-    async def get_by_id(
-            self, 
-            user_id: int,
-            company_id: int
-    ) -> Staff | None:
+    async def get_by_id(self, staff_id: int, company_id: int) -> Staff | None:
         result = await self.db.execute(
             select(Staff)
+            .options(selectinload(Staff.staff_role))
             .where(
-                Staff.user_id   == user_id,
+                Staff.staff_id   == staff_id,    
                 Staff.company_id == company_id,
             )
         )
         return result.scalar_one_or_none()
+    
 
 
 
@@ -265,19 +240,49 @@ class StaffRepository:
     # UPDATE staff
     # -----------------------------------------------------------------------
 
+
     async def update(
-        self, staff_id: int, data: dict, company_id: int
-    ) -> Staff | None:
-        await self.db.execute(
-            update(Staff.avatar_url and Staff.avatar_public_id)
-            .where(
-                Staff.staff_id   == staff_id,
-                Staff.company_id == company_id,   # ✅ scope to company
+            self, staff_id: int, data: dict, company_id: int
+            ) -> Staff | None:
+                await self.db.execute(
+                    update(Staff)                       
+                    .where(
+                        Staff.staff_id   == staff_id,
+                        Staff.company_id == company_id,
+                    )
+                    .values(**data)                      
+                )
+                await self.db.commit()
+                return await self.get_by_id(staff_id, company_id)
+    
+    # -----------------------------------------------------------------------
+    # Only avartar
+    # -----------------------------------------------------------------------
+
+    
+    async def update_avatar(
+            self,
+            staff_id:         int,
+            company_id:       int,
+            avatar_url:       str,
+            avatar_public_id: str,
+        ) -> Staff | None:
+            await self.db.execute(
+                update(Staff)
+                .where(
+                    Staff.staff_id   == staff_id,
+                    Staff.company_id == company_id,
+                )
+                .values(
+                    avatar_url       = avatar_url,       
+                    avatar_public_id = avatar_public_id,
+                )
             )
-            .values(**data)
-        )
-        await self.db.commit()
-        return await self.get_by_id(staff_id, company_id)
+            await self.db.commit()
+            return await self.get_by_id(staff_id, company_id)
+        
+
+
 
     # -----------------------------------------------------------------------
     # DELETE staff

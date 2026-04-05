@@ -3,17 +3,22 @@ from sqlalchemy import select, func
 from datetime import datetime
 
 from app.models.company import Company
+from app.models.CompanyStatusHistory import CompanyStatusHistory
 from app.models.staffs.staff import Staff
 from app.models.departments.department import Department
 from app.models.users.user import User, UserStatus
 from app.models.roles.role import Role
+from app.models.system_setting import SystemSetting
+from typing import Optional
+
 class CompanyRepository:
+
 
     def __init__(self, db: AsyncSession):
         self.db = db
 
     # -----------------------------------------------------------------------
-    # Read
+    # Read  for developer get all
     # -----------------------------------------------------------------------
 
     async def get_all(self) -> list[Company]:
@@ -21,12 +26,37 @@ class CompanyRepository:
             select(Company).order_by(Company.created_at.desc())
         )
         return result.scalars().all()
+    
+
+
 
     async def get_by_id(self, company_id: int) -> Company | None:
         result = await self.db.execute(
             select(Company).where(Company.company_id == company_id)
         )
         return result.scalar_one_or_none()
+    
+
+
+
+    
+    # =================================================
+
+    
+    async def get_settings_by_company(self, company_id: int) -> list[SystemSetting]:
+        result = await self.db.execute(
+            select(SystemSetting).where(SystemSetting.company_id == company_id)
+        )
+        return result.scalars().all()
+    
+
+    #==============================================
+    
+
+
+    
+
+    
 
     async def get_by_code(self, company_code: str) -> Company | None:
         result = await self.db.execute(
@@ -35,6 +65,9 @@ class CompanyRepository:
             )
         )
         return result.scalar_one_or_none()
+    
+
+
 
     # -----------------------------------------------------------------------
     # Create
@@ -62,6 +95,25 @@ class CompanyRepository:
         return company
     
 
+    async def log_status_history(
+        self,
+        company_id: int,
+        old_status: str,
+        new_status: str,
+        reason: Optional[str],
+        changed_by: int
+    ):
+        query = CompanyStatusHistory.__table__.insert().values(
+            company_id=company_id,
+            old_status=old_status,
+            new_status=new_status,
+            reason=reason,
+            changed_by=changed_by
+        ).returning(CompanyStatusHistory) 
+
+        result = await self.db.execute(query)
+        await self.db.commit()
+        return result.fetchone()
 
 
     # -----------------------------------------------------------------------

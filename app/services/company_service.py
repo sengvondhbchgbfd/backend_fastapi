@@ -36,6 +36,8 @@ class CompanyService:
                 detail=f"Company id={company_id} not found.",
             )
         return company
+    
+    
 
     # -----------------------------------------------------------------------
     # CREATE company
@@ -144,9 +146,36 @@ class CompanyService:
     # UPDATE status (superuser only)
     # -----------------------------------------------------------------------
 
-    async def update_status(self, company_id: int, data: UpdateStatusRequest):
+    async def update_status(self, company_id: int, data: UpdateStatusRequest, changed_by: int):
         company = await self.get_by_id(company_id)
-        return await self.repo.update(company, {"status": data.status})
+        if not company:
+            raise HTTPException(status_code=404, detail="Company not found")
+        
+        old_status = company.status
+        #  update status
+        company = await self.repo.update(company, {"status": data.status})
+
+        #  Log the reason in history
+
+        history = await self.repo.log_status_history(
+                    company_id=company.company_id,
+                    old_status=old_status,
+                    new_status=data.status,
+                    reason=data.reason,
+                    changed_by=changed_by
+                )
+
+        
+
+        return history
+    
+
+
+    
+    
+
+
+    
 
     # -----------------------------------------------------------------------
     # GET settings
@@ -154,6 +183,9 @@ class CompanyService:
 
     async def get_settings(self, company_id: int):
         return await self.get_by_id(company_id)
+    
+
+    
 
     # -----------------------------------------------------------------------
     # GET stats

@@ -15,11 +15,10 @@ from app.repositories.user_respo import (
     DepartmentRepository,
 )
 from app.repositories.auditlog_repository import AuditLogRepository
-from app.repositories.notifications_repository import NotificationRepository
 from app.services.notifications_service import NotificationService
 from app.core.security import hash_password
 from app.dependencies import get_db
-from .cache_service import CacheService, get_cache_service
+from .cache_service import CacheService
 from app.db.redis import get_redis_client
 
 
@@ -27,18 +26,18 @@ class UserService:
 
     def __init__(
         self,
-        db:         AsyncSession,          # ✅ needed for NotificationService
-        user_repo:  UserRepository,
-        audit_repo: AuditLogRepository,
-        role_repo:  RoleRepository,
-        dept_repo:  DepartmentRepository,
-        redis_client: redis.Redis,         # ✅ for real-time push
+        db:           AsyncSession,
+        user_repo:    UserRepository,
+        audit_repo:   AuditLogRepository,
+        role_repo:    RoleRepository,
+        dept_repo:    DepartmentRepository,
+        redis_client: redis.Redis,
     ):
         self.user_repo  = user_repo
         self.audit_repo = audit_repo
         self.role_repo  = role_repo
         self.dept_repo  = dept_repo
-        self.notif      = NotificationService(  # ✅
+        self.notif      = NotificationService(
             db           = db,
             redis_client = redis_client,
         )
@@ -100,7 +99,7 @@ class UserService:
             raise HTTPException(status_code=404, detail="Department not found.")
 
     # ==========================================================================
-    # USER CREATE — notify new user
+    # USER CREATE
     # ==========================================================================
 
     async def create_user(
@@ -111,7 +110,7 @@ class UserService:
         client_ip:               str,
     ) -> RegisterResponse:
 
-        # Check username unique
+        # ✅ Check username unique globally
         existing = await self.user_repo.get_by_username(data.username)
         if existing:
             raise HTTPException(
@@ -119,7 +118,7 @@ class UserService:
                 detail="Username already exists.",
             )
 
-        # Verify role belongs to same company
+        # ✅ Verify role belongs to same company
         role = await self.role_repo.get_by_id(data.role_id, company_id)
         if not role:
             raise HTTPException(
@@ -127,7 +126,7 @@ class UserService:
                 detail=f"Role id={data.role_id} not found.",
             )
 
-        # Verify department belongs to same company (if provided)
+        # ✅ Verify department belongs to same company (if provided)
         if data.department_id:
             dept = await self.dept_repo.get_by_id(data.department_id, company_id)
             if not dept:
@@ -136,7 +135,7 @@ class UserService:
                     detail=f"Department id={data.department_id} not found.",
                 )
 
-        # Create user
+        # ✅ Create user — status defaults to active
         user = await self.user_repo.create(
             company_id    = company_id,
             username      = data.username,
@@ -147,7 +146,7 @@ class UserService:
             status        = UserStatus.active,
         )
 
-        # Audit log
+        # ✅ Audit log
         await self.audit_repo.log(
             user_id    = current_user_actions_id,
             company_id = company_id,
@@ -165,8 +164,7 @@ class UserService:
             ip_address = client_ip,
         )
 
-        # ✅ notify new user — welcome message
-       
+        # ✅ Notify new user — welcome message
         await self.notif.send(
             company_id     = company_id,
             user_id        = user.user_id,
@@ -181,8 +179,7 @@ class UserService:
             reference_type = "user",
         )
 
-
-        # Reload with relationships
+        # ✅ Reload with relationships
         user = await self.user_repo.get_by_id(user.user_id, company_id)
 
         return RegisterResponse(
@@ -195,20 +192,18 @@ class UserService:
             created_at    = user.created_at,
         )
 
+    # ==========================================================================
+    # GET ALL
+    # ==========================================================================
 
-
-
-    # =====================================================================
-    # get all useran
-    # ====================================================================
-
-    async def get_all_users(self, company_id: int, skip: int, limit: int):
+    async def get_all_users(
+        self, company_id: int, skip: int, limit: int
+    ) -> list[User]:
         return await self.user_repo.get_all(company_id, skip, limit)
-
 
     async def count(self, company_id: int) -> int:
         return await self.user_repo.count(company_id)
-    
+
     # ==========================================================================
     # GET BY ID
     # ==========================================================================
@@ -216,25 +211,27 @@ class UserService:
     async def get_user_by_id(self, user_id: int, company_id: int) -> User:
         user = await self.user_repo.get_by_id(user_id, company_id)
         if not user:
-            raise HTTPException(status_code=404, detail="User not found.")
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="User not found or inactive.",  # ✅ clearer message
+            )
         return user
-    
-
-    
 
     # ==========================================================================
-    # UPDATE — notify user their account was updated
+    # UPDATE
     # ==========================================================================
 
     async def update_user(
         self, user_id: int, data: UserUpdate, company_id: int
     ) -> User:
-        user    = await self.get_user_by_id(user_id, company_id)
+        user = await self.get_user_by_id(user_id, company_id)  # ✅ raises 404 if not found
+
+        # ✅ Guard: prevent activating/deactivating via update if status not in data
         updated = await self.user_repo.update(
             user, data.model_dump(exclude_none=True)
         )
 
-        # ✅ notify user — account updated
+        # ✅ Notify user — account updated
         await self.notif.send(
             company_id     = company_id,
             user_id        = user_id,
@@ -246,15 +243,34 @@ class UserService:
         )
 
         return updated
+    
+    
 
     # ==========================================================================
-    # DELETE
+    # DEACTIVATE  ✅ soft-disable instead of hard delete
+    # ==========================================================================
+
+    async def deactivate_user(
+        self, user_id: int, company_id: int
+    ) -> None:
+        """
+        Sets status = inactive instead of deleting the row.
+        Use this instead of delete_user() for safe soft-disable.
+        """
+        user = await self.get_user_by_id(user_id, company_id)
+        await self.user_repo.update(user, {"status": UserStatus.inactive})
+
+    # ==========================================================================
+    # DELETE  (hard delete — use deactivate_user for soft disable)
     # ==========================================================================
 
     async def delete_user(self, user_id: int, company_id: int) -> None:
         deleted = await self.user_repo.delete(user_id, company_id)
         if not deleted:
-            raise HTTPException(status_code=404, detail="User not found.")
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="User not found.",
+            )
 
 
 # ===========================================================================
@@ -263,13 +279,13 @@ class UserService:
 
 async def get_user_service(
     db:           AsyncSession = Depends(get_db),
-    redis_client: CacheService  = Depends(get_redis_client),  # ✅ inject redis
+    redis_client: CacheService  = Depends(get_redis_client),
 ) -> UserService:
     return UserService(
-        db           = db,                          # ✅ pass db
+        db           = db,
         user_repo    = UserRepository(db),
         audit_repo   = AuditLogRepository(db),
         role_repo    = RoleRepository(db),
         dept_repo    = DepartmentRepository(db),
-        redis_client = redis_client,                # ✅ pass redis
+        redis_client = redis_client,
     )

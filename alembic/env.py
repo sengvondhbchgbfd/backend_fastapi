@@ -25,6 +25,8 @@ from app.models.notification import Notification
 from app.models.supplier import Supplier
 from app.models.system_setting import SystemSetting
 from app.models.company import Company
+from app.models.refresh_token import RefreshToken
+from app.models.CompanyStatusHistory import CompanyStatusHistory
 
 
 

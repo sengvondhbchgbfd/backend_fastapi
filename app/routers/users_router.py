@@ -1,7 +1,4 @@
 from fastapi import APIRouter, Depends, status, Request, Query
-from sqlalchemy.ext.asyncio import AsyncSession
-import redis.asyncio as redis
-from app.dependencies import get_db, get_redis_client
 from app.schemas.schema import (
     UserUpdate, UserResponse,
     RoleCreate, RoleResponse,
@@ -12,18 +9,17 @@ from app.schemas.schema import (
 )
 from app.services.user_service import UserService, get_user_service
 from app.utils.auth import require_admin
-from app.services.cache_service import CacheService, get_cache_service 
+from app.services.cache_service import CacheService, get_cache_service
 
 # ---------------------------------------------------------------------------
-router            = APIRouter(prefix="/users",      tags=["Users"])
-role_router       = APIRouter(prefix="/roles",      tags=["Roles"])
+router            = APIRouter(prefix="/users",       tags=["Users"])
+role_router       = APIRouter(prefix="/roles",       tags=["Roles"])
 department_router = APIRouter(prefix="/departments", tags=["Departments"])
+
 
 # ===========================================================================
 # ROLES
 # ===========================================================================
-
-
 
 @role_router.post(
     "/",
@@ -35,14 +31,11 @@ async def create_role(
     data:         RoleCreate,
     current_user: dict        = Depends(require_admin),
     service:      UserService = Depends(get_user_service),
-    cache: CacheService = Depends(get_cache_service),
+    cache:        CacheService = Depends(get_cache_service),
 ):
-    # ✅ use service not raw user_service module
-    # ✅ pass company_id from JWT
-    role  = await service.create_role(data, company_id=current_user["company_id"])
+    role = await service.create_role(data, company_id=current_user["company_id"])
     await cache.delete(f"roles:{current_user['company_id']}")
     return role
-
 
 
 @role_router.get(
@@ -53,21 +46,18 @@ async def create_role(
 async def get_roles(
     current_user: dict        = Depends(require_admin),
     service:      UserService = Depends(get_user_service),
-    cache: CacheService = Depends(get_cache_service),
+    cache:        CacheService = Depends(get_cache_service),
 ):
-    cache_key = f"roles:{current_user['company_id']}"   # ✅ per-company cache key
+    cache_key = f"roles:{current_user['company_id']}"
 
     cached = await cache.get(cache_key)
     if cached:
         return cached
 
-    # ✅ pass company_id
     roles      = await service.get_all_roles(company_id=current_user["company_id"])
     roles_data = [RoleResponse.model_validate(r).model_dump() for r in roles]
     await cache.set(cache_key, roles_data, ttl=300)
     return roles_data
-
-
 
 
 @role_router.delete(
@@ -79,14 +69,10 @@ async def delete_role(
     role_id:      int,
     current_user: dict        = Depends(require_admin),
     service:      UserService = Depends(get_user_service),
-    cache: UserService = Depends(get_cache_service),
+    cache:        CacheService = Depends(get_cache_service),  # ✅ fix: was UserService
 ):
-    # ✅ use service, pass company_id
     await service.delete_role(role_id, company_id=current_user["company_id"])
     await cache.delete(f"roles:{current_user['company_id']}")
-
-
-
 
 
 # ===========================================================================
@@ -103,17 +89,11 @@ async def create_department(
     data:         DepartmentCreate,
     current_user: dict        = Depends(require_admin),
     service:      UserService = Depends(get_user_service),
-    cache: CacheService = Depends(get_cache_service),
+    cache:        CacheService = Depends(get_cache_service),
 ):
-    # ✅ use service, pass company_id
-    dept  = await service.create_department(data, company_id=current_user["company_id"])
+    dept = await service.create_department(data, company_id=current_user["company_id"])
     await cache.delete(f"departments:{current_user['company_id']}")
     return dept
-
-
-
-
-
 
 
 @department_router.get(
@@ -124,7 +104,7 @@ async def create_department(
 async def get_departments(
     current_user: dict        = Depends(require_admin),
     service:      UserService = Depends(get_user_service),
-    cache: CacheService = Depends(get_cache_service),
+    cache:        CacheService = Depends(get_cache_service),
 ):
     cache_key = f"departments:{current_user['company_id']}"
 
@@ -138,9 +118,6 @@ async def get_departments(
     return depts_data
 
 
-
-
-
 @department_router.delete(
     "/{department_id}",
     status_code=status.HTTP_204_NO_CONTENT,
@@ -150,7 +127,7 @@ async def delete_department(
     department_id: int,
     current_user:  dict        = Depends(require_admin),
     service:       UserService = Depends(get_user_service),
-    cache:  CacheService = Depends(get_cache_service),
+    cache:         CacheService = Depends(get_cache_service),
 ):
     await service.delete_department(
         department_id, company_id=current_user["company_id"]
@@ -173,70 +150,49 @@ async def create_user(
     request:      Request,
     current_user: dict        = Depends(require_admin),
     service:      UserService = Depends(get_user_service),
-    cache: CacheService = Depends(get_cache_service),
+    cache:        CacheService = Depends(get_cache_service),
 ):
     user = await service.create_user(
         data                    = data,
-        company_id              = current_user["company_id"],  
+        company_id              = current_user["company_id"],
         current_user_actions_id = int(current_user["sub"]),
         client_ip               = request.client.host,
     )
-    # cache = CacheService(redis_client)
-    # await cache.delete(f"users:{current_user['company_id']}")
     await cache.delete_pattern(f"users:{current_user['company_id']}:*")
     return user
-
-
-
 
 
 @router.get(
     "/",
     response_model=PaginatedResponse,
     summary="[Admin] List all users",
-    responses={403: {"model": ErrorResponse}}
+    responses={403: {"model": ErrorResponse}},
 )
 async def get_users(
     skip:         int         = Query(0, ge=0),
     limit:        int         = Query(10, ge=1, le=20),
     current_user: dict        = Depends(require_admin),
     service:      UserService = Depends(get_user_service),
-    cache: CacheService = Depends(get_cache_service),
+    cache:        CacheService = Depends(get_cache_service),
 ):
-    # cache_key = f"users:{current_user['company_id']}" 
-    # await cache.delete_pattern(f"users:{company_id}:*")
     cache_key = f"users:{current_user['company_id']}:{skip}:{limit}"
+
     cached = await cache.get(cache_key)
     if cached:
         return cached
-    # -----------------------------------------------
+
     company_id = current_user["company_id"]
-    users = await service.get_all_users(
-        company_id=company_id,
-        skip=skip,
-        limit=limit,
-    )
+    users  = await service.get_all_users(company_id=company_id, skip=skip, limit=limit)
     total  = await service.count(company_id)
-    # -----------------------------
-    # Serialize
-    # -----------------------------
+
     response = PaginatedResponse(
-        total=total,
-        skip=skip,
-        limit=limit,
-        items=[UserResponse.model_validate(u) for u in users],
+        total = total,
+        skip  = skip,
+        limit = limit,
+        items = [UserResponse.model_validate(u) for u in users],
     )
-    # cache_data = [UserResponse.model_validate(u).model_dump(mode="json") for u in users]
     await cache.set(cache_key, response.model_dump(mode="json"), ttl=300)
-    # return [UserResponse.model_validate(u) for u in users]
     return response
-
-
-
-
-# ------------------------------------------------------------
-# 
-# -----------------------------------------------------------
 
 
 @router.get(
@@ -248,22 +204,18 @@ async def get_user(
     user_id:      int,
     current_user: dict        = Depends(require_admin),
     service:      UserService = Depends(get_user_service),
-    cache: CacheService = Depends(get_cache_service),
+    cache:        CacheService = Depends(get_cache_service),
 ):
     cache_key = f"user:{current_user['company_id']}:{user_id}"
+
     cached = await cache.get(cache_key)
     if cached:
         return cached
 
-    # ✅ use service, pass company_id
     user          = await service.get_user_by_id(user_id, company_id=current_user["company_id"])
     user_response = UserResponse.model_validate(user)
-    await cache.set(cache_key, user_response.model_dump(), ttl=300)
+    await cache.set(cache_key, user_response.model_dump(mode="json"), ttl=300)  # ✅ fix: mode="json" for datetime
     return user_response
-
-
-
-
 
 
 
@@ -278,17 +230,14 @@ async def update_user(
     data:         UserUpdate,
     current_user: dict        = Depends(require_admin),
     service:      UserService = Depends(get_user_service),
-    cache: CacheService = Depends(get_redis_client),
+    cache:        CacheService = Depends(get_cache_service),  # ✅ fix: was get_redis_client
 ):
-    # ✅ use service, pass company_id
     user = await service.update_user(
         user_id, data, company_id=current_user["company_id"]
     )
     await cache.delete(f"user:{current_user['company_id']}:{user_id}")
-    await cache.delete(f"users:{current_user['company_id']}:*")
+    await cache.delete_pattern(f"users:{current_user['company_id']}:*")  # ✅ fix: use delete_pattern not delete
     return user
-
-
 
 
 
@@ -300,13 +249,14 @@ async def update_user(
     status_code=status.HTTP_204_NO_CONTENT,
     summary="[Admin] Delete user",
 )
+
+
 async def delete_user(
     user_id:      int,
     current_user: dict        = Depends(require_admin),
     service:      UserService = Depends(get_user_service),
-    cache: CacheService = Depends(get_cache_service),
+    cache:        CacheService = Depends(get_cache_service),
 ):
-    # ✅ use service, pass company_id
     await service.delete_user(user_id, company_id=current_user["company_id"])
     await cache.delete(f"user:{current_user['company_id']}:{user_id}")
-    await cache.delete(f"users:{current_user['company_id']}:*")
+    await cache.delete_pattern(f"users:{current_user['company_id']}:*")  # ✅ fix: use delete_pattern not delete

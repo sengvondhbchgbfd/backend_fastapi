@@ -122,14 +122,14 @@ class StaffService:
 
 
 
-    async def get_by_id(self, user_id: int, company_id: int) -> Staff:
-        staff = await self.repo.get_by_id(user_id, company_id)
-        if not staff:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail=f"Staff id={user_id} not found.",
-            )
-        return staff
+    async def get_by_id(self, staff_id: int, company_id: int) -> Staff:
+            staff = await self.repo.get_by_id(staff_id, company_id)
+            if not staff:
+                raise HTTPException(
+                    status_code=status.HTTP_404_NOT_FOUND,
+                    detail=f"Staff id={staff_id} not found.",
+                )
+            return staff
     
 
 
@@ -274,10 +274,12 @@ class StaffService:
                 except Exception as e:
                     print(f"[DEBUG] Delete failed {e}")
 
+
         if update_data.get("email"):
             email_conflict = await self.repo.get_by_email(update_data["email"], company_id)
             if email_conflict and email_conflict.staff_id != staff_id:
                 raise HTTPException(status_code=409, detail="Email already in use.")
+            
 
         updated = await self.repo.update(staff_id, update_data, company_id)
 
@@ -293,6 +295,43 @@ class StaffService:
             )
 
         return updated
+    
+
+
+    # ===========================================================
+    #  only avartar
+    # ===========================================================
+
+    
+    async def update_staff_avatar(
+            self,
+            staff_id:         int,
+            company_id:       int,
+            avatar_file:      UploadFile,       
+            avatar_public_id: str | None,    
+        ) -> Staff:
+
+            staff = await self.repo.get_by_id(staff_id, company_id)
+            if not staff:
+                raise HTTPException(status_code=404, detail="Staff not found.")
+            old_public_id = staff.avatar_public_id or avatar_public_id
+            if old_public_id:
+                await delete_asset(old_public_id)
+            upload_result = await upload_image(
+                file   = avatar_file,
+                folder = f"staff/company_{company_id}",   
+            )
+
+            updated = await self.repo.update_avatar(
+                staff_id         = staff_id,
+                company_id       = company_id,
+                avatar_url       = upload_result["secure_url"],   
+                avatar_public_id = upload_result["public_id"],  
+            )
+
+            return updated
+
+
 
     # -----------------------------------------------------------------------
     # DELETE staff

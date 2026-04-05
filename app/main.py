@@ -33,14 +33,11 @@ from app.routers.chat_ws_router        import chat_ws_router
 from app.websockets.chat_ws_manager    import start_chat_pubsub_listener
 from app.core.rate_limit               import ip_limiter
 from app.core.logger                   import logger
-from slowapi.middleware                 import SlowAPIMiddleware   # ✅ correct import
 from slowapi.errors                    import RateLimitExceeded
-from app.middleware import (
-    AuthMiddleware,
-    LoggingMiddleware,
-    ErrorMiddleware,
-    setup_cors,
-)
+from app.middleware import (AuthMiddleware,LoggingMiddleware,ErrorMiddleware,setup_cors)
+from slowapi.middleware                 import SlowAPIMiddleware   # ✅ correct import
+# /////////////////////////////////
+from fastapi.openapi.utils import get_openapi
 
 
 # =============================================================================
@@ -49,10 +46,8 @@ from app.middleware import (
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-
     # ── Startup ───────────────────────────────────────────
     logger.info("Server starting...")
-
     # Seed data (development only)
     if settings.ENVIRONMENT == "development":
         async with AsyncSessionLocal() as db:
@@ -69,9 +64,9 @@ async def lifespan(app: FastAPI):
         logger.info("Redis connected successfully")
     else:
         logger.critical("Redis FAILED — rate limiting will not work!")
-
     # Cloudinary
     init_cloudinary()
+
     logger.info("Cloudinary initialized")
 
     # Start WebSocket pub/sub listeners
@@ -96,30 +91,57 @@ async def lifespan(app: FastAPI):
     logger.info("Redis disconnected")
 
 
+
 # =============================================================================
 # APP
 # =============================================================================
 
 app = FastAPI(
-    title   = "Backend App",
-    version = "1.0.0",
+    title    = "Backend App",
+    version  = "1.0.0",
     lifespan = lifespan,
+    # swagger_ui_parameters = {"persistAuthorization": True},  # ✅ keeps token after refresh
 )
 
-# Attach limiter to app state
 app.state.limiter = ip_limiter
 
+
+# =============================================================================
+# OPENAPI SECURITY SCHEME  ✅ ADD THIS BLOCK
+# =============================================================================
+
+# def custom_openapi():
+#     if app.openapi_schema:
+#         return app.openapi_schema
+#     schema = get_openapi(
+#         title   = app.title,
+#         version = app.version,
+#         routes  = app.routes,
+#     )
+#     schema["components"]["securitySchemes"] = {
+#         "BearerAuth": {
+#             "type":         "http",
+#             "scheme":       "bearer",
+#             "bearerFormat": "JWT",
+#         }
+#     }
+#     schema["security"] = [{"BearerAuth": []}]
+#     app.openapi_schema = schema
+#     return schema
+
+# app.openapi = custom_openapi
+# =============================================================================
+# EXCEPTION HANDLERS
+# =============================================================================
 # =============================================================================
 # EXCEPTION HANDLERS
 # =============================================================================
 
+
+
 @app.exception_handler(RateLimitExceeded)
 async def rate_limit_handler(request, exc):
-    logger.warning(
-        f"SECURITY | Rate limit hit | "
-        f"ip:{request.client.host} | "
-        f"path:{request.url.path}"
-    )
+    logger.warning(f"SECURITY | Rate limit hit | "f"ip:{request.client.host} | "f"path:{request.url.path}")
     return JSONResponse(
         status_code=429,
         content={
@@ -129,6 +151,7 @@ async def rate_limit_handler(request, exc):
         },
         headers={"Retry-After": "60"},
     )
+
 
 
 @app.exception_handler(AppException)
@@ -147,11 +170,14 @@ async def app_exception_handler(request, exc: AppException):
 # MIDDLEWARE — order matters (last added = first to run)
 # =============================================================================
 
-app.add_middleware(ErrorMiddleware)      # 5. outermost — catches everything
-app.add_middleware(LoggingMiddleware)    # 4. logs all requests + responses
-app.add_middleware(SlowAPIMiddleware)    # 3. rate limiting (user_id already set)
-setup_cors(app)                          # 2. CORS preflight
-app.add_middleware(AuthMiddleware)       # 1. first — sets request.state.user_id
+
+app.add_middleware(ErrorMiddleware)      # outermost — catches everything
+app.add_middleware(LoggingMiddleware)    # logs requests + responses
+setup_cors(app)                          # CORS
+app.add_middleware(AuthMiddleware)       # sets request.state.user_id
+app.add_middleware(SlowAPIMiddleware)    # must be last — sees everything ready
+
+
 
 
 # =============================================================================

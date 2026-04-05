@@ -36,6 +36,9 @@ def require_login(
 
 
 
+
+
+
 def require_staff(current_user: dict = Depends(require_login)) -> dict:
     if not current_user.get("staff_id"):
         raise UnauthorizedException("Authentication required.")

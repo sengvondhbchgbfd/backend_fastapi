@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, status, UploadFile, File, Form, BackgroundTasks
-from  typing import Optional
+from typing import Optional
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.schemas.company import (
     CompanyCreate,
@@ -9,6 +9,7 @@ from app.schemas.company import (
     CompanyStatsResponse,
     UpdatePlanRequest,
     UpdateStatusRequest,
+    CompanyStatusHistoryResponse,
 )
 from app.services.company_service import CompanyService
 from app.dependencies import get_db
@@ -26,7 +27,7 @@ def get_company_service(
 
 
 # ===========================================================================
-# CRUD — superuser + admin
+# SPECIFIC ROUTES FIRST (before any /{company_id} dynamic routes)
 # ===========================================================================
 
 @company_router.get(
@@ -39,27 +40,6 @@ async def list_companies(
     service:      CompanyService = Depends(get_company_service),
 ):
     return await service.get_all()
-
-# ----------------------------------------------------------------------------
-# get my company id
-# ----------------------------------------------------------------------------
-
-@company_router.get(
-    "/{company_id}",
-    response_model=CompanyResponse,
-    summary="[Admin] Get company by id",
-)
-async def get_company(
-    company_id:   int,
-    current_user: dict = Depends(require_admin),
-    service:      CompanyService = Depends(get_company_service),
-):
-    return await service.get_by_id(company_id)
-
-
-# --------------------------------------------------------------------------
-# [post create company]
-# ---------------------------------------------------------------------------
 
 
 @company_router.post(
@@ -76,65 +56,42 @@ async def create_company(
     return await service.create(data)
 
 
+# ===========================================================================
+# /{company_id}/sub-routes BEFORE /{company_id} itself
+# ===========================================================================
 
-
-@company_router.patch(
-    "/{company_id}",
-    response_model=CompanyResponse,
-    summary="[Admin] Update company info",
+@company_router.get(
+    "/{company_id}/settings",
+    response_model=CompanySettingsResponse,
+    summary="[Admin] Get company settings",
 )
-async def update_company(
-        company_id:           int,
-        company_name:         Optional[str]        = Form(None),
-        email:                Optional[str]        = Form(None),
-        phone:                Optional[str]        = Form(None),
-        timezone:             Optional[str]        = Form(None),
-        currency:             Optional[str]        = Form(None),
-
-        old_logo_public_id:   Optional[str]        = Form(None),
-        old_banner_public_id: Optional[str]        = Form(None),
-        logo:                 Optional[UploadFile] = File(None),
-        banner:               Optional[UploadFile] = File(None),
-        current_user:         dict                 = Depends(require_admin),
-        service:              CompanyService       = Depends(get_company_service),
-
+async def get_settings(
+    company_id:   int,
+    current_user: dict = Depends(require_admin),
+    service:      CompanyService = Depends(get_company_service),
 ):
-    data = CompanyUpdate(
-        company_name=company_name,
-        email=email,
-        phone=phone,
-        timezone=timezone,
-        currency=currency,
-    )
-
-    return await service.update(
-        company_id,
-        data,
-        logo=logo,
-        banner=banner,
-        old_logo_public_id=old_logo_public_id,
-        old_banner_public_id=old_banner_public_id,
-    )
+    return await service.get_settings(company_id)
 
 
 
 
-
-
-@company_router.delete(
-    "/{company_id}",
-    summary="[Superuser] Delete company",
+@company_router.get(
+    "/{company_id}/stats",
+    response_model=CompanyStatsResponse,
+    summary="[Admin] Get company stats",
 )
-async def delete_company(
+async def get_stats(
     company_id: int,
-    background_tasks: BackgroundTasks,
-    service: CompanyService = Depends(get_company_service),
+    current_user: dict = Depends(require_admin),
+    service:    CompanyService = Depends(get_company_service),
 ):
-    return await service.delete(company_id, background_tasks)
+    return await service.get_stats(company_id)
 
-# ===========================================================================
-# PLAN & STATUS — superuser only
-# ===========================================================================
+
+
+
+
+
 
 @company_router.patch(
     "/{company_id}/plan",
@@ -147,18 +104,12 @@ async def update_plan(
     current_user: dict = Depends(require_superuser),
     service:      CompanyService = Depends(get_company_service),
 ):
-    """
-    Update company plan type and max users.
-    Only superuser can change plans.
-    """
     return await service.update_plan(company_id, data)
-
-
 
 
 @company_router.patch(
     "/{company_id}/status",
-    response_model=CompanyResponse,
+    response_model=CompanyStatusHistoryResponse,
     summary="[Superuser] Update company status (active/suspended/cancelled)",
 )
 async def update_status(
@@ -167,50 +118,77 @@ async def update_status(
     current_user: dict = Depends(require_superuser),
     service:      CompanyService = Depends(get_company_service),
 ):
-    """
-    Suspend or cancel a company.
-    Only superuser can change company status.
-    """
-    return await service.update_status(company_id, data)
+    return await service.update_status(
+        company_id=company_id,
+        data=data,
+        changed_by=int(current_user["sub"]),
+    )
 
 
 # ===========================================================================
-# SETTINGS
-# ===========================================================================
-
-@company_router.get(
-    "/{company_id}/settings",
-    response_model=CompanySettingsResponse,
-    summary="[Admin] Get company settings",
-)
-async def get_settings(
-    company_id:   int,
-    # current_user: dict = Depends(require_admin),
-    service:      CompanyService = Depends(get_company_service),
-):
-    return await service.get_settings(company_id)
-
-
-# ===========================================================================
-# STATS
+# /{company_id} DYNAMIC ROUTES LAST
 # ===========================================================================
 
 @company_router.get(
-    "/{company_id}/stats",
-    response_model=CompanyStatsResponse,
-    summary="[Admin] Get company stats",
+    "/{company_id}",
+    response_model=CompanyResponse,
+    summary="[Admin] Get company by id",
 )
-async def get_stats(
+async def get_company(
     company_id:   int,
-    # current_user: dict = Depends(require_admin),
+    current_user: dict = Depends(require_admin),
     service:      CompanyService = Depends(get_company_service),
 ):
-    """
-    Returns:
-    - total_staff
-    - total_departments
-    - total_users
-    - active_users
-    - total_roles
-    """
-    return await service.get_stats(company_id)
+    return await service.get_by_id(company_id)
+
+
+
+
+
+
+@company_router.patch(
+    "/{company_id}",
+    response_model=CompanyResponse,
+    summary="[Admin] Update company info",
+)
+async def update_company(
+    company_id:           int,
+    company_name:         Optional[str]        = Form(None),
+    email:                Optional[str]        = Form(None),
+    phone:                Optional[str]        = Form(None),
+    timezone:             Optional[str]        = Form(None),
+    currency:             Optional[str]        = Form(None),
+    old_logo_public_id:   Optional[str]        = Form(None),
+    old_banner_public_id: Optional[str]        = Form(None),
+    logo:                 Optional[UploadFile] = File(None),
+    banner:               Optional[UploadFile] = File(None),
+    current_user:         dict                 = Depends(require_admin),
+    service:              CompanyService       = Depends(get_company_service),
+):
+    data = CompanyUpdate(
+        company_name=company_name,
+        email=email,
+        phone=phone,
+        timezone=timezone,
+        currency=currency,
+    )
+    return await service.update(
+        company_id,
+        data,
+        logo=logo,
+        banner=banner,
+        old_logo_public_id=old_logo_public_id,
+        old_banner_public_id=old_banner_public_id,
+    )
+
+
+@company_router.delete(
+    "/{company_id}",
+    summary="[Superuser] Delete company",
+)
+async def delete_company(
+    company_id:       int,
+    background_tasks: BackgroundTasks,
+    service:          CompanyService = Depends(get_company_service),
+):
+    return await service.delete(company_id, background_tasks)

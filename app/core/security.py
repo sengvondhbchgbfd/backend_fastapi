@@ -81,9 +81,6 @@ def create_refresh_token(user_id: int, company_id: int) -> str:
         algorithm=settings.ALGORITHM
     )
 
-
-
-
 def decode_refresh_token(token: str) -> int:
     try:
         payload = jwt.decode(
@@ -109,9 +106,6 @@ def decode_refresh_token(token: str) -> int:
                 "action":  "FULL_LOGIN",
             },
         )
-
-
-
 
 
 # ---------------------------------------------------------------------------

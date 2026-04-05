@@ -184,7 +184,7 @@ async def get_staff_by_user_id(
 ):
     # ✅ company_id added
     return await service.get_by_user_id(
-        user_id, company_id=current_user["company_id"]
+        user_id, company_id=int(current_user["company_id"])
     )
 
 
@@ -212,6 +212,7 @@ async def get_staff_by_department(
 
 
 
+
 @staff_router.get(
     "/my",
     response_model=StaffResponse,
@@ -224,10 +225,11 @@ async def get_my_profile(
     """Staff can view their own profile using staff_id from JWT."""
 
     return await service.get_by_id(
-
-        user_id   = int(current_user["sub"]),
+        staff_id   = int(current_user["staff_id"]),
         company_id = current_user["company_id"],
     )
+
+
 
 
 
@@ -261,9 +263,6 @@ async def update_staff(
     current_user: dict = Depends(require_manager),
     service: StaffService = Depends(get_staff_service),
 ):
-   
-
-
     data = StaffUpdate(
         name=name, 
         gender=gender,
@@ -279,6 +278,26 @@ async def update_staff(
         company_id=current_user["company_id"],
         avatar_file=avatar_file,
     )
+
+
+
+
+@staff_router.patch("/{staff_id}/avatar", response_model=StaffResponse)
+async def update_avatar(
+    staff_id:     int,
+    avatar_file:  UploadFile  = File(...),     
+    current_user: dict        = Depends(require_manager),
+    service:      StaffService = Depends(get_staff_service),
+):
+    return await service.update_staff_avatar(
+        staff_id         = staff_id,
+        company_id       = current_user["company_id"],
+        avatar_file      = avatar_file,
+        avatar_public_id = None,  
+    )
+
+
+
 
 @staff_router.delete(
     "/{staff_id}",

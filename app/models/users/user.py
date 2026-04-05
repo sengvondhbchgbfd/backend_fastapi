@@ -14,7 +14,8 @@ if TYPE_CHECKING:
     from app.models.audit_log import AuditLog
     from app.models.notification import Notification
     from app.models.chat.chat_message import ChatMessage
-    from app.models.company import Company        
+    from app.models.company import Company 
+    from app.models.refresh_token import RefreshToken       
 
 
 class UserStatus(str, enum.Enum):
@@ -51,6 +52,7 @@ class User(Base):
     notifications:       Mapped[list["Notification"]]   = relationship("Notification", back_populates="user")
     sent_messages:       Mapped[list["ChatMessage"]]    = relationship("ChatMessage", foreign_keys="ChatMessage.sender_id",   back_populates="sender")
     received_messages:   Mapped[list["ChatMessage"]]    = relationship("ChatMessage", foreign_keys="ChatMessage.receiver_id", back_populates="receiver")
+    refreshtokens:       Mapped[list["RefreshToken"]]  = relationship("RefreshToken", back_populates="user")
     # ✅ REMOVED chat_group_members — belongs to Staff not User
 
     # staff: Mapped[Optional["Staff"]] = relationship("Staff", back_populates="user", uselist=False)

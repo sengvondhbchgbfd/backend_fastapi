@@ -48,6 +48,9 @@ class Company(Base):
     leave_requests     = relationship("LeaveRequest",     back_populates="company", cascade="all, delete-orphan")
     attendance_records = relationship("AttendanceRecord", back_populates="company", cascade="all, delete-orphan")
     audit_logs         = relationship("AuditLog",         back_populates="company", cascade="all, delete-orphan")
+    
+    refreshtokens      = relationship("RefreshToken",     back_populates="company", cascade="all, delete-orphan")
+
     system_settings    = relationship("SystemSetting",    back_populates="company", cascade="all, delete-orphan")
     notifications      = relationship("Notification",     back_populates="company", cascade="all, delete-orphan")
     salaries           = relationship("Salary",           back_populates="company", cascade="all, delete-orphan")
@@ -63,4 +66,11 @@ class Company(Base):
     chat_groups        = relationship("ChatGroup",        back_populates="company", cascade="all, delete-orphan")
     chat_messages      = relationship("ChatMessage",      back_populates="company", cascade="all, delete-orphan")
     chat_group_members = relationship("ChatGroupMember",  back_populates="company", cascade="all, delete-orphan")
+
+    status_history = relationship(
+        "CompanyStatusHistory",
+        back_populates="company",
+        cascade="all, delete-orphan",
+        order_by="desc(CompanyStatusHistory.changed_at)"
+    )
  

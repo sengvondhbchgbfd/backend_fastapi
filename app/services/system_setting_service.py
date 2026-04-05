@@ -33,6 +33,11 @@ class SystemSettingService:
                 detail=f"Setting id={setting_id} not found.",
             )
         return setting
+    
+
+
+
+    
 
     # -----------------------------------------------------------------------
     # GET one setting by key
@@ -65,6 +70,9 @@ class SystemSettingService:
             "value":       data.value,
             "description": data.description,
         })
+    
+
+    
 
     # -----------------------------------------------------------------------
     # UPDATE setting by id
@@ -80,6 +88,8 @@ class SystemSettingService:
         return await self.repo.update(
             setting, data.model_dump(exclude_none=True)
         )
+    
+    
 
     # -----------------------------------------------------------------------
     # UPSERT by key — create or update in one call
@@ -97,6 +107,10 @@ class SystemSettingService:
     # BULK UPDATE — update multiple settings at once
     # -----------------------------------------------------------------------
 
+    # -----------------------------------------------------------------------
+# BULK UPDATE — update multiple settings at once
+# -----------------------------------------------------------------------
+
     async def bulk_update(
         self,
         data:       BulkUpdateRequest,
@@ -106,10 +120,45 @@ class SystemSettingService:
         for item in data.settings:
             setting = await self.repo.upsert(company_id, item.key, item.value)
             updated.append(setting)
+
         return {
             "message": f"{len(updated)} settings updated.",
             "updated": updated,
         }
+
+
+
+    # -----------------------------------------------------------------------
+# BULK CREATE — create multiple settings at once
+# -----------------------------------------------------------------------
+
+    async def bulk_create(
+        self,
+        data:       list[SystemSettingCreate],
+        company_id: int,
+    ) -> list:
+        keys = [item.key for item in data]
+        if len(keys) != len(set(keys)):
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Duplicate keys in request.",
+            )
+        for item in data:
+            existing = await self.repo.get_by_key(item.key, company_id)
+            if existing:
+                raise HTTPException(
+                    status_code=status.HTTP_409_CONFLICT,
+                    detail=f"Setting key='{item.key}' already exists. Use PATCH to update.",
+                )
+
+        return await self.repo.bulk_create(
+            data       = [item.model_dump() for item in data],
+            company_id = company_id,
+        )
+    
+
+   
+   
 
     # -----------------------------------------------------------------------
     # DELETE setting

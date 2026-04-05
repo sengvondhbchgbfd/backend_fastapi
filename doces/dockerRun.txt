@@ -75,3 +75,31 @@ SELECT staff_id, avatar_url, avatar_public_id FROM staff WHERE company_id = 5;
 ALTER TABLE salaries ALTER COLUMN updated_at SET DEFAULT now();
 
 ALTER TABLE salary_adjustments ADD COLUMN reason VARCHAR;
+
+///////////////////////////////////////////////////
+\d company_status_history;
+
+DO $$ BEGIN
+    CREATE TYPE companystatus AS ENUM ('active','suspended','cancelled');
+EXCEPTION
+    WHEN duplicate_object THEN null;
+END $$;
+
+SELECT n.nspname AS schema,
+       t.typname AS enum_name,
+       e.enumlabel AS enum_value
+FROM pg_type t
+JOIN pg_enum e ON t.oid = e.enumtypid
+JOIN pg_namespace n ON n.oid = t.typnamespace
+WHERE t.typname = 'companystatus';
+
+
+CREATE TABLE company_status_history (
+    id SERIAL PRIMARY KEY,
+    company_id INT NOT NULL REFERENCES companies(company_id),
+    old_status companystatus NOT NULL,
+    new_status companystatus NOT NULL,
+    reason TEXT,
+    changed_by INT NOT NULL,
+    changed_at TIMESTAMPTZ DEFAULT now() NOT NULL
+);

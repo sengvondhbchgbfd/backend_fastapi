@@ -272,6 +272,9 @@ class UserResponse(BaseModel):
     }
 
 
+
+
+
 class TokenResponse(BaseModel):
     access_token: str
     token_type:   str  = "bearer"
@@ -985,6 +988,9 @@ class BulkUpdateItem(BaseModel):
  
 class BulkUpdateRequest(BaseModel):
     settings: list[BulkUpdateItem]
+
+class BulkCreateRequest(BaseModel):
+    settings: list[SystemSettingCreate] 
 
 
 # ============================================================================

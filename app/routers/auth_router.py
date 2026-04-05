@@ -9,11 +9,8 @@ from app.schemas.schema import (
 from app.utils.auth import require_superuser, require_admin, require_login
 from app.services.auth_service import AuthService, get_auth_service
 from app.utils.helper import is_mobile, set_refresh_cookie
+from app.core.rate_limit import ip_limiter
 router = APIRouter(prefix="/auth", tags=["Auth"])
-
-
-
-
 
 # =============================================================================
 # REGISTER
@@ -43,42 +40,38 @@ async def register(
 # LOGIN ✅ web → cookie, mobile → body
 # =============================================================================
 
-@router.post(
-    "/login",
-    summary="Login — returns access + refresh token",
-)
+@router.post("/login", summary="Login — returns access + refresh token")
+@ip_limiter.limit("5/minute")  # ← Only 5 requests per minute per IP
 async def login(
-    body:     LoginRequest,
-    request:  Request,
+    request: Request,
+    body: LoginRequest,
     response: Response,
-    service:  AuthService = Depends(get_auth_service),
+    service: AuthService = Depends(get_auth_service),
 ):
     tokens = await service.login(body=body, client_ip=request.client.host)
-
     mobile = is_mobile(request)
-
-
+    
     if mobile:
-        # Mobile → both tokens in body
         return {
-            "access_token":       tokens["access_token"],
-            "refresh_token":      tokens["refresh_token"],
-            "access_expires_in":  tokens["access_expires_in"],
+            "access_token": tokens["access_token"],
+            "refresh_token": tokens["refresh_token"],
+            "access_expires_in": tokens["access_expires_in"],
             "refresh_expires_in": tokens["refresh_expires_in"],
-            "token_type":         "bearer",
-            "user":               tokens["user"],
+            "token_type": "bearer",
+            "user": tokens["user"],
         }
     else:
-        # Web → refresh_token in HttpOnly cookie only
         set_refresh_cookie(response, tokens["refresh_token"])
         return {
-            "access_token":       tokens["access_token"],
-            "access_expires_in":  tokens["access_expires_in"],
-            "token_type":         "bearer",
-            "user":               tokens["user"],
+            "access_token": tokens["access_token"],
+            "access_expires_in": tokens["access_expires_in"],
+            "token_type": "bearer",
+            "user": tokens["user"],
         }
+    
 
 
+    
 # =============================================================================
 # REFRESH ✅ fully implemented
 # =============================================================================
@@ -107,9 +100,7 @@ async def refresh(
                 "action":  "FULL_LOGIN",
             }
         )
-
     tokens = await service.refresh(refresh_token)
-
 
     if mobile:
         # Mobile → both tokens in body
@@ -120,9 +111,11 @@ async def refresh(
             "refresh_expires_in": tokens["refresh_expires_in"],
             "token_type":         "bearer",
         }
+    
     else:
         # Web → rotate cookie, access_token in body only
         set_refresh_cookie(response, tokens["refresh_token"])
+        print("test")
         return {
             "access_token":      tokens["access_token"],
             "access_expires_in": tokens["access_expires_in"],
@@ -130,6 +123,8 @@ async def refresh(
             
         }
     
+
+
 
 
 
@@ -153,6 +148,12 @@ async def logout(
     if not is_mobile(request):
         response.delete_cookie("refresh_token", path="/auth/refresh")
     return result
+
+
+
+
+
+
 
 
 # =============================================================================

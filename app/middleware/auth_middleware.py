@@ -20,6 +20,7 @@ class AuthMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
 
         # ── 1. Skip public routes ──────────────────────────
+        
         if any(request.url.path.startswith(route) for route in PUBLIC_ROUTES):
             return await call_next(request)
 

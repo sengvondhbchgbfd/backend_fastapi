@@ -8,6 +8,7 @@ from app.core.exceptions import UnauthorizedException, ForbiddenException
 from app.dependencies import get_db, get_redis_client
 from app.repositories.auth_repository import AuthRepository
 from app.repositories.auditlog_repository import AuditLogRepository
+from app.repositories.refresh_token_repository import RefreshTokenRepo
 from app.services.notifications_service import NotificationService
 from app.core.security import (
     verify_password, hash_password,
@@ -30,9 +31,11 @@ class AuthService:
         auth_repo:    AuthRepository,
         audit_repo:   AuditLogRepository,
         redis_client: redis.Redis,
+        refresh_repo: RefreshTokenRepo,
     ):
         self.auth_repo  = auth_repo
         self.audit_repo = audit_repo
+        self.refresh_repo =  refresh_repo
         self.notif      = NotificationService(
             db           = db,
             redis_client = redis_client,
@@ -108,6 +111,10 @@ class AuthService:
             status        = user.status.value,
         )
 
+
+
+
+
     # =========================================================================
     # LOGIN
     # =========================================================================
@@ -116,16 +123,13 @@ class AuthService:
         self,
         body:      LoginRequest,
         client_ip: str,
-    ) -> dict:                          # ✅ return dict, router decides response shape
+    ) -> dict:
 
         user = await self.auth_repo.get_by_username(body.username)
-
         if not user or not verify_password(body.password, user.password_hash):
             raise UnauthorizedException("Invalid username or password.")
-
         if user.status != UserStatus.active:
             raise ForbiddenException("Your account is disabled. Contact admin.")
-
         role_name   = user.role.role_name if user.role else None
         permissions = await self.auth_repo.load_permissions(
             user.user_id, role_name
@@ -147,7 +151,6 @@ class AuthService:
 
 
 
-
         access_token  = create_access_token({
             "sub":         str(user.user_id),
             "company_id":  user.company_id,
@@ -159,7 +162,14 @@ class AuthService:
 
 
 
+        refresh_token = create_refresh_token(user.user_id, user.company_id)
+        await self.refresh_repo.save(
+            user_id = user.user_id,
+            company_id = user.company_id,
+            token   = refresh_token,
+        )
 
+    
         # ✅ return raw dict — router handles cookie vs body
         return {
             "access_token":        access_token,
@@ -190,62 +200,80 @@ class AuthService:
     # =========================================================================
 
     async def refresh(self, refresh_token: str) -> dict:
-        # decode_refresh_token raises 401 automatically if expired/invalid
+       
+       
         user_id = decode_refresh_token(refresh_token)
-        user = await self.auth_repo.get_by_id(user_id)  # no company_id needed here
-        if not user:
+ 
+        # 2. ✅ Check token exists in DB and is not revoked
+        record = await self.refresh_repo.validate(refresh_token)
+        if not record:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="User not found.",
+                detail={
+                    "code":    "REFRESH_TOKEN_INVALID",
+                    "message": "Refresh token is invalid, expired, or already used.",
+                    "action":  "FULL_LOGIN",
+                },
             )
-
+ 
+        # 3. Load user
+        user = await self.auth_repo.get_by_id(user_id)
+        if not user:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not found.")
+ 
         if user.status != UserStatus.active:
             raise ForbiddenException("Account disabled.")
-
+ 
+        # 4. Load fresh role + permissions + staff
         role_name   = user.role.role_name if user.role else None
-        permissions = await self.auth_repo.load_permissions(
-            user.user_id, role_name
-        )
-        staff = await self.auth_repo.get_staff_by_user_id(user.user_id)
-
-        # ✅ issue brand new access_token with full payload
+        permissions = await self.auth_repo.load_permissions(user.user_id, role_name)
+        staff       = await self.auth_repo.get_staff_by_user_id(user.user_id)
+ 
+        # 5. Issue new tokens
         new_access_token  = create_access_token({
             "sub":         str(user.user_id),
             "company_id":  user.company_id,
             "role":        role_name,
             "permissions": permissions,
             "staff_id":    staff.staff_id if staff else None,
-            "is_manager":  staff.staff_role.is_manager
-                           if staff and staff.staff_role else False,
+            "is_manager":  staff.staff_role.is_manager if staff and staff.staff_role else False,
         })
-
-        # ✅ rotate refresh token — issue a new one
         new_refresh_token = create_refresh_token(user.user_id, user.company_id)
+        # 6. ✅ Rotate — revoke old, save new
+        await self.refresh_repo.rotate(
+            old_token  = refresh_token,
+            new_token  = new_refresh_token,
+            user_id    = user.user_id,
+            company_id = user.company_id,
+        )
 
         return {
             "access_token":       new_access_token,
-            "refresh_token":      new_refresh_token,   # router uses this for cookie or body
+            "refresh_token":      new_refresh_token,
             "access_expires_in":  settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60,
             "refresh_expires_in": settings.REFRESH_TOKEN_EXPIRE_DAYS * 86400,
             "token_type":         "bearer",
         }
+    
+
+
+
+
 
 
     # =========================================================================
     # LOGOUT
     # =========================================================================
 
-    async def logout(
-        self,
-        user_id:    int,
-        company_id: int,
-        client_ip:  str,
-    ) -> Dict[str, str]:
+    async def logout(self, user_id: int, company_id: int, client_ip: str) -> dict:
+        # ✅ Revoke ALL refresh tokens for this user
+        await self.token_repo.revoke_all(user_id)
+ 
         await self.audit_repo.log(
             user_id    = user_id,
             company_id = company_id,
-            action     = "INSERT",
-            table_name = "auth_logout",
+            action     = "DELETE",
+            table_name = "auth_login",
             record_id  = user_id,
             old_value  = None,
             new_value  = {"action": "logout"},
@@ -534,5 +562,6 @@ async def get_auth_service(
         db           = db,
         auth_repo    = AuthRepository(db),
         audit_repo   = AuditLogRepository(db),
+        refresh_repo = RefreshTokenRepo(db),
         redis_client = redis_client,
     )
