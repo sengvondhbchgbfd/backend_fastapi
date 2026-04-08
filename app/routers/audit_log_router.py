@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.schemas.schema import AuditLogResponse
 from app.dependencies import get_db
 from app.utils.auth import require_superuser
-from app.repositories.auditlog_repository import AuditLogRepository
+from app.repositories.audit.auditlog_repository import AuditLogRepository
 from app.utils.helper import _serialize
 from app.core.exceptions import NotFoundException
 

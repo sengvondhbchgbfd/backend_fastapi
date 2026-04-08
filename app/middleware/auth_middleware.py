@@ -12,6 +12,8 @@ PUBLIC_ROUTES = [
     "/openapi.json",
     "/redoc",
     "/health",
+    "/roles",        # 👈 ADD THIS TEMP
+    "/roles/",
 ]
 
 
@@ -25,8 +27,9 @@ class AuthMiddleware(BaseHTTPMiddleware):
             return await call_next(request)
 
         # ── 2. Check Authorization header exists ───────────
-        auth_header = request.headers.get("Authorization")
 
+
+        auth_header = request.headers.get("Authorization")
         if not auth_header or not auth_header.startswith("Bearer "):
             return JSONResponse(
                 status_code=status.HTTP_401_UNAUTHORIZED,

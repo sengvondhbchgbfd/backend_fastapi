@@ -39,9 +39,15 @@ class Staff(Base):
     email:         Mapped[Optional[str]]= mapped_column(String(255), nullable=True)
     phone:         Mapped[Optional[str]]= mapped_column(String(20),  nullable=True)
     
+
+
+    
     #  add avatar fields
     avatar_url:    Mapped[Optional[str]] = mapped_column(String(500), nullable=True)
     avatar_public_id: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
+
+
+
 
     created_at:    Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
     updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now(), nullable=False)

@@ -79,9 +79,6 @@ class ChatWebSocketManager:
         return list(self.connections[group_id].keys())
     
 
-
-
-
 # Global instance
 chat_ws_manager = ChatWebSocketManager()
 

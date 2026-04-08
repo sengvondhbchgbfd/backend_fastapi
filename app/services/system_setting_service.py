@@ -1,7 +1,7 @@
 from fastapi import HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.repositories.system_setting_repository import SystemSettingRepository
+from app.repositories.company.system_setting_repository import SystemSettingRepository
 from app.schemas.schema import (
     SystemSettingCreate,
     SystemSettingUpdate,

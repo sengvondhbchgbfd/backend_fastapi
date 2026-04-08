@@ -79,6 +79,9 @@ def is_mobile(request: Request) -> bool:
 
 
 
+
+
+
 def set_refresh_cookie(response: Response, token: str):
     response.set_cookie(
         key="refresh_token",

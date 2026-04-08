@@ -16,7 +16,7 @@ from app.models.roles import Role
 from app.models.staffs import LeaveRequest, Staff, StaffRole, leave_request, AttendanceRecord
 from app.models.departments import Department
 from app.models.chat import ChatGroup, ChatMessage, ChatGroupMember
-from app.models.invoices import Invoice, InvoiceItem
+from app.models.invoices import Invoice, InvoiceItem, InvoiceAttachment
 from app.models.products import Product, StockMovement, ProductImage
 from app.models.Salary import Salary, SalaryAdjustment
 from app.models.audit_log import AuditLog
@@ -27,6 +27,7 @@ from app.models.system_setting import SystemSetting
 from app.models.company import Company
 from app.models.refresh_token import RefreshToken
 from app.models.CompanyStatusHistory import CompanyStatusHistory
+
 
 
 

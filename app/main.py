@@ -4,42 +4,47 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 
 from app.models import *
-from app.routers.users_router          import router, role_router, department_router
-from app.routers.auth_router           import router as auth_router
+from app.routers.auth.users_router          import router, role_router, department_router
+from app.routers.auth.auth_router           import router as auth_router
 from app.db.redis                      import connect_redis, disconnect_redis, check_redis
 from app.routers.audit_log_router      import audit_router
-from app.routers.staff_router          import staff_role_router, staff_router
-from app.routers.leave_requests_router import leave_router
-from app.routers.attendance_router     import attendance_router
-from app.routers.company_router        import company_router
+from app.routers.hr.staff_router          import staff_role_router, staff_router
+from app.routers.hr.leave_requests_router import leave_router
+from app.routers.hr.attendance_router     import attendance_router
+from app.routers.company.company_router        import company_router
 from app.routers.system_setting_router import system_setting_router
-from app.routers.salaries_router       import salary_router
-from app.routers.notification_router   import notification_router
-from app.routers.inventory_router      import (
+from app.routers.hr.salaries_router       import salary_router
+from app.routers.communication.notification_router   import notification_router
+from app.routers.inventory.inventory_router      import (
     supplier_router, customer_router, category_router,
     product_router, stock_movement_router, invoice_router,
 )
-from app.routers.setup_router          import setup_router
+from app.routers.auth.setup_router          import setup_router
 from app.routers.ws_router             import ws_router
-from app.websockets.ws_manager         import start_redis_pubsub_listener
 from app.db.session                    import AsyncSessionLocal
 from app.seed.seed                     import seed_data
 from app.core.config                   import settings
-from app.utils.cloudinary_upload       import init_cloudinary
 from app.schemas.schema                import ErrorResponse
 from app.core.exceptions               import AppException
-from app.routers.chat_router           import chat_router
+from app.routers.communication.chat_router           import chat_router
 from app.routers.chat_ws_router        import chat_ws_router
-from app.websockets.chat_ws_manager    import start_chat_pubsub_listener
 from app.core.rate_limit               import ip_limiter
 from app.core.logger                   import logger
 from slowapi.errors                    import RateLimitExceeded
 from app.middleware import (AuthMiddleware,LoggingMiddleware,ErrorMiddleware,setup_cors)
-from slowapi.middleware                 import SlowAPIMiddleware   # ✅ correct import
-# /////////////////////////////////
+from slowapi.middleware                 import SlowAPIMiddleware   
+
+# //////////////////////////////////////////
 from fastapi.openapi.utils import get_openapi
+# ///////////////// Test ////////////////////
+from app.services.storage import init_cloudinary
 
-
+from app.websockets import (
+    chat_handler,
+    notification_handler,
+    start_chat_pubsub_listener,
+    start_notification_pubsub_listener,
+)
 # =============================================================================
 # LIFESPAN — startup + shutdown in one place
 # =============================================================================
@@ -58,7 +63,6 @@ async def lifespan(app: FastAPI):
 
     # ✅ Check Redis after connecting
 
-
     redis_ok = await check_redis()
     if redis_ok:
         logger.info("Redis connected successfully")
@@ -70,8 +74,16 @@ async def lifespan(app: FastAPI):
     logger.info("Cloudinary initialized")
 
     # Start WebSocket pub/sub listeners
-    pubsub_task = asyncio.create_task(start_redis_pubsub_listener())
-    chat_task   = asyncio.create_task(start_chat_pubsub_listener())
+    # pubsub_task = asyncio.create_task(start_redis_pubsub_listener())
+    # chat_task   = asyncio.create_task(start_chat_pubsub_listener())
+
+    # ///////////// test ////////////////////////////////////
+
+
+
+    pubsub_task =  asyncio.create_task(start_chat_pubsub_listener(chat_handler))
+    chat_task = asyncio.create_task(start_notification_pubsub_listener(notification_handler))
+
     logger.info("WebSocket listeners started")
 
     yield
@@ -82,6 +94,7 @@ async def lifespan(app: FastAPI):
     # ✅ properly cancel and await tasks
     pubsub_task.cancel()
     chat_task.cancel()
+    
     try:
         await asyncio.gather(pubsub_task, chat_task)
     except asyncio.CancelledError:
@@ -100,7 +113,7 @@ app = FastAPI(
     title    = "Backend App",
     version  = "1.0.0",
     lifespan = lifespan,
-    # swagger_ui_parameters = {"persistAuthorization": True},  # ✅ keeps token after refresh
+    swagger_ui_parameters = {"persistAuthorization": True},  # ✅ keeps token after refresh
 )
 
 app.state.limiter = ip_limiter
@@ -108,28 +121,30 @@ app.state.limiter = ip_limiter
 
 # =============================================================================
 # OPENAPI SECURITY SCHEME  ✅ ADD THIS BLOCK
+#  http://localhost:8000/openapi.json 
+#  http://localhost:8000/redoc or docs
 # =============================================================================
 
-# def custom_openapi():
-#     if app.openapi_schema:
-#         return app.openapi_schema
-#     schema = get_openapi(
-#         title   = app.title,
-#         version = app.version,
-#         routes  = app.routes,
-#     )
-#     schema["components"]["securitySchemes"] = {
-#         "BearerAuth": {
-#             "type":         "http",
-#             "scheme":       "bearer",
-#             "bearerFormat": "JWT",
-#         }
-#     }
-#     schema["security"] = [{"BearerAuth": []}]
-#     app.openapi_schema = schema
-#     return schema
+def custom_openapi():
+    if app.openapi_schema:
+        return app.openapi_schema
+    schema = get_openapi(
+        title   = app.title,
+        version = app.version,
+        routes  = app.routes,
+    )
+    schema["components"]["securitySchemes"] = {
+        "BearerAuth": {
+            "type":         "http",
+            "scheme":       "bearer",
+            "bearerFormat": "JWT",
+        }
+    }
+    schema["security"] = [{"BearerAuth": []}]
+    app.openapi_schema = schema
+    return schema
 
-# app.openapi = custom_openapi
+app.openapi = custom_openapi
 # =============================================================================
 # EXCEPTION HANDLERS
 # =============================================================================

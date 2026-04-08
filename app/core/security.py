@@ -26,9 +26,11 @@ def create_access_token(data: dict) -> str:
     payload["exp"] = datetime.utcnow() + timedelta(
         minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES
     )
-    # ✅ FIX 1: use "type" not "token_type"
     payload["token_type"] = "access"
     return jwt.encode(payload, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
+
+
+
 
 # ----------------------------------------------------------------
 # Decode 
@@ -59,27 +61,29 @@ def decode_access_token(token: str) -> dict:
             },
         )
     
+
+
+    
 # ---------------------------------------------------------------------------
 # Refresh token  (30 days) // change staff_id to user_id
 # ---------------------------------------------------------------------------
 
 def create_refresh_token(user_id: int, company_id: int) -> str:
     payload = {
-        "user_id": user_id,
+        "sub": str(user_id),         
         "company_id": company_id,
         "token_type": "refresh",
-        "jti": str(uuid.uuid4()),  
-        "iat": datetime.now(timezone.utc),
-        "exp": datetime.now(timezone.utc) + timedelta(
-            days=settings.REFRESH_TOKEN_EXPIRE_DAYS
-        ),
+        "jti": str(uuid.uuid4()),
+        "iat": datetime.utcnow(),  
+        "exp": datetime.utcnow() + timedelta(days=settings.REFRESH_TOKEN_EXPIRE_DAYS),
     }
-
     return jwt.encode(
         payload,
         settings.REFRESH_SECRET,
         algorithm=settings.ALGORITHM
     )
+
+
 
 def decode_refresh_token(token: str) -> int:
     try:
@@ -94,9 +98,10 @@ def decode_refresh_token(token: str) -> int:
                 detail="Invalid token type.",
             )
         user_id = payload.get("sub")
+        company_id = payload.get("company_id")
         if not user_id:
             raise HTTPException(status_code=401, detail="Invalid refresh token.")
-        return int(user_id)
+        return int(user_id), int(company_id)
     except JWTError:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -115,7 +120,6 @@ def decode_refresh_token(token: str) -> int:
 def create_scan_token(staff_id: int) -> str:
     payload = {
         "staff_id": staff_id,
-        # ✅ FIX 3: "type" not "token_type"
         "token_type":     "scan",
         "exp":      datetime.utcnow() + timedelta(
             minutes=settings.SCAN_TOKEN_EXPIRE_MINUTES
@@ -133,7 +137,6 @@ def decode_scan_token(token: str) -> int:
             settings.SCAN_SECRET,
             algorithms=[settings.ALGORITHM],
         )
-        # ✅ FIX 3: check "type" — now matches create_scan_token
         if payload.get("token_type") != "scan":
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,

@@ -91,10 +91,8 @@ async def refresh_service(
     db:            AsyncSession,
 ) -> dict:
     """"""
-    # Decode refresh token → staff_id
     staff_id = decode_refresh_token(refresh_token)
  
-    # Fetch fresh staff + role data for new access token
     staff_result = await db.execute(
         select(Staff, StaffRole)
         .outerjoin(StaffRole, Staff.staff_role_id == StaffRole.staff_role_id)
@@ -107,7 +105,6 @@ async def refresh_service(
     if not staff:
         raise HTTPException(status_code=404, detail="Staff not found.")
  
-    # Check user account still active
     if staff.user_id:
         user_result = await db.execute(
             select(User).where(User.user_id == staff.user_id)
@@ -122,9 +119,7 @@ async def refresh_service(
                     "action":  "FULL_LOGIN",
                 },
             )
- 
     is_manager = staff_role.is_manager if staff_role else False
- 
     token_data = {
         "sub":           str(staff.user_id),
         "staff_id":      staff.staff_id,
@@ -138,8 +133,6 @@ async def refresh_service(
         "access_expires_in": settings.ACCESS_TOKEN_EXPIRE_MINUTES * 60,
     }
  
-
-
 # =================================================================
 # 
 # =================================================================
@@ -166,9 +159,6 @@ async def scan_auth_service(
         select(User).where(User.user_id == staff.user_id)
     )
     user = user_result.scalar_one_or_none()
-
-
- 
     if not user or not verify_password(password, user.password_hash):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

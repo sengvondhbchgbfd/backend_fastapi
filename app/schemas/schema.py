@@ -161,6 +161,7 @@ class ScanRequest(BaseModel):
     office_qr_token: str
     latitude:        str
     longitude:       str
+    company_id:      str
 
 
 class ScanResponse(BaseModel):
@@ -714,7 +715,7 @@ class StockMovementResponse(StockMovementBase):
 
 class SupplierBase(BaseModel):
     name:           str              = Field(..., min_length=2, max_length=200)
-    company_id:           str        = Field(..., min_length=2, max_length=200)
+    company_id:     int                
     contact_person: Optional[str]    = Field(None, max_length=150)
     phone:          Optional[str]    = Field(None, max_length=20)
     email:          Optional[EmailStr] = None
@@ -739,8 +740,10 @@ class SupplierResponse(SupplierBase):
     supplier_id: int
     created_at:  datetime
 
+
     class Config:
         from_attributes = True
+
 
 
 # ============================================================================
@@ -831,6 +834,19 @@ class InvoiceItemResponse(InvoiceItemBase):
 
     class Config:
         from_attributes = True
+
+
+class InvoiceAttachmentResponse(BaseModel):
+    attachment_id: int
+    company_id:    int
+    invoice_id:    int
+    file_url:      str
+    public_id:     str
+    file_name:     Optional[str] = None
+    file_type:     Optional[str] = None
+    created_at:    datetime
+ 
+    model_config = {"from_attributes": True}
 
 
 # ============================================================================

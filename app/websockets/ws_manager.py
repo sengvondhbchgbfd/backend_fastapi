@@ -6,12 +6,12 @@ import redis.asyncio as redis
 from app.core.config import settings
 
 
+
 class WebSocketManager:
     """
     Manages active WebSocket connections per user.
     One user can have multiple connections (phone + browser).
     """
-
     def __init__(self):
         # { user_id: set of WebSocket connections }
         self.connections: Dict[int, Set[WebSocket]] = {}
@@ -28,8 +28,6 @@ class WebSocketManager:
             self.connections[user_id].discard(websocket)
             if not self.connections[user_id]:
                 del self.connections[user_id]
-
-
 
     async def send_to_user(self, user_id: int, data: dict) -> None:
         """Push notification to all connections of a user."""
@@ -50,12 +48,8 @@ class WebSocketManager:
 
     def online_users(self) -> list[int]:
         return list(self.connections.keys())
-
-
 # Global instance — shared across all requests
 ws_manager = WebSocketManager()
-
-
 # ===========================================================================
 # Redis Pub/Sub listener
 # Runs in background — listens for published notifications
@@ -97,7 +91,6 @@ async def start_redis_pubsub_listener() -> None:
         except Exception as e:
             print(f"❌ Redis Pub/Sub connection error: {e}. Retrying in 3s...")
             await asyncio.sleep(3)   # retry on disconnect
-
 
 # ===========================================================================
 # Publish helper — called from notification_service.send()

@@ -30,6 +30,7 @@ docker exec -it postgres_db psql -U postgres |=> connect postgres_db
 \c financaildb |=> to connect
 \d table |=> check table 
 q |=> out
+\l |=> check db
 {
 ALTER TABLE users ALTER COLUMN created_at SET DEFAULT now();
 ALTER TABLE users ALTER COLUMN updated_at SET DEFAULT now();
@@ -103,3 +104,22 @@ CREATE TABLE company_status_history (
     changed_by INT NOT NULL,
     changed_at TIMESTAMPTZ DEFAULT now() NOT NULL
 );
+
+//////////////////////////////////////////////
+
+SELECT * FROM refresh_token
+WHERE user_id = 15
+ORDER BY created_at DESC
+LIMIT 10
+
+DELETE FROM refresh_token WHERE user_id = 15;
+
+
+SELECT *
+FROM refresh_token
+ORDER BY created_at DESC;
+
+SELECT *
+FROM refresh_token
+WHERE user_id = 15
+  AND is_revoked = FALSE;

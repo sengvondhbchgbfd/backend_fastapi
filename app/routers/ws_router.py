@@ -1,12 +1,10 @@
 import json
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.websockets.ws_manager import ws_manager
 from app.core.security import decode_access_token
 from app.dependencies import get_db
-from app.repositories.notifications_repository import NotificationRepository
-from app.services.notifications_service import NotificationService
+from app.repositories.communication.notifications_repository import NotificationRepository
 
 ws_router = APIRouter(tags=["WebSocket"])
 

@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.websockets.chat_ws_manager import chat_ws_manager
 from app.core.security import decode_access_token
 from app.dependencies import get_db
-from app.repositories.chat_repository import ChatRepository
+from app.repositories.communication.chat_repository import ChatRepository
 
 chat_ws_router = APIRouter(tags=["Chat WebSocket"])
 
