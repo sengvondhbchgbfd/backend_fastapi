@@ -22,8 +22,6 @@ class ChatGroupMember(Base):
     joined_at:  Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
     is_admin:   Mapped[bool]     = mapped_column(Boolean, default=False, nullable=False)
 
-
-
     # Relationships
     company: Mapped["Company"]   = relationship("Company",   back_populates="chat_group_members")
     group:   Mapped["ChatGroup"] = relationship("ChatGroup", back_populates="members")

@@ -13,10 +13,12 @@ ALLOWED_IMAGE_TYPES: set[str] = {
     "image/jpeg", "image/png", "image/webp",
     "image/gif",  "image/svg+xml",
 }
+
 ALLOWED_VIDEO_TYPES: set[str] = {
     "video/mp4", "video/mov", "video/avi",
     "video/webm", "video/quicktime",
 }
+
 ALLOWED_FILE_TYPES: set[str] = {
     "application/pdf",
     "application/zip",
@@ -31,7 +33,6 @@ MAX_FILE_SIZE:  int = 50  * 1024 * 1024   # 50 MB
 
 
 # ── CloudinaryStorage ─────────────────────────────────────────────────────────
-
 class CloudinaryStorage(BaseStorage):
     """
     Concrete implementation of BaseStorage using Cloudinary.
@@ -49,7 +50,6 @@ class CloudinaryStorage(BaseStorage):
         extra_options: dict | None = None,
     ) -> dict:
         extra_options = extra_options or {}
-
         # 1. Validate MIME type
         if file.content_type not in allowed_types:
             raise HTTPException(
@@ -59,7 +59,7 @@ class CloudinaryStorage(BaseStorage):
                     f"Allowed: {sorted(allowed_types)}"
                 ),
             )
-
+        
         # 2. Read & validate size
         data = await file.read()
         if len(data) > max_size:
@@ -67,8 +67,10 @@ class CloudinaryStorage(BaseStorage):
                 status_code=413,
                 detail=f"File too large. Max allowed: {max_size // (1024 * 1024)} MB.",
             )
+        
 
-        # 3. Push to Cloudinary (blocking SDK → thread pool)
+        # 3. Push to Cloudinary (blocking SDK → thread pool) || asyncio.get_event_loop() => od basic (works only inside async def) || asyncio.run() => new modern
+        # loop.run_in_executor() |=> Run this blocking code in a separate thread, so my async app doesn’t freeze | None = use default ThreadPoolExecutor
         try:
             loop = asyncio.get_event_loop()
             result: dict = await loop.run_in_executor(
@@ -120,6 +122,8 @@ class CloudinaryStorage(BaseStorage):
             extra_options={"chunk_size": 6_000_000},
         )
 
+
+
     async def upload_file(self, file: UploadFile, folder: str = "files") -> dict:
         """PDF / ZIP / CSV / DOCX / XLSX. Max 50 MB."""
         return await self._upload(
@@ -129,6 +133,8 @@ class CloudinaryStorage(BaseStorage):
             allowed_types=ALLOWED_FILE_TYPES,
             max_size=MAX_FILE_SIZE,
         )
+
+
 
     async def delete_asset(self, public_id: str, resource_type: str = "image") -> dict:
         """Soft-safe delete — returns status dict, never raises on 'not found'."""
@@ -153,6 +159,8 @@ class CloudinaryStorage(BaseStorage):
             return {"deleted": public_id, "status": "already_deleted", "message": "Asset not found (skipped)"}
 
         raise HTTPException(status_code=500, detail=f"Unexpected Cloudinary response: {result}")
+
+
 
 
 # ── One-time init (call inside lifespan) ──────────────────────────────────────

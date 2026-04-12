@@ -18588,3 +18588,888 @@ Traceback (most recent call last):
                  └ <app.services.auth_service.AuthService object at 0x7a940437ee10>
 
 TypeError: AuthRepository.get_by_id() missing 1 required positional argument: 'company_id'
+2026-04-12 16:08:22 | ERROR | app.middleware.error_middleware:70 | [12334355] UNHANDLED EXCEPTION: type object 'ChatMessage' has no attribute 'created_at'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 13
+               └ <function _main at 0x7b907881e160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7b90788ef740>
+           └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7b90788eeca0>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7b90779393d0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    └ <function subprocess_started at 0x7b90777aee80>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7b907769fdd0>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x7b9077935ee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x7b90779393d0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7b90777adc60>
+           │           └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           └ <function asyncio_run at 0x7b907790e700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7b9077661a80>
+           │      └ <function Runner.run at 0x7b9077b8b100>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7b90776e4580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061ec0e00>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec0180>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7b9072991810>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061ec2980>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7b9061d04450>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7b9061d04450>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061ec2980>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061ec3920>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061ec3920>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x7b9061d04ad0>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7b907287e410>>
+          └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │     └ <function Route.handle at 0x7b9076516a20>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x7b9070dc0860>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x7b9061d04c90>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7b9061ec1260>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec09a0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7b9061ec1260>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7b9061d04c90>
+                     └ <function get_request_handler.<locals>.app at 0x7b9070dc0680>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7b9076538ea0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'current_user': {'sub': '15', 'company_id': 5, 'role': 'superuser', 'permissions': ['*'], 'staff_id': 5, 'is_manager': False...
+                 │         └ <function get_messages at 0x7b9072997060>
+                 └ Dependant(path_params=[ModelField(field_info=Path(PydanticUndefined), name='group_id', mode='validation', config=None)], quer...
+
+  File "/app/app/routers/communication/chat_router.py", line 300, in get_messages
+    return await service.get_messages(
+                 │       └ <function ChatService.get_messages at 0x7b9072995800>
+                 └ <app.services.communication.chat_service.ChatService object at 0x7b9061eb0e90>
+
+  File "/app/app/services/communication/chat_service.py", line 420, in get_messages
+    messages = await self.repo.get_messages(group_id, company_id, skip, limit)
+                     │    │    │            │         │           │     └ 50
+                     │    │    │            │         │           └ 0
+                     │    │    │            │         └ 5
+                     │    │    │            └ 11
+                     │    │    └ <function ChatRepository.get_messages at 0x7b90729949a0>
+                     │    └ <app.repositories.communication.chat_repository.ChatRepository object at 0x7b9061d01210>
+                     └ <app.services.communication.chat_service.ChatService object at 0x7b9061eb0e90>
+
+  File "/app/app/repositories/communication/chat_repository.py", line 178, in get_messages
+    .order_by(ChatMessage.created_at.desc())
+              └ <class 'app.models.chat.chat_message.ChatMessage'>
+
+AttributeError: type object 'ChatMessage' has no attribute 'created_at'
+2026-04-12 16:08:33 | ERROR | app.middleware.error_middleware:70 | [f29017dd] UNHANDLED EXCEPTION: type object 'ChatMessage' has no attribute 'created_at'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 13
+               └ <function _main at 0x7b907881e160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7b90788ef740>
+           └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7b90788eeca0>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7b90779393d0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    └ <function subprocess_started at 0x7b90777aee80>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7b907769fdd0>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x7b9077935ee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x7b90779393d0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7b90777adc60>
+           │           └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           └ <function asyncio_run at 0x7b907790e700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7b9077661a80>
+           │      └ <function Runner.run at 0x7b9077b8b100>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7b90776e4580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061ec3740>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec0e00>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7b9072991810>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061d3cae0>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7b9061db0990>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7b9061db0990>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061d3cae0>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061d3ca40>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061d3ca40>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x7b9061db0f10>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7b907287e410>>
+          └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │     └ <function Route.handle at 0x7b9076516a20>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x7b9070dc0860>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x7b9061db1110>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7b9061d3cf40>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d080>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7b9061d3cf40>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7b9061db1110>
+                     └ <function get_request_handler.<locals>.app at 0x7b9070dc0680>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7b9076538ea0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'current_user': {'sub': '15', 'company_id': 5, 'role': 'superuser', 'permissions': ['*'], 'staff_id': 5, 'is_manager': False...
+                 │         └ <function get_messages at 0x7b9072997060>
+                 └ Dependant(path_params=[ModelField(field_info=Path(PydanticUndefined), name='group_id', mode='validation', config=None)], quer...
+
+  File "/app/app/routers/communication/chat_router.py", line 300, in get_messages
+    return await service.get_messages(
+                 │       └ <function ChatService.get_messages at 0x7b9072995800>
+                 └ <app.services.communication.chat_service.ChatService object at 0x7b9061eb7850>
+
+  File "/app/app/services/communication/chat_service.py", line 420, in get_messages
+    messages = await self.repo.get_messages(group_id, company_id, skip, limit)
+                     │    │    │            │         │           │     └ 50
+                     │    │    │            │         │           └ 0
+                     │    │    │            │         └ 5
+                     │    │    │            └ 11
+                     │    │    └ <function ChatRepository.get_messages at 0x7b90729949a0>
+                     │    └ <app.repositories.communication.chat_repository.ChatRepository object at 0x7b9061eb22d0>
+                     └ <app.services.communication.chat_service.ChatService object at 0x7b9061eb7850>
+
+  File "/app/app/repositories/communication/chat_repository.py", line 178, in get_messages
+    .order_by(ChatMessage.created_at.desc())
+              └ <class 'app.models.chat.chat_message.ChatMessage'>
+
+AttributeError: type object 'ChatMessage' has no attribute 'created_at'
+2026-04-12 16:09:14 | ERROR | app.middleware.error_middleware:70 | [65c1d90e] UNHANDLED EXCEPTION: type object 'ChatMessage' has no attribute 'created_at'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 13
+               └ <function _main at 0x7b907881e160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7b90788ef740>
+           └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7b90788eeca0>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7b90779393d0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    └ <function subprocess_started at 0x7b90777aee80>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7b907769fdd0>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x7b9077935ee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x7b90779393d0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7b90777adc60>
+           │           └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           └ <function asyncio_run at 0x7b907790e700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7b9077661a80>
+           │      └ <function Runner.run at 0x7b9077b8b100>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7b90776e4580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061d3d6c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2f20>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7b9072991810>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061d3d800>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7b9061db2f50>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7b9061db2f50>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061d3d800>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061d3d1c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061d3d1c0>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x7b9061dc43d0>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7b907287e410>>
+          └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │     └ <function Route.handle at 0x7b9076516a20>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x7b9070dc0860>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x7b9061dc4490>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7b9061d3dbc0>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d8a0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7b9061d3dbc0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7b9061dc4490>
+                     └ <function get_request_handler.<locals>.app at 0x7b9070dc0680>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7b9076538ea0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'current_user': {'sub': '15', 'company_id': 5, 'role': 'superuser', 'permissions': ['*'], 'staff_id': 5, 'is_manager': False...
+                 │         └ <function get_messages at 0x7b9072997060>
+                 └ Dependant(path_params=[ModelField(field_info=Path(PydanticUndefined), name='group_id', mode='validation', config=None)], quer...
+
+  File "/app/app/routers/communication/chat_router.py", line 300, in get_messages
+    return await service.get_messages(
+                 │       └ <function ChatService.get_messages at 0x7b9072995800>
+                 └ <app.services.communication.chat_service.ChatService object at 0x7b9061d04490>
+
+  File "/app/app/services/communication/chat_service.py", line 420, in get_messages
+    messages = await self.repo.get_messages(group_id, company_id, skip, limit)
+                     │    │    │            │         │           │     └ 50
+                     │    │    │            │         │           └ 0
+                     │    │    │            │         └ 5
+                     │    │    │            └ 11
+                     │    │    └ <function ChatRepository.get_messages at 0x7b90729949a0>
+                     │    └ <app.repositories.communication.chat_repository.ChatRepository object at 0x7b9061eb0d90>
+                     └ <app.services.communication.chat_service.ChatService object at 0x7b9061d04490>
+
+  File "/app/app/repositories/communication/chat_repository.py", line 178, in get_messages
+    .order_by(ChatMessage.created_at.desc())
+              └ <class 'app.models.chat.chat_message.ChatMessage'>
+
+AttributeError: type object 'ChatMessage' has no attribute 'created_at'
+2026-04-12 16:14:50 | ERROR | app.middleware.error_middleware:70 | [e41e1237] UNHANDLED EXCEPTION: type object 'ChatMessage' has no attribute 'created_at'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 11
+               └ <function _main at 0x73786715e160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x73786722f740>
+           └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x73786722eca0>
+    └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x73786626d450>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+    │    └ <function subprocess_started at 0x7378660dee80>
+    └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x737865fd0210>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x737866269ee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x73786626d450>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x737865fd0210>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7378660ddc60>
+           │           └ <uvicorn.server.Server object at 0x737865fd0210>
+           └ <function asyncio_run at 0x737866242700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x737865f91a80>
+           │      └ <function Runner.run at 0x7378664c7100>
+           └ <asyncio.runners.Runner object at 0x737865fd1950>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x737866014580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x737865fd1950>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x73785955df80>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955dee0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7378613ee390>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x73785b69a520>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7378612b7510>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7378612b7510>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x73785b69a520>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x73785955e2a0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7378613b74d0>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x73785955e2a0>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x737862532a10>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7378613b74d0>
+          └ <function wrap_app_handling_exceptions at 0x737864e49440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x73786116a1d0>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x73786116a1d0>>
+          └ <fastapi.routing.APIRouter object at 0x73786116a1d0>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │     └ <function Route.handle at 0x737864e4aa20>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x73785b698540>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x737859537e10>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x73785955e660>
+          └ <function wrap_app_handling_exceptions at 0x737864e49440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e7a0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x73785955e660>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x737859537e10>
+                     └ <function get_request_handler.<locals>.app at 0x73785b698360>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x737864e6cea0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'current_user': {'sub': '15', 'company_id': 5, 'role': 'superuser', 'permissions': ['*'], 'staff_id': 5, 'is_manager': False...
+                 │         └ <function get_messages at 0x737861286d40>
+                 └ Dependant(path_params=[ModelField(field_info=Path(PydanticUndefined), name='group_id', mode='validation', config=None)], quer...
+
+  File "/app/app/routers/communication/chat_router.py", line 331, in get_messages
+    return await service.get_messages(
+                 │       └ <function ChatService.get_messages at 0x7378612854e0>
+                 └ <app.services.communication.chat_service.ChatService object at 0x7378611e7d10>
+
+  File "/app/app/services/communication/chat_service.py", line 420, in get_messages
+    messages = await self.repo.get_messages(group_id, company_id, skip, limit)
+                     │    │    │            │         │           │     └ 50
+                     │    │    │            │         │           └ 0
+                     │    │    │            │         └ 5
+                     │    │    │            └ 11
+                     │    │    └ <function ChatRepository.get_messages at 0x737861284680>
+                     │    └ <app.repositories.communication.chat_repository.ChatRepository object at 0x737859575e90>
+                     └ <app.services.communication.chat_service.ChatService object at 0x7378611e7d10>
+
+  File "/app/app/repositories/communication/chat_repository.py", line 178, in get_messages
+    .order_by(ChatMessage.created_at.desc())
+              └ <class 'app.models.chat.chat_message.ChatMessage'>
+
+AttributeError: type object 'ChatMessage' has no attribute 'created_at'
+2026-04-12 16:14:55 | ERROR | app.middleware.error_middleware:70 | [2160aa39] UNHANDLED EXCEPTION: type object 'ChatMessage' has no attribute 'created_at'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 11
+               └ <function _main at 0x73786715e160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x73786722f740>
+           └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x73786722eca0>
+    └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x73786626d450>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+    │    └ <function subprocess_started at 0x7378660dee80>
+    └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x737865fd0210>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x737866269ee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x73786626d450>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x737865fd0210>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7378660ddc60>
+           │           └ <uvicorn.server.Server object at 0x737865fd0210>
+           └ <function asyncio_run at 0x737866242700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x737865f91a80>
+           │      └ <function Runner.run at 0x7378664c7100>
+           └ <asyncio.runners.Runner object at 0x737865fd1950>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x737866014580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x737865fd1950>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x73785955dda0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e0c0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7378613ee390>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x737858a913a0>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x737858921290>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x737858921290>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x737858a913a0>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x737858a91440>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7378613b74d0>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x737858a91440>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x737858921910>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7378613b74d0>
+          └ <function wrap_app_handling_exceptions at 0x737864e49440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x73786116a1d0>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x73786116a1d0>>
+          └ <fastapi.routing.APIRouter object at 0x73786116a1d0>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │     └ <function Route.handle at 0x737864e4aa20>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x73785b698540>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x737858921ad0>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x737858a91800>
+          └ <function wrap_app_handling_exceptions at 0x737864e49440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91940>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x737858a91800>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x737858921ad0>
+                     └ <function get_request_handler.<locals>.app at 0x73785b698360>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x737864e6cea0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'current_user': {'sub': '15', 'company_id': 5, 'role': 'superuser', 'permissions': ['*'], 'staff_id': 5, 'is_manager': False...
+                 │         └ <function get_messages at 0x737861286d40>
+                 └ Dependant(path_params=[ModelField(field_info=Path(PydanticUndefined), name='group_id', mode='validation', config=None)], quer...
+
+  File "/app/app/routers/communication/chat_router.py", line 331, in get_messages
+    return await service.get_messages(
+                 │       └ <function ChatService.get_messages at 0x7378612854e0>
+                 └ <app.services.communication.chat_service.ChatService object at 0x737859575150>
+
+  File "/app/app/services/communication/chat_service.py", line 420, in get_messages
+    messages = await self.repo.get_messages(group_id, company_id, skip, limit)
+                     │    │    │            │         │           │     └ 50
+                     │    │    │            │         │           └ 0
+                     │    │    │            │         └ 5
+                     │    │    │            └ 11
+                     │    │    └ <function ChatRepository.get_messages at 0x737861284680>
+                     │    └ <app.repositories.communication.chat_repository.ChatRepository object at 0x737858922650>
+                     └ <app.services.communication.chat_service.ChatService object at 0x737859575150>
+
+  File "/app/app/repositories/communication/chat_repository.py", line 178, in get_messages
+    .order_by(ChatMessage.created_at.desc())
+              └ <class 'app.models.chat.chat_message.ChatMessage'>
+
+AttributeError: type object 'ChatMessage' has no attribute 'created_at'

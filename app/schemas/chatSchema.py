@@ -34,12 +34,6 @@ class DirectMessageCreate(BaseModel):
     class Config:
         json_schema_extra = {"example": {"staff_id": 2}}
 
-
-
-
-
-
-
 class ChatGroupResponse(BaseModel):
     group_id:   int
     company_id: int
@@ -85,13 +79,19 @@ class ChatMessageResponse(BaseModel):
     company_id:   int
     sender_id:    int
     sender_name:  Optional[str] = None
+    reply_to_id:  Optional[str] = None
     message_type: str
     content:      Optional[str] = None
     file_url:     Optional[str] = None
+    publice:      Optional[str] = None
     file_name:    Optional[str] = None
     file_size:    Optional[int] = None
+    duration_secs: Optional[int] = None
     is_deleted:   bool
+    media_thumbnail: Optional[str] = None
     created_at:   datetime
+
+
 
     class Config:
         from_attributes = True

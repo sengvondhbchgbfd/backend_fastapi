@@ -1,5 +1,4 @@
 from fastapi import APIRouter, Depends, status, Query
-
 from app.schemas.schema import (
     NotificationCreate,
     NotificationResponse,
@@ -8,14 +7,7 @@ from app.schemas.schema import (
 )
 from app.services.communication.notifications_service import NotificationService, get_notification_service
 from app.utils.auth import  require_login, require_admin
-
-notification_router = APIRouter(
-    prefix="/notifications",
-    tags=["Notifications"],
-)
-
-
-
+notification_router = APIRouter(prefix="/notifications",tags=["Notifications"])
 
 # ===========================================================================
 # USER — own notifications
@@ -34,11 +26,6 @@ async def get_my_notifications(
     )
 
 
-
-
-
-
-
 @notification_router.get("/my/summary", response_model=NotificationSummaryResponse, summary="Get my notification counts")
 async def get_my_summary(
     current_user: dict = Depends(require_login),
@@ -48,7 +35,6 @@ async def get_my_summary(
         user_id    = int(current_user["sub"]),
         company_id = current_user["company_id"],
     )
-
 
 
 
@@ -81,6 +67,8 @@ async def mark_all_read(
 
 
 
+
+
 @notification_router.patch("/my/bulk-read", summary="Mark multiple notifications as read")
 async def bulk_mark_read(
     data:         BulkMarkReadRequest,
@@ -92,6 +80,7 @@ async def bulk_mark_read(
         user_id    = int(current_user["sub"]),
         company_id = current_user["company_id"],
     )
+
 
 
 @notification_router.delete("/my/{notification_id}", summary="Delete one notification")
@@ -107,8 +96,6 @@ async def delete_one(
     )
 
 
-
-
 @notification_router.delete("/my/clear-read", summary="Delete all read notifications")
 async def delete_all_read(
     current_user: dict = Depends(require_login),
@@ -118,7 +105,6 @@ async def delete_all_read(
         user_id    = int(current_user["sub"]),
         company_id = current_user["company_id"],
     )
-
 
 # ===========================================================================
 # ADMIN

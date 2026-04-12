@@ -4,8 +4,10 @@ class BaseStorage(ABC):
     """
     Polymorphic storage interface.
     Swap Cloudinary → S3 → local without touching any calling code.
+
     """
     # ── Upload ────────────────────────────────────────────
+
     @abstractmethod
     async def upload_image(self, file: UploadFile, folder: str = "images") -> dict: ...
 
@@ -15,11 +17,12 @@ class BaseStorage(ABC):
     @abstractmethod
     async def upload_file(self, file: UploadFile, folder: str = "files") -> dict: ...
 
-    # ── Delete ────────────────────────────────────────────
+
     @abstractmethod
     async def delete_asset(self, public_id: str, resource_type: str = "image") -> dict: ...
 
-
+    # ── Delete ────────────────────────────────────────────
+    
     # ── Quick replace helpers (upload + delete old) ───────
     
     async def replace_asset(

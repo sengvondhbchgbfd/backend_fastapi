@@ -12,16 +12,10 @@ if TYPE_CHECKING:
     from .chat_message import ChatMessage
     from .chat_group_member import ChatGroupMember
 
-
-
-
 class ChatType(str, enum.Enum):
     group  = "group"
     direct = "direct"
  
- 
-
-
 
 class ChatGroup(Base):
     __tablename__ = "chat_groups"
@@ -34,11 +28,6 @@ class ChatGroup(Base):
     created_by: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("users.user_id"), nullable=True)
     is_active:  Mapped[bool]     = mapped_column(Boolean, default=True, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
-
-
-
-
-
 
     # Relationships
     company: Mapped["Company"]               = relationship("Company",         back_populates="chat_groups")

@@ -31973,3 +31973,1703 @@ TypeError: AuthRepository.get_by_id() missing 1 required positional argument: 'c
 2026-04-08 16:09:53 | INFO | app.main:87 | WebSocket listeners started
 2026-04-08 16:10:01 | INFO | app.main:92 | Server shutting down...
 2026-04-08 16:10:01 | INFO | app.main:104 | Redis disconnected
+2026-04-08 16:10:08 | INFO | app.main:55 | Server starting...
+2026-04-08 16:10:08 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 16:10:08 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 16:10:08 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 16:11:28 | INFO | app.middleware.logging_middleware:13 | [1b2e3a69] → POST /attendance/my | ip:172.18.0.1
+2026-04-08 16:11:28 | WARNING | app.middleware.logging_middleware:26 | [1b2e3a69] ← 405 POST /attendance/my | 3.38ms
+2026-04-08 16:11:36 | INFO | app.middleware.logging_middleware:13 | [c42146dd] → GET /attendance/my | ip:172.18.0.1
+2026-04-08 16:11:36 | INFO | app.middleware.logging_middleware:26 | [c42146dd] ← 200 GET /attendance/my | 418.46ms
+2026-04-08 16:12:23 | INFO | app.middleware.logging_middleware:13 | [4d91587c] → GET /attendance/ | ip:172.18.0.1
+2026-04-08 16:12:23 | INFO | app.middleware.logging_middleware:26 | [4d91587c] ← 200 GET /attendance/ | 64.83ms
+2026-04-08 16:12:29 | INFO | app.middleware.logging_middleware:13 | [16b2509a] → GET /attendance/ | ip:172.18.0.1
+2026-04-08 16:12:29 | INFO | app.middleware.logging_middleware:26 | [16b2509a] ← 200 GET /attendance/ | 11.45ms
+2026-04-08 16:13:14 | INFO | app.middleware.logging_middleware:13 | [4ef39417] → GET /chat/groups | ip:172.18.0.1
+2026-04-08 16:13:14 | INFO | app.middleware.logging_middleware:26 | [4ef39417] ← 200 GET /chat/groups | 100.23ms
+2026-04-08 16:20:45 | INFO | app.middleware.logging_middleware:13 | [19e9da6a] → GET /chat/groups/my | ip:172.18.0.1
+2026-04-08 16:20:45 | INFO | app.middleware.logging_middleware:26 | [19e9da6a] ← 200 GET /chat/groups/my | 62.31ms
+2026-04-08 16:21:33 | INFO | app.main:92 | Server shutting down...
+2026-04-08 16:21:33 | INFO | app.main:104 | Redis disconnected
+2026-04-08 16:21:41 | INFO | app.main:55 | Server starting...
+2026-04-08 16:21:41 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 16:21:41 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 16:21:41 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 16:38:25 | INFO | app.main:92 | Server shutting down...
+2026-04-08 16:38:25 | INFO | app.main:104 | Redis disconnected
+2026-04-08 16:38:35 | INFO | app.main:55 | Server starting...
+2026-04-08 16:38:35 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 16:38:35 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 16:38:35 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:14:05 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:14:06 | INFO | app.main:104 | Redis disconnected
+2026-04-08 17:14:13 | INFO | app.main:55 | Server starting...
+2026-04-08 17:14:13 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:14:13 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:14:13 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:14:20 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:14:27 | INFO | app.main:55 | Server starting...
+2026-04-08 17:14:27 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:14:27 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:14:27 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:14:36 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:14:41 | INFO | app.main:55 | Server starting...
+2026-04-08 17:14:41 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:14:41 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:14:41 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:15:39 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:15:39 | INFO | app.main:104 | Redis disconnected
+2026-04-08 17:15:45 | INFO | app.main:55 | Server starting...
+2026-04-08 17:15:45 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:15:45 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:15:45 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:16:06 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:16:06 | INFO | app.main:104 | Redis disconnected
+2026-04-08 17:16:12 | INFO | app.main:55 | Server starting...
+2026-04-08 17:16:12 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:16:12 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:16:12 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:17:11 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:17:11 | INFO | app.main:104 | Redis disconnected
+2026-04-08 17:18:23 | INFO | app.main:55 | Server starting...
+2026-04-08 17:18:23 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:18:23 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:18:23 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:18:34 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:18:34 | INFO | app.main:104 | Redis disconnected
+2026-04-08 17:18:41 | INFO | app.main:55 | Server starting...
+2026-04-08 17:18:41 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:18:41 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:18:41 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:18:48 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:18:48 | INFO | app.main:104 | Redis disconnected
+2026-04-08 17:18:56 | INFO | app.main:55 | Server starting...
+2026-04-08 17:18:56 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:18:56 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:18:56 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:19:03 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:19:11 | INFO | app.main:55 | Server starting...
+2026-04-08 17:19:11 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:19:11 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:19:11 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:21:11 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:21:11 | INFO | app.main:104 | Redis disconnected
+2026-04-08 17:21:21 | INFO | app.main:55 | Server starting...
+2026-04-08 17:21:21 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:21:21 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:21:21 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:21:29 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:21:29 | INFO | app.main:104 | Redis disconnected
+2026-04-08 17:21:38 | INFO | app.main:55 | Server starting...
+2026-04-08 17:21:38 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:21:38 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:21:38 | INFO | app.main:87 | WebSocket listeners started
+2026-04-08 17:22:57 | INFO | app.main:92 | Server shutting down...
+2026-04-08 17:22:57 | INFO | app.main:104 | Redis disconnected
+2026-04-08 17:23:04 | INFO | app.main:55 | Server starting...
+2026-04-08 17:23:04 | INFO | app.main:68 | Redis connected successfully
+2026-04-08 17:23:04 | INFO | app.main:74 | Cloudinary initialized
+2026-04-08 17:23:04 | INFO | app.main:87 | WebSocket listeners started
+2026-04-09 14:52:07 | INFO | app.main:55 | Server starting...
+2026-04-09 14:52:07 | INFO | app.main:68 | Redis connected successfully
+2026-04-09 14:52:07 | INFO | app.main:74 | Cloudinary initialized
+2026-04-09 14:52:07 | INFO | app.main:87 | WebSocket listeners started
+2026-04-09 15:21:59 | INFO | app.main:92 | Server shutting down...
+2026-04-09 15:21:59 | INFO | app.main:104 | Redis disconnected
+2026-04-10 02:07:49 | INFO | app.main:55 | Server starting...
+2026-04-10 02:07:49 | INFO | app.main:68 | Redis connected successfully
+2026-04-10 02:07:49 | INFO | app.main:74 | Cloudinary initialized
+2026-04-10 02:07:49 | INFO | app.main:87 | WebSocket listeners started
+2026-04-10 08:15:21 | INFO | app.main:92 | Server shutting down...
+2026-04-10 08:15:21 | INFO | app.main:104 | Redis disconnected
+2026-04-10 13:05:17 | INFO | app.main:55 | Server starting...
+2026-04-10 13:05:17 | INFO | app.main:68 | Redis connected successfully
+2026-04-10 13:05:17 | INFO | app.main:74 | Cloudinary initialized
+2026-04-10 13:05:17 | INFO | app.main:87 | WebSocket listeners started
+2026-04-10 13:05:41 | INFO | app.main:92 | Server shutting down...
+2026-04-10 13:05:41 | INFO | app.main:104 | Redis disconnected
+2026-04-11 04:18:20 | INFO | app.main:55 | Server starting...
+2026-04-11 04:18:20 | INFO | app.main:68 | Redis connected successfully
+2026-04-11 04:18:20 | INFO | app.main:74 | Cloudinary initialized
+2026-04-11 04:18:20 | INFO | app.main:87 | WebSocket listeners started
+2026-04-11 04:18:57 | INFO | app.main:92 | Server shutting down...
+2026-04-11 04:18:57 | INFO | app.main:104 | Redis disconnected
+2026-04-11 14:25:18 | INFO | app.main:55 | Server starting...
+2026-04-11 14:25:18 | INFO | app.main:68 | Redis connected successfully
+2026-04-11 14:25:18 | INFO | app.main:74 | Cloudinary initialized
+2026-04-11 14:25:18 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 01:53:15 | INFO | app.main:55 | Server starting...
+2026-04-12 01:53:15 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 01:53:15 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 01:53:15 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 01:53:59 | INFO | app.main:92 | Server shutting down...
+2026-04-12 01:53:59 | INFO | app.main:104 | Redis disconnected
+2026-04-12 07:18:18 | INFO | app.main:55 | Server starting...
+2026-04-12 07:18:18 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 07:18:18 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 07:18:18 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:11:07 | INFO | app.main:55 | Server starting...
+2026-04-12 15:11:07 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 15:11:07 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 15:11:07 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:14:04 | INFO | app.middleware.logging_middleware:13 | [b6eefa45] → GET /docs | ip:172.18.0.1
+2026-04-12 15:14:04 | INFO | app.middleware.logging_middleware:26 | [b6eefa45] ← 200 GET /docs | 4.13ms
+2026-04-12 15:14:05 | INFO | app.middleware.logging_middleware:13 | [e79e7cc8] → GET /openapi.json | ip:172.18.0.1
+2026-04-12 15:14:06 | INFO | app.middleware.logging_middleware:26 | [e79e7cc8] ← 200 GET /openapi.json | 1247.65ms
+2026-04-12 15:14:15 | INFO | app.middleware.logging_middleware:13 | [cac64758] → GET /docs | ip:172.18.0.1
+2026-04-12 15:14:15 | INFO | app.middleware.logging_middleware:26 | [cac64758] ← 200 GET /docs | 2.81ms
+2026-04-12 15:14:16 | INFO | app.middleware.logging_middleware:13 | [2777e214] → GET /openapi.json | ip:172.18.0.1
+2026-04-12 15:14:16 | INFO | app.middleware.logging_middleware:26 | [2777e214] ← 200 GET /openapi.json | 18.25ms
+2026-04-12 15:14:16 | INFO | app.middleware.logging_middleware:13 | [557a7f44] → GET /docs | ip:172.18.0.1
+2026-04-12 15:14:16 | INFO | app.middleware.logging_middleware:26 | [557a7f44] ← 200 GET /docs | 2.7ms
+2026-04-12 15:14:16 | INFO | app.middleware.logging_middleware:13 | [3ea77def] → GET /openapi.json | ip:172.18.0.1
+2026-04-12 15:14:16 | INFO | app.middleware.logging_middleware:26 | [3ea77def] ← 200 GET /openapi.json | 22.58ms
+2026-04-12 15:14:29 | INFO | app.middleware.logging_middleware:13 | [bc826e57] → POST /auth/refresh | ip:172.18.0.1
+2026-04-12 15:14:29 | WARNING | app.middleware.logging_middleware:26 | [bc826e57] ← 401 POST /auth/refresh | 341.59ms
+2026-04-12 15:15:36 | INFO | app.main:92 | Server shutting down...
+2026-04-12 15:15:36 | INFO | app.main:104 | Redis disconnected
+2026-04-12 15:15:46 | INFO | app.main:55 | Server starting...
+2026-04-12 15:15:46 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 15:15:46 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 15:15:46 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:17:25 | INFO | app.main:92 | Server shutting down...
+2026-04-12 15:17:37 | INFO | app.main:55 | Server starting...
+2026-04-12 15:17:37 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 15:17:37 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 15:17:37 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:17:45 | INFO | app.main:92 | Server shutting down...
+2026-04-12 15:17:45 | INFO | app.main:104 | Redis disconnected
+2026-04-12 15:17:53 | INFO | app.main:55 | Server starting...
+2026-04-12 15:17:53 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 15:17:53 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 15:17:53 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:29:39 | INFO | app.main:92 | Server shutting down...
+2026-04-12 15:29:39 | INFO | app.main:104 | Redis disconnected
+2026-04-12 15:29:53 | INFO | app.main:55 | Server starting...
+2026-04-12 15:29:53 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 15:29:53 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 15:29:53 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:30:02 | INFO | app.main:92 | Server shutting down...
+2026-04-12 15:30:11 | INFO | app.main:55 | Server starting...
+2026-04-12 15:30:11 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 15:30:11 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 15:30:11 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:30:19 | INFO | app.main:92 | Server shutting down...
+2026-04-12 15:30:27 | INFO | app.main:55 | Server starting...
+2026-04-12 15:30:27 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 15:30:27 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 15:30:27 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:31:41 | INFO | app.main:92 | Server shutting down...
+2026-04-12 15:31:41 | INFO | app.main:104 | Redis disconnected
+2026-04-12 15:31:52 | INFO | app.main:55 | Server starting...
+2026-04-12 15:31:52 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 15:31:52 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 15:31:52 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:32:02 | INFO | app.main:92 | Server shutting down...
+2026-04-12 15:32:02 | INFO | app.main:104 | Redis disconnected
+2026-04-12 15:32:12 | INFO | app.main:55 | Server starting...
+2026-04-12 15:32:12 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 15:32:12 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 15:32:12 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:32:22 | INFO | app.main:92 | Server shutting down...
+2026-04-12 15:32:28 | INFO | app.main:55 | Server starting...
+2026-04-12 15:32:28 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 15:32:28 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 15:32:28 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:32:57 | INFO | app.middleware.logging_middleware:13 | [72d76435] → POST /auth/login | ip:172.18.0.1
+2026-04-12 15:32:59 | INFO | app.middleware.logging_middleware:26 | [72d76435] ← 200 POST /auth/login | 1759.93ms
+2026-04-12 15:33:22 | INFO | app.middleware.logging_middleware:13 | [fd898173] → POST /auth/refresh | ip:172.18.0.1
+2026-04-12 15:33:22 | INFO | app.middleware.logging_middleware:26 | [fd898173] ← 200 POST /auth/refresh | 118.52ms
+2026-04-12 15:36:47 | INFO | app.main:92 | Server shutting down...
+2026-04-12 15:36:47 | INFO | app.main:104 | Redis disconnected
+2026-04-12 15:36:59 | INFO | app.main:55 | Server starting...
+2026-04-12 15:36:59 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 15:36:59 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 15:36:59 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 15:40:45 | INFO | app.middleware.logging_middleware:13 | [f3e9043e] → POST /auth/login | ip:172.18.0.1
+2026-04-12 15:40:47 | INFO | app.middleware.logging_middleware:26 | [f3e9043e] ← 200 POST /auth/login | 1460.79ms
+2026-04-12 15:43:52 | INFO | app.middleware.logging_middleware:13 | [ebf4ef10] → POST /auth/refresh | ip:172.18.0.1
+2026-04-12 15:43:53 | INFO | app.middleware.logging_middleware:26 | [ebf4ef10] ← 200 POST /auth/refresh | 202.48ms
+2026-04-12 15:49:12 | INFO | app.middleware.logging_middleware:13 | [a4a83e42] → POST /auth/login | ip:172.18.0.1
+2026-04-12 15:49:13 | INFO | app.middleware.logging_middleware:26 | [a4a83e42] ← 200 POST /auth/login | 1084.04ms
+2026-04-12 15:49:56 | INFO | app.middleware.logging_middleware:13 | [b3176ac2] → POST /auth/refresh | ip:172.18.0.1
+2026-04-12 15:49:56 | INFO | app.middleware.logging_middleware:26 | [b3176ac2] ← 200 POST /auth/refresh | 135.93ms
+2026-04-12 15:57:28 | INFO | app.middleware.logging_middleware:13 | [461199ad] → POST /audit-logs/ | ip:172.18.0.1
+2026-04-12 15:57:28 | WARNING | app.middleware.logging_middleware:26 | [461199ad] ← 405 POST /audit-logs/ | 44.25ms
+2026-04-12 15:57:38 | INFO | app.middleware.logging_middleware:13 | [410b455f] → GET /audit-logs/ | ip:172.18.0.1
+2026-04-12 15:57:39 | INFO | app.middleware.logging_middleware:26 | [410b455f] ← 200 GET /audit-logs/ | 666.51ms
+2026-04-12 15:58:38 | INFO | app.middleware.logging_middleware:13 | [f0d1dc94] → GET /leave-requests/ | ip:172.18.0.1
+2026-04-12 15:58:39 | INFO | app.middleware.logging_middleware:26 | [f0d1dc94] ← 200 GET /leave-requests/ | 1336.77ms
+2026-04-12 15:59:32 | INFO | app.middleware.logging_middleware:13 | [22d135a1] → GET /suppliers/ | ip:172.18.0.1
+2026-04-12 15:59:32 | INFO | app.middleware.logging_middleware:26 | [22d135a1] ← 200 GET /suppliers/ | 309.44ms
+2026-04-12 16:00:14 | INFO | app.middleware.logging_middleware:13 | [c6024b4a] → GET /chat/groups | ip:172.18.0.1
+2026-04-12 16:00:14 | INFO | app.middleware.logging_middleware:26 | [c6024b4a] ← 200 GET /chat/groups | 138.91ms
+2026-04-12 16:00:20 | INFO | app.middleware.logging_middleware:13 | [ae95273b] → GET /chat/groups/ | ip:172.18.0.1
+2026-04-12 16:00:20 | INFO | app.middleware.logging_middleware:26 | [ae95273b] ← 307 GET /chat/groups/ | 6.99ms
+2026-04-12 16:00:20 | INFO | app.middleware.logging_middleware:13 | [9430a7ce] → GET /chat/groups | ip:172.18.0.1
+2026-04-12 16:00:20 | INFO | app.middleware.logging_middleware:26 | [9430a7ce] ← 200 GET /chat/groups | 11.3ms
+2026-04-12 16:00:23 | INFO | app.middleware.logging_middleware:13 | [78761115] → GET /chat/groups | ip:172.18.0.1
+2026-04-12 16:00:23 | INFO | app.middleware.logging_middleware:26 | [78761115] ← 200 GET /chat/groups | 14.64ms
+2026-04-12 16:02:29 | INFO | app.middleware.logging_middleware:13 | [03086f27] → GET /chat/groups/my | ip:172.18.0.1
+2026-04-12 16:02:29 | INFO | app.middleware.logging_middleware:26 | [03086f27] ← 200 GET /chat/groups/my | 53.65ms
+2026-04-12 16:04:53 | INFO | app.middleware.logging_middleware:13 | [612361b4] → GET /chat/groups/2/members | ip:172.18.0.1
+2026-04-12 16:04:53 | WARNING | app.middleware.logging_middleware:26 | [612361b4] ← 404 GET /chat/groups/2/members | 45.3ms
+2026-04-12 16:04:58 | INFO | app.middleware.logging_middleware:13 | [73ce6585] → GET /chat/groups/2/members | ip:172.18.0.1
+2026-04-12 16:04:58 | WARNING | app.middleware.logging_middleware:26 | [73ce6585] ← 404 GET /chat/groups/2/members | 20.14ms
+2026-04-12 16:04:59 | INFO | app.middleware.logging_middleware:13 | [55285277] → GET /chat/groups/2/members | ip:172.18.0.1
+2026-04-12 16:04:59 | WARNING | app.middleware.logging_middleware:26 | [55285277] ← 404 GET /chat/groups/2/members | 14.44ms
+2026-04-12 16:05:22 | INFO | app.middleware.logging_middleware:13 | [719055ea] → GET /chat/groups/11/members | ip:172.18.0.1
+2026-04-12 16:05:22 | INFO | app.middleware.logging_middleware:26 | [719055ea] ← 200 GET /chat/groups/11/members | 114.35ms
+2026-04-12 16:06:54 | INFO | app.middleware.logging_middleware:13 | [24f79cbd] → GET /chat/groups/1/online | ip:172.18.0.1
+2026-04-12 16:06:54 | INFO | app.middleware.logging_middleware:26 | [24f79cbd] ← 200 GET /chat/groups/1/online | 24.7ms
+2026-04-12 16:08:22 | INFO | app.middleware.logging_middleware:13 | [12334355] → GET /chat/groups/11/messages | ip:172.18.0.1
+2026-04-12 16:08:22 | ERROR | app.middleware.error_middleware:70 | [12334355] UNHANDLED EXCEPTION: type object 'ChatMessage' has no attribute 'created_at'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 13
+               └ <function _main at 0x7b907881e160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7b90788ef740>
+           └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7b90788eeca0>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7b90779393d0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    └ <function subprocess_started at 0x7b90777aee80>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7b907769fdd0>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x7b9077935ee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x7b90779393d0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7b90777adc60>
+           │           └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           └ <function asyncio_run at 0x7b907790e700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7b9077661a80>
+           │      └ <function Runner.run at 0x7b9077b8b100>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7b90776e4580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061ec0e00>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec0180>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7b9072991810>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061ec2980>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7b9061d04450>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7b9061d04450>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061ec2980>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061ec3920>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061ec3920>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x7b9061d04ad0>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7b907287e410>>
+          └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │     └ <function Route.handle at 0x7b9076516a20>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x7b9070dc0860>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec11c0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x7b9061d04c90>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7b9061ec1260>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061ec09a0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2de0>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7b9061ec1260>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7b9061d04c90>
+                     └ <function get_request_handler.<locals>.app at 0x7b9070dc0680>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7b9076538ea0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'current_user': {'sub': '15', 'company_id': 5, 'role': 'superuser', 'permissions': ['*'], 'staff_id': 5, 'is_manager': False...
+                 │         └ <function get_messages at 0x7b9072997060>
+                 └ Dependant(path_params=[ModelField(field_info=Path(PydanticUndefined), name='group_id', mode='validation', config=None)], quer...
+
+  File "/app/app/routers/communication/chat_router.py", line 300, in get_messages
+    return await service.get_messages(
+                 │       └ <function ChatService.get_messages at 0x7b9072995800>
+                 └ <app.services.communication.chat_service.ChatService object at 0x7b9061eb0e90>
+
+  File "/app/app/services/communication/chat_service.py", line 420, in get_messages
+    messages = await self.repo.get_messages(group_id, company_id, skip, limit)
+                     │    │    │            │         │           │     └ 50
+                     │    │    │            │         │           └ 0
+                     │    │    │            │         └ 5
+                     │    │    │            └ 11
+                     │    │    └ <function ChatRepository.get_messages at 0x7b90729949a0>
+                     │    └ <app.repositories.communication.chat_repository.ChatRepository object at 0x7b9061d01210>
+                     └ <app.services.communication.chat_service.ChatService object at 0x7b9061eb0e90>
+
+  File "/app/app/repositories/communication/chat_repository.py", line 178, in get_messages
+    .order_by(ChatMessage.created_at.desc())
+              └ <class 'app.models.chat.chat_message.ChatMessage'>
+
+AttributeError: type object 'ChatMessage' has no attribute 'created_at'
+2026-04-12 16:08:23 | WARNING | app.middleware.logging_middleware:26 | [12334355] ← 500 GET /chat/groups/11/messages | 506.1ms
+2026-04-12 16:08:33 | INFO | app.middleware.logging_middleware:13 | [f29017dd] → GET /chat/groups/11/messages | ip:172.18.0.1
+2026-04-12 16:08:33 | ERROR | app.middleware.error_middleware:70 | [f29017dd] UNHANDLED EXCEPTION: type object 'ChatMessage' has no attribute 'created_at'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 13
+               └ <function _main at 0x7b907881e160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7b90788ef740>
+           └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7b90788eeca0>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7b90779393d0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    └ <function subprocess_started at 0x7b90777aee80>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7b907769fdd0>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x7b9077935ee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x7b90779393d0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7b90777adc60>
+           │           └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           └ <function asyncio_run at 0x7b907790e700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7b9077661a80>
+           │      └ <function Runner.run at 0x7b9077b8b100>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7b90776e4580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061ec3740>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec0e00>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7b9072991810>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061d3cae0>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7b9061db0990>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7b9061db0990>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061d3cae0>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061d3ca40>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061d3ca40>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x7b9061db0f10>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7b907287e410>>
+          └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │     └ <function Route.handle at 0x7b9076516a20>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x7b9070dc0860>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3cea0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x7b9061db1110>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7b9061d3cf40>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d080>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3cb80>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7b9061d3cf40>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7b9061db1110>
+                     └ <function get_request_handler.<locals>.app at 0x7b9070dc0680>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7b9076538ea0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'current_user': {'sub': '15', 'company_id': 5, 'role': 'superuser', 'permissions': ['*'], 'staff_id': 5, 'is_manager': False...
+                 │         └ <function get_messages at 0x7b9072997060>
+                 └ Dependant(path_params=[ModelField(field_info=Path(PydanticUndefined), name='group_id', mode='validation', config=None)], quer...
+
+  File "/app/app/routers/communication/chat_router.py", line 300, in get_messages
+    return await service.get_messages(
+                 │       └ <function ChatService.get_messages at 0x7b9072995800>
+                 └ <app.services.communication.chat_service.ChatService object at 0x7b9061eb7850>
+
+  File "/app/app/services/communication/chat_service.py", line 420, in get_messages
+    messages = await self.repo.get_messages(group_id, company_id, skip, limit)
+                     │    │    │            │         │           │     └ 50
+                     │    │    │            │         │           └ 0
+                     │    │    │            │         └ 5
+                     │    │    │            └ 11
+                     │    │    └ <function ChatRepository.get_messages at 0x7b90729949a0>
+                     │    └ <app.repositories.communication.chat_repository.ChatRepository object at 0x7b9061eb22d0>
+                     └ <app.services.communication.chat_service.ChatService object at 0x7b9061eb7850>
+
+  File "/app/app/repositories/communication/chat_repository.py", line 178, in get_messages
+    .order_by(ChatMessage.created_at.desc())
+              └ <class 'app.models.chat.chat_message.ChatMessage'>
+
+AttributeError: type object 'ChatMessage' has no attribute 'created_at'
+2026-04-12 16:08:33 | WARNING | app.middleware.logging_middleware:26 | [f29017dd] ← 500 GET /chat/groups/11/messages | 70.27ms
+2026-04-12 16:09:14 | INFO | app.middleware.logging_middleware:13 | [65c1d90e] → GET /chat/groups/11/messages | ip:172.18.0.1
+2026-04-12 16:09:14 | ERROR | app.middleware.error_middleware:70 | [65c1d90e] UNHANDLED EXCEPTION: type object 'ChatMessage' has no attribute 'created_at'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 13
+               └ <function _main at 0x7b907881e160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x7b90788ef740>
+           └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x7b90788eeca0>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x7b90779393d0>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+    │    └ <function subprocess_started at 0x7b90777aee80>
+    └ <SpawnProcess name='SpawnProcess-11' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x7b907769fdd0>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x7b9077935ee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x7b90779393d0>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7b90777adc60>
+           │           └ <uvicorn.server.Server object at 0x7b907769fdd0>
+           └ <function asyncio_run at 0x7b907790e700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x7b9077661a80>
+           │      └ <function Runner.run at 0x7b9077b8b100>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x7b90776e4580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x7b90776a1510>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061d3d6c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061ec2f20>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7b9072991810>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061d3d800>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7b9061db2f50>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7b9061db2f50>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x7b9061d3d800>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061d3d1c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x7b9070daf310>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x7b9061d3d1c0>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x7b9061dc43d0>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7b9070f35ed0>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7b9070d32010>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x7b907287e410>>
+          └ <fastapi.routing.APIRouter object at 0x7b907287e410>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │     └ <function Route.handle at 0x7b9076516a20>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x7b9070dc0860>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d4e0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x7b9061dc4490>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x7b9061d3dbc0>
+          └ <function wrap_app_handling_exceptions at 0x7b9076515440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x7b9061d3d8a0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x7b9061d3d620>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x7b9061d3dbc0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x7b9061dc4490>
+                     └ <function get_request_handler.<locals>.app at 0x7b9070dc0680>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x7b9076538ea0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'current_user': {'sub': '15', 'company_id': 5, 'role': 'superuser', 'permissions': ['*'], 'staff_id': 5, 'is_manager': False...
+                 │         └ <function get_messages at 0x7b9072997060>
+                 └ Dependant(path_params=[ModelField(field_info=Path(PydanticUndefined), name='group_id', mode='validation', config=None)], quer...
+
+  File "/app/app/routers/communication/chat_router.py", line 300, in get_messages
+    return await service.get_messages(
+                 │       └ <function ChatService.get_messages at 0x7b9072995800>
+                 └ <app.services.communication.chat_service.ChatService object at 0x7b9061d04490>
+
+  File "/app/app/services/communication/chat_service.py", line 420, in get_messages
+    messages = await self.repo.get_messages(group_id, company_id, skip, limit)
+                     │    │    │            │         │           │     └ 50
+                     │    │    │            │         │           └ 0
+                     │    │    │            │         └ 5
+                     │    │    │            └ 11
+                     │    │    └ <function ChatRepository.get_messages at 0x7b90729949a0>
+                     │    └ <app.repositories.communication.chat_repository.ChatRepository object at 0x7b9061eb0d90>
+                     └ <app.services.communication.chat_service.ChatService object at 0x7b9061d04490>
+
+  File "/app/app/repositories/communication/chat_repository.py", line 178, in get_messages
+    .order_by(ChatMessage.created_at.desc())
+              └ <class 'app.models.chat.chat_message.ChatMessage'>
+
+AttributeError: type object 'ChatMessage' has no attribute 'created_at'
+2026-04-12 16:09:14 | WARNING | app.middleware.logging_middleware:26 | [65c1d90e] ← 500 GET /chat/groups/11/messages | 79.75ms
+2026-04-12 16:10:25 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:10:25 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:10:37 | INFO | app.main:55 | Server starting...
+2026-04-12 16:10:37 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:10:37 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:10:37 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:10:51 | INFO | app.main:55 | Server starting...
+2026-04-12 16:10:51 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:10:51 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:10:51 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:11:45 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:11:45 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:11:52 | INFO | app.main:55 | Server starting...
+2026-04-12 16:11:52 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:11:52 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:11:52 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:12:03 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:12:10 | INFO | app.main:55 | Server starting...
+2026-04-12 16:12:10 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:12:10 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:12:10 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:12:20 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:12:20 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:12:27 | INFO | app.main:55 | Server starting...
+2026-04-12 16:12:27 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:12:27 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:12:27 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:13:35 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:13:43 | INFO | app.main:55 | Server starting...
+2026-04-12 16:13:43 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:13:43 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:13:43 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:13:51 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:13:51 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:13:58 | INFO | app.main:55 | Server starting...
+2026-04-12 16:13:58 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:13:58 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:13:58 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:14:08 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:14:15 | INFO | app.main:55 | Server starting...
+2026-04-12 16:14:15 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:14:15 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:14:15 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:14:23 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:14:23 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:14:30 | INFO | app.main:55 | Server starting...
+2026-04-12 16:14:30 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:14:30 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:14:30 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:14:39 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:14:49 | INFO | app.main:55 | Server starting...
+2026-04-12 16:14:49 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:14:49 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:14:49 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:14:49 | INFO | app.middleware.logging_middleware:13 | [e41e1237] → GET /chat/groups/11/messages | ip:172.18.0.1
+2026-04-12 16:14:50 | ERROR | app.middleware.error_middleware:70 | [e41e1237] UNHANDLED EXCEPTION: type object 'ChatMessage' has no attribute 'created_at'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 11
+               └ <function _main at 0x73786715e160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x73786722f740>
+           └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x73786722eca0>
+    └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x73786626d450>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+    │    └ <function subprocess_started at 0x7378660dee80>
+    └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x737865fd0210>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x737866269ee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x73786626d450>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x737865fd0210>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7378660ddc60>
+           │           └ <uvicorn.server.Server object at 0x737865fd0210>
+           └ <function asyncio_run at 0x737866242700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x737865f91a80>
+           │      └ <function Runner.run at 0x7378664c7100>
+           └ <asyncio.runners.Runner object at 0x737865fd1950>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x737866014580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x737865fd1950>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x73785955df80>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955dee0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7378613ee390>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x73785b69a520>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x7378612b7510>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x7378612b7510>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x73785b69a520>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x73785955e2a0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7378613b74d0>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x73785955e2a0>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x737862532a10>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7378613b74d0>
+          └ <function wrap_app_handling_exceptions at 0x737864e49440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x73786116a1d0>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x73786116a1d0>>
+          └ <fastapi.routing.APIRouter object at 0x73786116a1d0>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │     └ <function Route.handle at 0x737864e4aa20>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x73785b698540>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e5c0>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x737859537e10>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x73785955e660>
+          └ <function wrap_app_handling_exceptions at 0x737864e49440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x73785955e7a0>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e200>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x73785955e660>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x737859537e10>
+                     └ <function get_request_handler.<locals>.app at 0x73785b698360>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x737864e6cea0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'current_user': {'sub': '15', 'company_id': 5, 'role': 'superuser', 'permissions': ['*'], 'staff_id': 5, 'is_manager': False...
+                 │         └ <function get_messages at 0x737861286d40>
+                 └ Dependant(path_params=[ModelField(field_info=Path(PydanticUndefined), name='group_id', mode='validation', config=None)], quer...
+
+  File "/app/app/routers/communication/chat_router.py", line 331, in get_messages
+    return await service.get_messages(
+                 │       └ <function ChatService.get_messages at 0x7378612854e0>
+                 └ <app.services.communication.chat_service.ChatService object at 0x7378611e7d10>
+
+  File "/app/app/services/communication/chat_service.py", line 420, in get_messages
+    messages = await self.repo.get_messages(group_id, company_id, skip, limit)
+                     │    │    │            │         │           │     └ 50
+                     │    │    │            │         │           └ 0
+                     │    │    │            │         └ 5
+                     │    │    │            └ 11
+                     │    │    └ <function ChatRepository.get_messages at 0x737861284680>
+                     │    └ <app.repositories.communication.chat_repository.ChatRepository object at 0x737859575e90>
+                     └ <app.services.communication.chat_service.ChatService object at 0x7378611e7d10>
+
+  File "/app/app/repositories/communication/chat_repository.py", line 178, in get_messages
+    .order_by(ChatMessage.created_at.desc())
+              └ <class 'app.models.chat.chat_message.ChatMessage'>
+
+AttributeError: type object 'ChatMessage' has no attribute 'created_at'
+2026-04-12 16:14:50 | WARNING | app.middleware.logging_middleware:26 | [e41e1237] ← 500 GET /chat/groups/11/messages | 813.51ms
+2026-04-12 16:14:55 | INFO | app.middleware.logging_middleware:13 | [2160aa39] → GET /chat/groups/11/messages | ip:172.18.0.1
+2026-04-12 16:14:55 | ERROR | app.middleware.error_middleware:70 | [2160aa39] UNHANDLED EXCEPTION: type object 'ChatMessage' has no attribute 'created_at'
+Traceback (most recent call last):
+
+  File "<string>", line 1, in <module>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               │     │   └ 4
+               │     └ 11
+               └ <function _main at 0x73786715e160>
+  File "/usr/local/lib/python3.11/multiprocessing/spawn.py", line 135, in _main
+    return self._bootstrap(parent_sentinel)
+           │    │          └ 4
+           │    └ <function BaseProcess._bootstrap at 0x73786722f740>
+           └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+    │    └ <function BaseProcess.run at 0x73786722eca0>
+    └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {'config': <uvicorn.config.Config object at 0x73786626d450>, 'target': <bound method Server.run of <uvicorn.server.Server obj...
+    │    │        │    │        └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+    │    │        │    └ ()
+    │    │        └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+    │    └ <function subprocess_started at 0x7378660dee80>
+    └ <SpawnProcess name='SpawnProcess-21' parent=1 started>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_subprocess.py", line 80, in subprocess_started
+    target(sockets=sockets)
+    │              └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+    └ <bound method Server.run of <uvicorn.server.Server object at 0x737865fd0210>>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+           │           │    │             │                      │    │      └ <function Config.get_loop_factory at 0x737866269ee0>
+           │           │    │             │                      │    └ <uvicorn.config.Config object at 0x73786626d450>
+           │           │    │             │                      └ <uvicorn.server.Server object at 0x737865fd0210>
+           │           │    │             └ [<socket.socket fd=3, family=2, type=1, proto=0, laddr=('0.0.0.0', 8000)>]
+           │           │    └ <function Server.serve at 0x7378660ddc60>
+           │           └ <uvicorn.server.Server object at 0x737865fd0210>
+           └ <function asyncio_run at 0x737866242700>
+  File "/usr/local/lib/python3.11/site-packages/uvicorn/_compat.py", line 30, in asyncio_run
+    return runner.run(main)
+           │      │   └ <coroutine object Server.serve at 0x737865f91a80>
+           │      └ <function Runner.run at 0x7378664c7100>
+           └ <asyncio.runners.Runner object at 0x737865fd1950>
+  File "/usr/local/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<Server.serve() running at /usr/local/lib/python3.11/site-packages/uvicorn/server.py:79> wai...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x737866014580>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x737865fd1950>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x73785955dda0>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x73785955e0c0>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+          └ <app.middleware.logging_middleware.LoggingMiddleware object at 0x7378613ee390>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+                     │    │             │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x737858a913a0>
+                     │    │             └ <starlette.middleware.base._CachedRequest object at 0x737858921290>
+                     │    └ <bound method ErrorMiddleware.dispatch of <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>>
+                     └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+
+> File "/app/app/middleware/error_middleware.py", line 55, in dispatch
+    response = await call_next(request)
+                     │         └ <starlette.middleware.base._CachedRequest object at 0x737858921290>
+                     └ <function BaseHTTPMiddleware.__call__.<locals>.call_next at 0x737858a913a0>
+
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+          │            │       │            │       └ <attribute '__context__' of 'BaseException' objects>
+          │            │       │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          │            │       └ <attribute '__cause__' of 'BaseException' objects>
+          │            └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+          └ AttributeError("type object 'ChatMessage' has no attribute 'created_at'")
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+          │    │   │      │                      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x737858a91440>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7378613b74d0>
+          └ <app.middleware.error_middleware.ErrorMiddleware object at 0x737861410150>
+  File "/usr/local/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+          │                            │    │    │     │      │        └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.send_no_error at 0x737858a91440>
+          │                            │    │    │     │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │                            │    │    │     └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    │    └ <starlette.requests.Request object at 0x737858921910>
+          │                            │    └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+          │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0x7378613b74d0>
+          └ <function wrap_app_handling_exceptions at 0x737864e49440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <fastapi.routing.APIRouter object at 0x73786116a1d0>
+          └ <fastapi.middleware.asyncexitstack.AsyncExitStackMiddleware object at 0x7378612a9690>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+          │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │    │                │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0x73786116a1d0>>
+          └ <fastapi.routing.APIRouter object at 0x73786116a1d0>
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+          │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │     │      │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │     └ <function Route.handle at 0x737864e4aa20>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+          │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │    │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │    └ <function request_response.<locals>.app at 0x73785b698540>
+          └ APIRoute(path='/chat/groups/{group_id}/messages', name='get_messages', methods=['GET'])
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 130, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+          │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91760>
+          │                            │    │        │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │                            │    │        └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          │                            │    └ <starlette.requests.Request object at 0x737858921ad0>
+          │                            └ <function request_response.<locals>.app.<locals>.app at 0x737858a91800>
+          └ <function wrap_app_handling_exceptions at 0x737864e49440>
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.11/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+          │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0x737858a91940>
+          │   │      └ <function BaseHTTPMiddleware.__call__.<locals>.call_next.<locals>.receive_or_disconnect at 0x737858a91260>
+          │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('172.18.0.3', 8000), 'c...
+          └ <function request_response.<locals>.app.<locals>.app at 0x737858a91800>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 116, in app
+    response = await f(request)
+                     │ └ <starlette.requests.Request object at 0x737858921ad0>
+                     └ <function get_request_handler.<locals>.app at 0x73785b698360>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 670, in app
+    raw_response = await run_endpoint_function(
+                         └ <function run_endpoint_function at 0x737864e6cea0>
+  File "/usr/local/lib/python3.11/site-packages/fastapi/routing.py", line 324, in run_endpoint_function
+    return await dependant.call(**values)
+                 │         │      └ {'current_user': {'sub': '15', 'company_id': 5, 'role': 'superuser', 'permissions': ['*'], 'staff_id': 5, 'is_manager': False...
+                 │         └ <function get_messages at 0x737861286d40>
+                 └ Dependant(path_params=[ModelField(field_info=Path(PydanticUndefined), name='group_id', mode='validation', config=None)], quer...
+
+  File "/app/app/routers/communication/chat_router.py", line 331, in get_messages
+    return await service.get_messages(
+                 │       └ <function ChatService.get_messages at 0x7378612854e0>
+                 └ <app.services.communication.chat_service.ChatService object at 0x737859575150>
+
+  File "/app/app/services/communication/chat_service.py", line 420, in get_messages
+    messages = await self.repo.get_messages(group_id, company_id, skip, limit)
+                     │    │    │            │         │           │     └ 50
+                     │    │    │            │         │           └ 0
+                     │    │    │            │         └ 5
+                     │    │    │            └ 11
+                     │    │    └ <function ChatRepository.get_messages at 0x737861284680>
+                     │    └ <app.repositories.communication.chat_repository.ChatRepository object at 0x737858922650>
+                     └ <app.services.communication.chat_service.ChatService object at 0x737859575150>
+
+  File "/app/app/repositories/communication/chat_repository.py", line 178, in get_messages
+    .order_by(ChatMessage.created_at.desc())
+              └ <class 'app.models.chat.chat_message.ChatMessage'>
+
+AttributeError: type object 'ChatMessage' has no attribute 'created_at'
+2026-04-12 16:14:55 | WARNING | app.middleware.logging_middleware:26 | [2160aa39] ← 500 GET /chat/groups/11/messages | 76.56ms
+2026-04-12 16:14:58 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:15:06 | INFO | app.main:55 | Server starting...
+2026-04-12 16:15:06 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:15:06 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:15:06 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:15:43 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:15:51 | INFO | app.main:55 | Server starting...
+2026-04-12 16:15:51 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:15:51 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:15:51 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:16:14 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:16:24 | INFO | app.main:55 | Server starting...
+2026-04-12 16:16:24 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:16:24 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:16:24 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:16:48 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:16:55 | INFO | app.main:55 | Server starting...
+2026-04-12 16:16:55 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:16:55 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:16:55 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:19:16 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:19:16 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:19:38 | INFO | app.main:55 | Server starting...
+2026-04-12 16:19:38 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:19:38 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:19:38 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:19:46 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:19:55 | INFO | app.main:55 | Server starting...
+2026-04-12 16:19:55 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:19:55 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:19:55 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:20:05 | INFO | app.middleware.logging_middleware:13 | [9256766e] → GET /chat/groups/11/messages | ip:172.18.0.1
+2026-04-12 16:20:06 | INFO | app.middleware.logging_middleware:26 | [9256766e] ← 200 GET /chat/groups/11/messages | 837.91ms
+2026-04-12 16:20:22 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:20:22 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:20:31 | INFO | app.main:55 | Server starting...
+2026-04-12 16:20:31 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:20:31 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:20:31 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:21:34 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:21:34 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:21:48 | INFO | app.main:55 | Server starting...
+2026-04-12 16:21:48 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:21:48 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:21:48 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:22:01 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:22:10 | INFO | app.main:55 | Server starting...
+2026-04-12 16:22:10 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:22:10 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:22:10 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:24:28 | INFO | app.main:55 | Server starting...
+2026-04-12 16:24:28 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:24:28 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:24:28 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:25:15 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:25:15 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:25:24 | INFO | app.main:55 | Server starting...
+2026-04-12 16:25:24 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:25:24 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:25:24 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:25:31 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:25:31 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:25:38 | INFO | app.main:55 | Server starting...
+2026-04-12 16:25:38 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:25:38 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:25:38 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:27:00 | INFO | app.main:55 | Server starting...
+2026-04-12 16:27:00 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:27:00 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:27:00 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:27:09 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:27:17 | INFO | app.main:55 | Server starting...
+2026-04-12 16:27:17 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:27:17 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:27:17 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:27:31 | INFO | app.main:55 | Server starting...
+2026-04-12 16:27:31 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:27:31 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:27:31 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:28:04 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:28:04 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:28:12 | INFO | app.main:55 | Server starting...
+2026-04-12 16:28:12 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:28:12 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:28:12 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:28:19 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:28:25 | INFO | app.main:55 | Server starting...
+2026-04-12 16:28:25 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:28:25 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:28:25 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:29:00 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:29:00 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:29:08 | INFO | app.main:55 | Server starting...
+2026-04-12 16:29:08 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:29:08 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:29:08 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:29:17 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:29:24 | INFO | app.main:55 | Server starting...
+2026-04-12 16:29:24 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:29:24 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:29:24 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:29:30 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:29:37 | INFO | app.main:55 | Server starting...
+2026-04-12 16:29:37 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:29:37 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:29:37 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:30:19 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:30:26 | INFO | app.main:55 | Server starting...
+2026-04-12 16:30:26 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:30:26 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:30:26 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:30:48 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:30:48 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:30:55 | INFO | app.main:55 | Server starting...
+2026-04-12 16:30:55 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:30:55 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:30:55 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:31:16 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:31:16 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:31:23 | INFO | app.main:55 | Server starting...
+2026-04-12 16:31:23 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:31:23 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:31:23 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:35:38 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:35:38 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:35:50 | INFO | app.main:55 | Server starting...
+2026-04-12 16:35:50 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:35:50 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:35:50 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:35:57 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:36:05 | INFO | app.main:55 | Server starting...
+2026-04-12 16:36:05 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:36:05 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:36:05 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:39:30 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:39:30 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:39:38 | INFO | app.main:55 | Server starting...
+2026-04-12 16:39:38 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:39:38 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:39:38 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:39:45 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:39:45 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:39:51 | INFO | app.main:55 | Server starting...
+2026-04-12 16:39:51 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:39:51 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:39:51 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:40:13 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:40:21 | INFO | app.main:55 | Server starting...
+2026-04-12 16:40:21 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:40:21 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:40:21 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:40:43 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:40:43 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:40:51 | INFO | app.main:55 | Server starting...
+2026-04-12 16:40:51 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:40:51 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:40:51 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:41:01 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:41:01 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:41:07 | INFO | app.main:55 | Server starting...
+2026-04-12 16:41:08 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:41:08 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:41:08 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:41:29 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:41:36 | INFO | app.main:55 | Server starting...
+2026-04-12 16:41:36 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:41:36 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:41:36 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:42:49 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:42:49 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:42:56 | INFO | app.main:55 | Server starting...
+2026-04-12 16:42:56 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:42:56 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:42:56 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:43:04 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:43:04 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:43:13 | INFO | app.main:55 | Server starting...
+2026-04-12 16:43:13 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:43:13 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:43:13 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:43:20 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:43:20 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:43:28 | INFO | app.main:55 | Server starting...
+2026-04-12 16:43:28 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:43:28 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:43:28 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:44:31 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:44:42 | INFO | app.main:55 | Server starting...
+2026-04-12 16:44:42 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:44:42 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:44:42 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:44:53 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:45:01 | INFO | app.main:55 | Server starting...
+2026-04-12 16:45:01 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:45:01 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:45:01 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:45:12 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:45:12 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:45:19 | INFO | app.main:55 | Server starting...
+2026-04-12 16:45:19 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:45:19 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:45:19 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:45:28 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:45:28 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:45:35 | INFO | app.main:55 | Server starting...
+2026-04-12 16:45:35 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:45:35 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:45:35 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:45:43 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:45:51 | INFO | app.main:55 | Server starting...
+2026-04-12 16:45:51 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:45:51 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:45:51 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:46:01 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:46:01 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:46:09 | INFO | app.main:55 | Server starting...
+2026-04-12 16:46:09 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:46:09 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:46:09 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:46:20 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:46:20 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:46:28 | INFO | app.main:55 | Server starting...
+2026-04-12 16:46:28 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:46:28 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:46:28 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:46:47 | INFO | app.main:55 | Server starting...
+2026-04-12 16:46:47 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:46:47 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:46:47 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:46:56 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:46:56 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:47:04 | INFO | app.main:55 | Server starting...
+2026-04-12 16:47:04 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:47:04 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:47:04 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:47:14 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:47:23 | INFO | app.main:55 | Server starting...
+2026-04-12 16:47:23 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:47:23 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:47:23 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:47:32 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:47:32 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:47:41 | INFO | app.main:55 | Server starting...
+2026-04-12 16:47:41 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:47:41 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:47:41 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:47:49 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:47:56 | INFO | app.main:55 | Server starting...
+2026-04-12 16:47:56 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:47:56 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:47:56 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:48:19 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:48:19 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:48:27 | INFO | app.main:55 | Server starting...
+2026-04-12 16:48:27 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:48:27 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:48:27 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:48:37 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:48:37 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:48:44 | INFO | app.main:55 | Server starting...
+2026-04-12 16:48:44 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:48:44 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:48:44 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:49:53 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:50:01 | INFO | app.main:55 | Server starting...
+2026-04-12 16:50:01 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:50:01 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:50:01 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:50:08 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:50:14 | INFO | app.main:55 | Server starting...
+2026-04-12 16:50:14 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:50:14 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:50:14 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:50:23 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:50:23 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:50:31 | INFO | app.main:55 | Server starting...
+2026-04-12 16:50:31 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:50:31 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:50:31 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:50:39 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:50:39 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:50:46 | INFO | app.main:55 | Server starting...
+2026-04-12 16:50:46 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:50:46 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:50:46 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:51:16 | INFO | app.main:55 | Server starting...
+2026-04-12 16:51:16 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:51:16 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:51:16 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:51:59 | INFO | app.main:55 | Server starting...
+2026-04-12 16:51:59 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:51:59 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:51:59 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:53:01 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:53:09 | INFO | app.main:55 | Server starting...
+2026-04-12 16:53:09 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:53:09 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:53:09 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:53:18 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:53:26 | INFO | app.main:55 | Server starting...
+2026-04-12 16:53:26 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:53:26 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:53:26 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:53:35 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:53:35 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:53:44 | INFO | app.main:55 | Server starting...
+2026-04-12 16:53:44 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:53:44 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:53:44 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:55:02 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:55:02 | INFO | app.main:104 | Redis disconnected
+2026-04-12 16:55:10 | INFO | app.main:55 | Server starting...
+2026-04-12 16:55:10 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:55:10 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:55:10 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:55:21 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:55:31 | INFO | app.main:55 | Server starting...
+2026-04-12 16:55:31 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:55:31 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:55:31 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 16:55:40 | INFO | app.main:92 | Server shutting down...
+2026-04-12 16:55:48 | INFO | app.main:55 | Server starting...
+2026-04-12 16:55:48 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 16:55:48 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 16:55:48 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:01:23 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:01:23 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:01:33 | INFO | app.main:55 | Server starting...
+2026-04-12 17:01:33 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:01:33 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:01:33 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:02:00 | INFO | app.middleware.logging_middleware:13 | [12a4cb76] → GET /docs | ip:172.18.0.1
+2026-04-12 17:02:00 | INFO | app.middleware.logging_middleware:26 | [12a4cb76] ← 200 GET /docs | 3.27ms
+2026-04-12 17:02:02 | INFO | app.middleware.logging_middleware:13 | [b90e88b3] → GET /openapi.json | ip:172.18.0.1
+2026-04-12 17:02:04 | INFO | app.middleware.logging_middleware:26 | [b90e88b3] ← 200 GET /openapi.json | 2273.66ms
+2026-04-12 17:02:05 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:02:20 | INFO | app.main:55 | Server starting...
+2026-04-12 17:02:20 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:02:20 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:02:20 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:02:34 | INFO | app.middleware.logging_middleware:13 | [76f62978] → GET /docs | ip:172.18.0.1
+2026-04-12 17:02:34 | INFO | app.middleware.logging_middleware:26 | [76f62978] ← 200 GET /docs | 4.01ms
+2026-04-12 17:02:35 | INFO | app.middleware.logging_middleware:13 | [3de054b2] → GET /openapi.json | ip:172.18.0.1
+2026-04-12 17:02:36 | INFO | app.middleware.logging_middleware:26 | [3de054b2] ← 200 GET /openapi.json | 1350.81ms
+2026-04-12 17:05:33 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:05:33 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:05:47 | INFO | app.main:55 | Server starting...
+2026-04-12 17:05:47 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:05:47 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:05:47 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:10:32 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:10:32 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:10:47 | INFO | app.main:55 | Server starting...
+2026-04-12 17:10:47 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:10:47 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:10:47 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:14:50 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:14:50 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:15:03 | INFO | app.main:55 | Server starting...
+2026-04-12 17:15:03 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:15:03 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:15:03 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:17:15 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:17:31 | INFO | app.main:55 | Server starting...
+2026-04-12 17:17:31 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:17:31 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:17:31 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:17:38 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:17:46 | INFO | app.main:55 | Server starting...
+2026-04-12 17:17:46 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:17:46 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:17:46 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:18:10 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:18:18 | INFO | app.main:55 | Server starting...
+2026-04-12 17:18:18 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:18:18 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:18:18 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:20:11 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:20:11 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:20:49 | INFO | app.main:55 | Server starting...
+2026-04-12 17:20:49 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:20:49 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:20:49 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:21:00 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:21:11 | INFO | app.main:55 | Server starting...
+2026-04-12 17:21:11 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:21:11 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:21:11 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:21:19 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:21:19 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:21:26 | INFO | app.main:55 | Server starting...
+2026-04-12 17:21:26 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:21:26 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:21:26 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:21:50 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:21:50 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:21:59 | INFO | app.main:55 | Server starting...
+2026-04-12 17:21:59 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:21:59 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:21:59 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:26:56 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:26:56 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:27:10 | INFO | app.main:55 | Server starting...
+2026-04-12 17:27:10 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:27:10 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:27:10 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:27:40 | INFO | app.main:55 | Server starting...
+2026-04-12 17:27:40 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:27:40 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:27:40 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:28:21 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:28:21 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:28:50 | INFO | app.main:55 | Server starting...
+2026-04-12 17:28:50 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:28:50 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:28:50 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:29:00 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:29:09 | INFO | app.main:55 | Server starting...
+2026-04-12 17:29:09 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:29:09 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:29:09 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:29:45 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:29:57 | INFO | app.main:55 | Server starting...
+2026-04-12 17:29:57 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:29:57 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:29:57 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:30:06 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:30:06 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:30:13 | INFO | app.main:55 | Server starting...
+2026-04-12 17:30:13 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:30:13 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:30:13 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:30:22 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:30:22 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:30:50 | INFO | app.main:55 | Server starting...
+2026-04-12 17:30:50 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:30:50 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:30:50 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:30:58 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:30:58 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:31:09 | INFO | app.main:55 | Server starting...
+2026-04-12 17:31:09 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:31:09 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:31:09 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:31:16 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:31:16 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:31:24 | INFO | app.main:55 | Server starting...
+2026-04-12 17:31:24 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:31:24 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:31:24 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:31:47 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:31:47 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:31:55 | INFO | app.main:55 | Server starting...
+2026-04-12 17:31:55 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:31:55 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:31:55 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:40:25 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:40:26 | INFO | app.main:104 | Redis disconnected
+2026-04-12 17:40:44 | INFO | app.main:55 | Server starting...
+2026-04-12 17:40:44 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:40:44 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:40:44 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:40:50 | INFO | app.main:92 | Server shutting down...
+2026-04-12 17:41:05 | INFO | app.main:55 | Server starting...
+2026-04-12 17:41:05 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:41:05 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:41:05 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:41:27 | INFO | app.main:55 | Server starting...
+2026-04-12 17:41:27 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 17:41:27 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 17:41:27 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 17:41:56 | INFO | app.main:92 | Server shutting down...
+2026-04-12 18:41:26 | INFO | app.main:55 | Server starting...
+2026-04-12 18:41:26 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 18:41:26 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 18:41:26 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 18:41:26 | INFO | app.middleware.logging_middleware:13 | [61f2ae7e] → GET /docs | ip:172.18.0.1
+2026-04-12 18:41:26 | INFO | app.middleware.logging_middleware:13 | [9d75a1fc] → GET /docs | ip:172.18.0.1
+2026-04-12 18:41:26 | INFO | app.middleware.logging_middleware:13 | [45e2b47a] → GET /docs | ip:172.18.0.1
+2026-04-12 18:41:26 | INFO | app.middleware.logging_middleware:26 | [61f2ae7e] ← 200 GET /docs | 67.34ms
+2026-04-12 18:41:26 | INFO | app.middleware.logging_middleware:26 | [9d75a1fc] ← 200 GET /docs | 21.55ms
+2026-04-12 18:41:26 | INFO | app.middleware.logging_middleware:26 | [45e2b47a] ← 200 GET /docs | 14.69ms
+2026-04-12 18:41:29 | INFO | app.middleware.logging_middleware:13 | [3f449ae5] → GET /openapi.json | ip:172.18.0.1
+2026-04-12 18:41:30 | INFO | app.middleware.logging_middleware:26 | [3f449ae5] ← 200 GET /openapi.json | 1368.01ms
+2026-04-12 18:41:49 | INFO | app.main:55 | Server starting...
+2026-04-12 18:41:49 | INFO | app.main:68 | Redis connected successfully
+2026-04-12 18:41:49 | INFO | app.main:74 | Cloudinary initialized
+2026-04-12 18:41:49 | INFO | app.main:87 | WebSocket listeners started
+2026-04-12 18:42:02 | INFO | app.middleware.logging_middleware:13 | [7935574d] → GET /docs | ip:172.18.0.1
+2026-04-12 18:42:02 | INFO | app.middleware.logging_middleware:26 | [7935574d] ← 200 GET /docs | 42.81ms
+2026-04-12 18:42:03 | INFO | app.middleware.logging_middleware:13 | [04f8f285] → GET /openapi.json | ip:172.18.0.1
+2026-04-12 18:42:08 | INFO | app.middleware.logging_middleware:26 | [04f8f285] ← 200 GET /openapi.json | 4783.75ms
+2026-04-12 18:42:57 | INFO | app.middleware.logging_middleware:13 | [d39459c9] → POST /auth/login | ip:172.18.0.1
+2026-04-12 18:43:00 | INFO | app.middleware.logging_middleware:26 | [d39459c9] ← 200 POST /auth/login | 3192.78ms
+2026-04-12 18:43:24 | INFO | app.middleware.logging_middleware:13 | [d9ec1812] → GET /chat/groups/11/messages | ip:172.18.0.1
+2026-04-12 18:43:24 | INFO | app.middleware.logging_middleware:26 | [d9ec1812] ← 200 GET /chat/groups/11/messages | 131.16ms
+2026-04-12 18:43:29 | INFO | app.middleware.logging_middleware:13 | [b9bd57ce] → GET /chat/groups/11/messages | ip:172.18.0.1
+2026-04-12 18:43:29 | INFO | app.middleware.logging_middleware:26 | [b9bd57ce] ← 200 GET /chat/groups/11/messages | 17.5ms
+2026-04-12 18:43:50 | INFO | app.middleware.logging_middleware:13 | [824fff2d] → GET /chat/groups | ip:172.18.0.1
+2026-04-12 18:43:50 | INFO | app.middleware.logging_middleware:26 | [824fff2d] ← 200 GET /chat/groups | 30.27ms
+2026-04-12 18:46:26 | INFO | app.main:92 | Server shutting down...
+2026-04-12 18:46:26 | INFO | app.main:104 | Redis disconnected

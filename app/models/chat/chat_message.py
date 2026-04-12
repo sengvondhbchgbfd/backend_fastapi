@@ -15,6 +15,9 @@ class MessageType(str, enum.Enum):
     text  = "text"
     image = "image"
     file  = "file"
+    audio = "audio"  
+    video = "video"   
+    voice = "voice"   
 
 
 class ChatMessage(Base):
@@ -25,16 +28,24 @@ class ChatMessage(Base):
     group_id:     Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("chat_groups.group_id"), nullable=True)
     sender_id:    Mapped[int]           = mapped_column(Integer, ForeignKey("users.user_id"), nullable=False)
     receiver_id:  Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("users.user_id"), nullable=True)
-    # message_text: Mapped[str]           = mapped_column(Text,    nullable=False)
+
+    reply_to_id:  Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("chat_messages.message_id"), nullable=True)
+
     message_type: Mapped[MessageType] = mapped_column(Enum(MessageType), default=MessageType.text, nullable=False)
     content:      Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     timestamp:    Mapped[datetime]      = mapped_column(DateTime, default=func.now(), nullable=False)
+
+
     file_url:     Mapped[Optional[str]] = mapped_column(String(500), nullable=True)
+
+    publice:      Mapped[Optional[str]] = mapped_column(String(500), nullable=True)
+
     file_name:    Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     file_size:    Mapped[Optional[int]] = mapped_column(Integer, nullable=True) 
+    duration_secs: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
     is_deleted:   Mapped[bool]         = mapped_column(Boolean, default=False, nullable=False)
     is_read:      Mapped[bool]          = mapped_column(Boolean,  default=False)
-    # created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), nullable=False)
+    media_thumbnail: Mapped[Optional[str]] = mapped_column(String(500), nullable=True)
 
 
     # Relationships
@@ -42,3 +53,4 @@ class ChatMessage(Base):
     group:    Mapped[Optional["ChatGroup"]] = relationship("ChatGroup", back_populates="messages")
     sender:   Mapped["User"]              = relationship("User", foreign_keys=[sender_id],   back_populates="sent_messages")
     receiver: Mapped[Optional["User"]]    = relationship("User", foreign_keys=[receiver_id], back_populates="received_messages")
+    reply_to:   Mapped[Optional["ChatMessage"]] = relationship("ChatMessage", remote_side="ChatMessage.message_id", foreign_keys=[reply_to_id])
