@@ -91,6 +91,9 @@ class SetupRequest(BaseModel):
                 "currency":     "USD"
             }
         }
+
+
+      
  
  
 class SetupResponse(BaseModel):
@@ -178,6 +181,8 @@ class OfficeQRResponse(BaseModel):
     note:       str
 
 
+
+
 class RegisterRequest(BaseModel):
     username:      str = Field(..., min_length=3, max_length=100)
     password:      str = Field(..., min_length=8)
@@ -199,7 +204,14 @@ class RegisterResponse(BaseModel):
     role:          Optional[str]      = None
     department_id: Optional[int]      = None
     status:        str
-    created_at:    Optional[datetime] = None  # ✅ Optional so None is accepted
+    created_at:    Optional[datetime] = None  
+
+    
+class UpdateUserRequest(BaseModel):
+    full_name: Optional[str] = Field(None, min_length=2, max_length=150)
+    role_id: Optional[int] = None
+    department_id: Optional[int] = None
+    status: Optional[str] = None
 
     class Config:
         from_attributes = True
@@ -229,8 +241,10 @@ class DepartmentSimple(BaseModel):
 
     model_config = {"from_attributes": True}
 
+
+
 class UserBase(BaseModel):
-    username:      str        = Field(..., min_length=3, max_length=100)
+    username:      str        = Field(..., min_length=2, max_length=100)
     full_name:     str        = Field(..., min_length=2, max_length=150)
     department_id: Optional[int]        = None
     role_id:       Optional[int]        = None
@@ -362,13 +376,13 @@ class DepartmentResponse(DepartmentBase):
     class Config:
         from_attributes = True
 
-
 # ============================================================================
 # STAFF SCHEMAS
 # ============================================================================
 
 class StaffBase(BaseModel):
     user_id: Optional[int] = None
+    company_id: int
     staff_role_id: Optional[int] = None
     name: str = Field(..., min_length=2, max_length=150)
     gender: Optional[GenderEnum] = None 
@@ -389,6 +403,7 @@ class StaffUpdate(StaffBase):
 
 class StaffResponse(StaffBase):
     staff_id: int
+    company_id:       int
     age: Optional[int] = None 
     avatar_url: Optional[str] = None
     avatar_public_id: Optional[str] = None
@@ -458,7 +473,6 @@ class SalaryResponse(SalaryBase):
 
     class Config:
         from_attributes = True
-
 
 # ============================================================================
 # SALARY ADJUSTMENT SCHEMAS
@@ -541,7 +555,7 @@ class LeaveRequestUpdate(BaseModel):
 
 class LeaveRequestResponse(LeaveRequestBase):
     leave_id:   int
-    staff_id:   int      # ✅ FIX 3: added staff_id to response
+    staff_id:   int     
     created_at: datetime
 
     class Config:

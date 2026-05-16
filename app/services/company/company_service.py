@@ -44,6 +44,8 @@ class CompanyService:
     # CREATE company
     # -----------------------------------------------------------------------
 
+
+
     async def create(self, data: CompanyCreate):
         # Check company_code unique
         existing = await self.repo.get_by_code(data.company_code)
@@ -65,41 +67,54 @@ class CompanyService:
             "currency":     data.currency,
             "max_users":    data.max_users,
         })
-
+    
     # -----------------------------------------------------------------------
     # UPDATE company info
     # -----------------------------------------------------------------------
 
-    async def update(
+    async def update(self, company_id: int, data: CompanyUpdate):
+        company = await self.get_by_id(company_id)
+        return await self.repo.update(company, data.model_dump(exclude_none=True))
+    
+
+
+
+
+    
+    async def update_media(
         self,
         company_id:           int,
-        data:                 CompanyUpdate,
         logo:                 Optional[UploadFile] = None,
         banner:               Optional[UploadFile] = None,
         old_logo_public_id:   Optional[str]        = None,
         old_banner_public_id: Optional[str]        = None,
     ):
         company = await self.get_by_id(company_id)
-        # ── Logo ──────────────────────────────────────────────────────────────
+        update_data = {}
+
+        # ── Logo ──────────────────────────────────────────────────────────
         if logo and logo.filename:
             if old_logo_public_id:
                 await storage.delete_asset(old_logo_public_id, resource_type="image")
-            result               = await storage.upload_image(logo, folder="companies/logos")
-            data.logo_url        = result["secure_url"]
-            data.logo_public_id  = result["public_id"]
+            result = await storage.upload_image(logo, folder="companies/logos")
+            update_data["logo_url"]       = result["secure_url"]
+            update_data["logo_public_id"] = result["public_id"]
 
-        # ── Banner ────────────────────────────────────────────────────────────
+        # ── Banner ────────────────────────────────────────────────────────
         if banner and banner.filename:
             if old_banner_public_id:
                 await storage.delete_asset(old_banner_public_id, resource_type="image")
- 
-            result                = await storage.upload_image(banner, folder="companies/banners")
-            data.banner_url       = result["secure_url"]
-            data.banner_public_id = result["public_id"]
+            result = await storage.upload_image(banner, folder="companies/banners")
+            update_data["banner_url"]       = result["secure_url"]
+            update_data["banner_public_id"] = result["public_id"]
 
+        if not update_data:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="No media files provided.",
+            )
 
-        return await self.repo.update(company, data.model_dump(exclude_none=True))
-
+        return await self.repo.update(company, update_data)
 
 
     # -----------------------------------------------------------------------

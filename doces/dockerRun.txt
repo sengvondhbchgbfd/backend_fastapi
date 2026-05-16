@@ -1,10 +1,12 @@
 docker-compose up --build -d |=>  
 docker compose up -d --build |=>
 
-
 */ker compose build --no-cache |=>
 
+docker compose down -v |=>
+
 docker compose up |=>
+
 
 docker-compose exec app alembic revision --autogenerate -m "create roles and users" |=> add table with docker Then create new migration
 
@@ -17,6 +19,8 @@ alembic downgrade base                        |=> Reset ALL migrations (⚠️ d
 ////////////////////////////////////////////////////////////////////////////////////////
 
 docker-compose exec app alembic revision --autogenerate -m "fix user department models" => 
+
+
 docker-compose exec app alembic upgrade head
 
 docker compose exec app alembic current

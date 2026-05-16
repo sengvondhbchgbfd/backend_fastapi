@@ -4,9 +4,9 @@ import redis.asyncio as redis
 
 from app.models.users.user import User, UserStatus
 from app.schemas.schema import (
-    RoleCreate, RoleResponse,
+    DepartmentSimple, RoleCreate, RoleResponse,
     DepartmentCreate, DepartmentResponse,
-    RegisterRequest, RegisterResponse,
+    RegisterRequest, RegisterResponse, RoleSimple,
     UserUpdate, UserResponse,
 )
 from app.repositories.auth.user_respo import (
@@ -57,8 +57,14 @@ class UserService:
             )
         return await self.role_repo.create(data.role_name, company_id)
 
+
+
+
     async def get_all_roles(self, company_id: int) -> list[RoleResponse]:
         return await self.role_repo.get_all(company_id)
+    
+
+
 
     async def delete_role(self, role_id: int, company_id: int) -> None:
         deleted = await self.role_repo.delete(role_id, company_id)
@@ -91,6 +97,9 @@ class UserService:
     ) -> list[DepartmentResponse]:
         return await self.dept_repo.get_all(company_id)
 
+
+        
+
     async def delete_department(
         self, department_id: int, company_id: int
     ) -> None:
@@ -117,7 +126,6 @@ class UserService:
                 status_code=status.HTTP_409_CONFLICT,
                 detail="Username already exists.",
             )
-
         # ✅ Verify role belongs to same company
         role = await self.role_repo.get_by_id(data.role_id, company_id)
         if not role:
@@ -134,7 +142,8 @@ class UserService:
                     status_code=status.HTTP_404_NOT_FOUND,
                     detail=f"Department id={data.department_id} not found.",
                 )
-
+            
+            
         # ✅ Create user — status defaults to active
         user = await self.user_repo.create(
             company_id    = company_id,
@@ -178,19 +187,37 @@ class UserService:
             reference_id   = user.user_id,
             reference_type = "user",
         )
-
         # ✅ Reload with relationships
         user = await self.user_repo.get_by_id(user.user_id, company_id)
+        return UserResponse(
+            user_id=user.user_id,
+            username=user.username,
+            full_name=user.full_name,
+            status=user.status,
 
-        return RegisterResponse(
-            user_id       = user.user_id,
-            username      = user.username,
-            full_name     = user.full_name,
-            role          = user.role.role_name if user.role else None,
-            department_id = user.department_id,
-            status        = user.status.value,
-            created_at    = user.created_at,
+            role_id=user.role_id,
+            department_id=user.department_id,
+
+            role=RoleSimple(
+                role_id=user.role.role_id,
+                role_name=user.role.role_name
+            ) if user.role else None,
+
+            department=DepartmentSimple(
+                department_id=user.department.department_id,
+                department_name=user.department.department_name
+            ) if user.department else None,
+
+            # avatar_url=user.avatar_url,
+            # avatar_public_id=user.avatar_public_id,
+            avatar_url=user.staff.avatar_url if user.staff else None,
+            avatar_public_id=user.staff.avatar_public_id if user.staff else None,
+            created_at=user.created_at,
+            updated_at=user.updated_at,
         )
+
+
+
 
     # ==========================================================================
     # GET ALL
@@ -230,7 +257,6 @@ class UserService:
         updated = await self.user_repo.update(
             user, data.model_dump(exclude_none=True)
         )
-
         # ✅ Notify user — account updated
         await self.notif.send(
             company_id     = company_id,
@@ -241,7 +267,6 @@ class UserService:
             reference_id   = user_id,
             reference_type = "user",
         )
-
         return updated
     
     
@@ -276,6 +301,7 @@ class UserService:
 # ===========================================================================
 # FACTORY
 # ===========================================================================
+
 
 async def get_user_service(
     db:           AsyncSession = Depends(get_db),

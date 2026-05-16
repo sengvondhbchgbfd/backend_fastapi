@@ -23,10 +23,20 @@ class SetupRepository:
         return result.scalar() or 0
     
 
+#     {
+#   "initialized": false,
+#   "steps": {
+#     "company": true,
+#     "role": false,
+#     "department": false,
+#     "user": false
+#   },
+#   "current_step": "role"
+# }
 
-
-
-
+#  if multiple check company status
+# await storage.write('company_id', companyId);
+# await storage.write('initialized', true);
     # -----------------------------------------------------------------------
     # CHECK duplicates
     # -----------------------------------------------------------------------
@@ -62,14 +72,15 @@ class SetupRepository:
         company = Company(
             company_name = company_name,
             company_code = company_code.upper(),
-            plan_type    = "enterprise",
+            plan_type    = "free",
             status       = "active",
             timezone     = timezone,
             currency     = currency,
         )
         self.db.add(company)
-        await self.db.flush()   # get company_id without full commit
+        await self.db.flush()   
         return company
+    
 
     # -----------------------------------------------------------------------
     # CREATE default roles
@@ -88,8 +99,12 @@ class SetupRepository:
             self.db.add(role)
             await self.db.flush()
             roles[role_name] = role
-
         return roles
+    
+
+
+
+
     
     # -----------------------------------------------------------------------
     # CREATE default department

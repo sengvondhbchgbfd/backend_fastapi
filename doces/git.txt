@@ -5,3 +5,152 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/sengvondhbchgbfd/backend_fastapi.git
 git push -u origin main
+
+//////////////////////////////////////////
+
+
+# ========================
+# 🔰 BASIC SETUP
+# ========================
+git config --global user.name "Your Name"     # Set your Git username (used in commits)
+git config --global user.email "your@email.com"  # Set your email (used in commits)
+git config --list                             # Show all Git configurations
+
+# ========================
+# 📁 CREATE / CLONE REPO
+# ========================
+git init                                      # Create a new Git repository in current folder
+git clone <repo_url>                          # Download an existing repo from GitHub (or remote)
+
+# ========================
+# 📌 STAGING
+# ========================
+git add file.txt                              # Add specific file to staging area
+git add .                                     # Add all files (current folder)
+git add -A                                    # Add all changes (including deleted files)
+git reset file.txt                            # Remove file from staging (keep changes)
+git restore --staged file.txt                 # Unstage file (modern way)
+
+# ========================
+# 💾 COMMIT
+# ========================
+git commit -m "message"                       # Save staged changes with a message
+git commit -a -m "message"                    # Commit all tracked files (skip git add)
+git commit --amend -m "new message"           # Edit last commit message
+
+# ========================
+# 📜 LOG / HISTORY
+# ========================
+git log                                       # Show full commit history
+git log --oneline                             # Show short one-line history
+git log --graph                               # Show branch graph visually
+git log -p                                    # Show changes (diff) in commits
+git show <commit_id>                          # Show details of one commit
+
+# ========================
+# 🔍 DIFF
+# ========================
+git diff                                      # Show unstaged changes
+git diff --staged                             # Show staged changes
+git diff <commit1> <commit2>                  # Compare two commits
+
+# ========================
+# 🌿 BRANCHING
+# ========================
+git branch                                    # List all branches
+git branch new-branch                         # Create new branch
+git checkout new-branch                       # Switch to branch (old way)
+git checkout -b new-branch                    # Create + switch branch
+git switch new-branch                         # Switch branch (new way)
+git switch -c new-branch                      # Create + switch (modern way)
+git branch -d branch_name                     # Delete branch
+
+# ========================
+# 🔀 MERGE
+# ========================
+git merge branch_name                         # Merge branch into current branch
+git merge --no-ff branch_name                 # Force merge commit (keep history clear)
+
+# ========================
+# 🚀 REMOTE (GitHub)
+# ========================
+
+git remote add origin <url>                   # Connect local repo to remote (GitHub)
+git remote -v                                 # Show remote URLs
+git push -u origin main                       # Push first time + set upstream
+git push                                      # Push changes to remote
+git pull                                      # Pull latest changes (fetch + merge)
+git fetch                                     # Download changes (no merge)
+
+# ========================
+# 🔄 RESET / UNDO
+# ========================
+git reset --soft HEAD~1                       # Undo last commit (keep staged changes)
+git reset --mixed HEAD~1                      # Undo commit (keep files, unstage them)
+git reset --hard HEAD~1                       # Delete commit + changes (danger ⚠️)
+git revert <commit_id>                        # Undo commit safely (create new commit)
+
+# ========================
+# 📦 STASH
+# ========================
+git stash                                     # Save changes temporarily
+git stash save "message"                      # Save with message
+git stash list                                # Show all stashes
+git stash apply                               # Apply stash (keep it)
+git stash pop                                 # Apply + remove stash
+git stash drop                                # Delete stash
+
+# ========================
+# 🔁 REBASE (ADVANCED)
+# ========================
+
+git rebase main                               # Move current branch on top of main
+git rebase -i HEAD~3                          # Interactive rebase (edit last 3 commits)
+
+# ========================
+# 🍒 CHERRY-PICK
+# ========================
+
+git cherry-pick <commit_id>                   # Copy one commit to current branch
+
+# ========================
+# 🏷️ TAGS
+# ========================
+
+git tag                                       # List all tags
+git tag v1.0                                  # Create simple tag
+git tag -a v1.0 -m "version 1.0"              # Create annotated tag
+git push origin v1.0                          # Push specific tag
+git push --tags                               # Push all tags
+
+# ========================
+# 📂 FILE OPERATIONS
+# ========================
+
+git rm file.txt                               # Delete file + stage deletion
+git mv old.txt new.txt                        # Rename/move file
+git restore file.txt                          # Restore file (undo changes)
+
+# ========================
+# 🔐 CLEAN / REMOVE
+# ========================
+git clean -f                                  # Remove untracked files
+git clean -fd                                 # Remove untracked files + folders
+
+# ========================
+# 🔎 STATUS
+# ========================
+git status                                    # Show current state (files, staging, branch)
+
+# ========================
+# 🧠 HELP
+# ========================
+git help                                      # General help
+git help commit                               # Help for specific command
+
+
+git rm -r folder_name
+git commit -m "remove folder"
+git rm -r --cached folder_name
+git commit -m "remove folder from repo"
+git clean -fd

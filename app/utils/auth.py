@@ -3,7 +3,7 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from app.core.security import decode_access_token
 from jose import jwt, JWTError
 from app.core.config import settings
-from app.core.exceptions import UnauthorizedException, ForbiddenException, NotFoundException, AppException
+from app.exceptions.exceptions import UnauthorizedException, ForbiddenException, NotFoundException, AppException
 import logging
 from typing import Dict, Optional, List, Callable
 

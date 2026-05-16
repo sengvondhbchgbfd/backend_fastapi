@@ -1,10 +1,12 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select,  delete as sa_delete
 from sqlalchemy.orm import selectinload
+from app.models.notification import Notification
 from app.models.users.user import User
 from app.models.roles.role import Role
 from app.models.departments.department import Department
 from sqlalchemy import func, select
+
 from app.db.filters import (
     user_active,         # ✅ User  → status == UserStatus.active
     role_active,         # ✅ Role  → is_active + deleted_at  (confirm your Role model)
@@ -41,6 +43,10 @@ class RoleRepository:
         )
         return result.scalar_one_or_none()
 
+
+
+
+
     async def get_by_name(self, role_name: str, company_id: int) -> Role | None:
         result = await self.db.execute(
             select(Role).where(
@@ -61,6 +67,9 @@ class RoleRepository:
             .order_by(Role.role_name)
         )
         return result.scalars().all()
+    
+
+    
 
     async def update(self, role: Role, data: dict) -> Role:
         for field, value in data.items():
@@ -97,25 +106,21 @@ class UserRepository:
     
 
     
-
     async def get_by_id(self, user_id: int, company_id: int) -> User | None:
         result = await self.db.execute(
             select(User)
             .options(
                 selectinload(User.role),
                 selectinload(User.department),
-                selectinload(User.staff),
+                selectinload(User.staff),  # ← already here ✅
             )
             .where(
                 User.user_id    == user_id,
                 User.company_id == company_id,
-                user_active(User),  # ✅ User.status == UserStatus.active
+                user_active(User),
             )
         )
-        user = result.scalar_one_or_none()
-        if user:
-            await self.db.refresh(user)
-        return user
+        return result.scalar_one_or_none()  # ← just return directly, no refresh needed
     
 
 
@@ -207,10 +212,29 @@ class UserRepository:
 
 
 
+    # async def delete(self, user_id: int, company_id: int) -> bool:
+    #     user = await self.get_by_id(user_id, company_id)
+    #     if not user:
+    #         return False
+    #     await self.db.delete(user)
+    #     await self.db.commit()
+    #     return True
+    
+
+
     async def delete(self, user_id: int, company_id: int) -> bool:
         user = await self.get_by_id(user_id, company_id)
         if not user:
             return False
+
+        # Step 1 — delete notifications first
+        await self.db.execute(
+            sa_delete(Notification).where(
+                Notification.user_id == user_id
+            )
+        )
+
+        # Step 2 — delete user
         await self.db.delete(user)
         await self.db.commit()
         return True

@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, update
-from app.core.exceptions import NotFoundException
+from app.exceptions.exceptions import NotFoundException
 
 from app.models.supplier import Supplier
 from app.models.customer import Customer

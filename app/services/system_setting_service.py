@@ -8,7 +8,6 @@ from app.schemas.schema import (
     BulkUpdateRequest,
 )
 
-
 class SystemSettingService:
 
     def __init__(self, db: AsyncSession):
@@ -34,11 +33,6 @@ class SystemSettingService:
             )
         return setting
     
-
-
-
-    
-
     # -----------------------------------------------------------------------
     # GET one setting by key
     # -----------------------------------------------------------------------
@@ -71,9 +65,6 @@ class SystemSettingService:
             "description": data.description,
         })
     
-
-    
-
     # -----------------------------------------------------------------------
     # UPDATE setting by id
     # -----------------------------------------------------------------------

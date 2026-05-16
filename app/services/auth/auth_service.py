@@ -4,7 +4,7 @@ from typing import Optional, List, Dict, Any
 import redis.asyncio as redis
 
 from app.models.users.user import UserStatus
-from app.core.exceptions import UnauthorizedException, ForbiddenException
+from app.exceptions.exceptions import UnauthorizedException, ForbiddenException
 from app.dependencies import get_db, get_redis_client
 from app.repositories.auth.auth_repository import AuthRepository
 from app.repositories.audit.auditlog_repository import AuditLogRepository
@@ -391,6 +391,9 @@ class AuthService:
             department_id = updated.department_id,
             status        = updated.status.value,
         )
+
+
+
 
     # =========================================================================
     # DEACTIVATE USER

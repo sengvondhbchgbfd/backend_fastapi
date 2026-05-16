@@ -62,6 +62,8 @@ class CompanyUpdate(BaseModel):
     banner_public_id: Optional[str] = None
 
 
+
+
 class CompanyResponse(BaseModel):
     company_id:       int
     company_name:     str

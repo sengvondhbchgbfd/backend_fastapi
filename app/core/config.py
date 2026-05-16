@@ -5,7 +5,8 @@ class Settings(BaseSettings):
     # -------------------------------------------------------------------------
     # Environment
     # -------------------------------------------------------------------------
-    ENVIRONMENT: str = "production"   # ✅ add this — controls seed
+    # ENVIRONMENT: str = "production"   # ✅ add this — controls seed
+    ENVIRONMENT: str = "development"
 
     # -------------------------------------------------------------------------
     # Admin (for seed data only)

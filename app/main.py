@@ -2,232 +2,148 @@ from contextlib import asynccontextmanager
 import asyncio
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-
-from app.models import *
-from app.routers.auth.users_router          import router, role_router, department_router
-from app.routers.auth.auth_router           import router as auth_router
-from app.db.redis                      import connect_redis, disconnect_redis, check_redis
-from app.routers.audit_log_router      import audit_router
-from app.routers.hr.staff_router          import staff_role_router, staff_router
-from app.routers.hr.leave_requests_router import leave_router
-from app.routers.hr.attendance_router     import attendance_router
-from app.routers.company.company_router        import company_router
-from app.routers.system_setting_router import system_setting_router
-from app.routers.hr.salaries_router       import salary_router
-from app.routers.communication.notification_router   import notification_router
-from app.routers.inventory.inventory_router      import (
-    supplier_router, customer_router, category_router,
-    product_router, stock_movement_router, invoice_router,
-)
-from app.routers.auth.setup_router          import setup_router
-from app.routers.ws_router             import ws_router
-from app.db.session                    import AsyncSessionLocal
-from app.seed.seed                     import seed_data
-from app.core.config                   import settings
-from app.schemas.schema                import ErrorResponse
-from app.core.exceptions               import AppException
-from app.routers.communication.chat_router           import chat_router
-from app.routers.chat_ws_router        import chat_ws_router
-from app.core.rate_limit               import ip_limiter
-from app.core.logger                   import logger
-from slowapi.errors                    import RateLimitExceeded
-from app.middleware import (AuthMiddleware,LoggingMiddleware,ErrorMiddleware,setup_cors)
-from slowapi.middleware                 import SlowAPIMiddleware   
-
-# //////////////////////////////////////////
 from fastapi.openapi.utils import get_openapi
-# ///////////////// Test ////////////////////
+from app.models import *
+from app.api.v1.routers import api_router   
+from app.db.redis import connect_redis, disconnect_redis, check_redis
+from app.db.session import AsyncSessionLocal
+from app.seed.seed import seed_data
+from app.core.config import settings
+from app.core.rate_limit import ip_limiter
+from app.core.logger import logger
+from app.schemas.schema import ErrorResponse
+from app.exceptions.exceptions import AppException
 from app.services.storage import init_cloudinary
-
 from app.websockets import (
     chat_handler,
     notification_handler,
     start_chat_pubsub_listener,
     start_notification_pubsub_listener,
 )
-# =============================================================================
-# LIFESPAN — startup + shutdown in one place
-# =============================================================================
+from slowapi.errors import RateLimitExceeded
+from slowapi.middleware import SlowAPIMiddleware
+from app.middleware import (
+    AuthMiddleware,
+    LoggingMiddleware,
+    ErrorMiddleware,
+    setup_cors,
+    
+)
+from app.middleware.cors_middleware import CORSMiddleware
 
+# =============================================================================
+# LIFESPAN
+# =============================================================================
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # ── Startup ───────────────────────────────────────────
     logger.info("Server starting...")
-    # Seed data (development only)
     if settings.ENVIRONMENT == "development":
         async with AsyncSessionLocal() as db:
             await seed_data(db)
 
-    # Connect Redis
     await connect_redis()
-
-    # ✅ Check Redis after connecting
-
     redis_ok = await check_redis()
     if redis_ok:
         logger.info("Redis connected successfully")
     else:
         logger.critical("Redis FAILED — rate limiting will not work!")
-    # Cloudinary
-    init_cloudinary()
 
+    init_cloudinary()
     logger.info("Cloudinary initialized")
 
-    # Start WebSocket pub/sub listeners
-    # pubsub_task = asyncio.create_task(start_redis_pubsub_listener())
-    # chat_task   = asyncio.create_task(start_chat_pubsub_listener())
-
-    # ///////////// test ////////////////////////////////////
-
-
-
-    pubsub_task =  asyncio.create_task(start_chat_pubsub_listener(chat_handler))
+    pubsub_task = asyncio.create_task(start_chat_pubsub_listener(chat_handler))
     chat_task = asyncio.create_task(start_notification_pubsub_listener(notification_handler))
-
     logger.info("WebSocket listeners started")
 
     yield
 
-    # ── Shutdown ──────────────────────────────────────────
     logger.info("Server shutting down...")
-
-    # ✅ properly cancel and await tasks
     pubsub_task.cancel()
     chat_task.cancel()
-    
     try:
         await asyncio.gather(pubsub_task, chat_task)
     except asyncio.CancelledError:
         pass
-
     await disconnect_redis()
     logger.info("Redis disconnected")
-
-
 
 # =============================================================================
 # APP
 # =============================================================================
-
 app = FastAPI(
-    title    = "Backend App",
-    version  = "1.0.0",
-    lifespan = lifespan,
-    swagger_ui_parameters = {"persistAuthorization": True},  # ✅ keeps token after refresh
+    title="Backend App",
+    version="1.0.0",
+    lifespan=lifespan,
+    swagger_ui_parameters={"persistAuthorization": True},
 )
+
 
 app.state.limiter = ip_limiter
 
-
 # =============================================================================
-# OPENAPI SECURITY SCHEME  ✅ ADD THIS BLOCK
-#  http://localhost:8000/openapi.json 
-#  http://localhost:8000/redoc or docs
+# OPENAPI
 # =============================================================================
-
 def custom_openapi():
     if app.openapi_schema:
         return app.openapi_schema
-    schema = get_openapi(
-        title   = app.title,
-        version = app.version,
-        routes  = app.routes,
-    )
+    schema = get_openapi(title=app.title, version=app.version, routes=app.routes)
     schema["components"]["securitySchemes"] = {
-        "BearerAuth": {
-            "type":         "http",
-            "scheme":       "bearer",
-            "bearerFormat": "JWT",
-        }
+        "BearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT"}
     }
     schema["security"] = [{"BearerAuth": []}]
     app.openapi_schema = schema
     return schema
 
 app.openapi = custom_openapi
+
 # =============================================================================
 # EXCEPTION HANDLERS
 # =============================================================================
-# =============================================================================
-# EXCEPTION HANDLERS
-# =============================================================================
-
-
-
 @app.exception_handler(RateLimitExceeded)
 async def rate_limit_handler(request, exc):
-    logger.warning(f"SECURITY | Rate limit hit | "f"ip:{request.client.host} | "f"path:{request.url.path}")
+    logger.warning(f"SECURITY | Rate limit hit | ip:{request.client.host} | path:{request.url.path}")
     return JSONResponse(
         status_code=429,
-        content={
-            "code":    "RATE_LIMIT_EXCEEDED",
-            "message": "Too many requests. Please slow down.",
-            "action":  "WAIT_AND_RETRY",
-        },
+        content={"code": "RATE_LIMIT_EXCEEDED", "message": "Too many requests.", "action": "WAIT_AND_RETRY"},
         headers={"Retry-After": "60"},
     )
-
-
 
 @app.exception_handler(AppException)
 async def app_exception_handler(request, exc: AppException):
     return JSONResponse(
         status_code=exc.status_code,
         content=ErrorResponse(
-            status_code = exc.status_code,
-            detail      = exc.detail,
-            error_type  = exc.error_type,
+            status_code=exc.status_code,
+            detail=exc.detail,
+            error_type=exc.error_type,
         ).dict()
     )
 
+# =============================================================================
+# MIDDLEWARE
+# =============================================================================
+app.add_middleware(ErrorMiddleware)
+app.add_middleware(LoggingMiddleware)
+app.add_middleware(AuthMiddleware)
+app.add_middleware(SlowAPIMiddleware)
+# setup_cors(app)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # =============================================================================
-# MIDDLEWARE — order matters (last added = first to run)
+# ROUTERS — ONE line ✅
 # =============================================================================
-
-
-app.add_middleware(ErrorMiddleware)      # outermost — catches everything
-app.add_middleware(LoggingMiddleware)    # logs requests + responses
-setup_cors(app)                          # CORS
-app.add_middleware(AuthMiddleware)       # sets request.state.user_id
-app.add_middleware(SlowAPIMiddleware)    # must be last — sees everything ready
-
-
-
-
-# =============================================================================
-# ROUTERS
-# =============================================================================
-
-app.include_router(setup_router)
-app.include_router(auth_router)
-app.include_router(company_router)
-app.include_router(role_router)
-app.include_router(department_router)
-app.include_router(router)               # users
-app.include_router(audit_router)
-app.include_router(staff_role_router)
-app.include_router(staff_router)
-app.include_router(leave_router)
-app.include_router(attendance_router)
-app.include_router(system_setting_router)
-app.include_router(salary_router)
-app.include_router(notification_router)
-app.include_router(supplier_router)
-app.include_router(customer_router)
-app.include_router(category_router)
-app.include_router(product_router)
-app.include_router(stock_movement_router)
-app.include_router(invoice_router)
-app.include_router(chat_router)
-app.include_router(ws_router)            # WebSocket
-app.include_router(chat_ws_router)       # WebSocket last
-
+app.include_router(api_router, prefix="/api/v1")
 
 # =============================================================================
 # HEALTH CHECK
 # =============================================================================
-
 @app.get("/", tags=["Health"])
 async def root():
     return {"message": "Backend App is running"}

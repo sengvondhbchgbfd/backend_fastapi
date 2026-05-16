@@ -57,6 +57,8 @@ class StaffRoleService:
     async def get_all(self, company_id: int) -> list[StaffRole]:
         return await self.repo.get_all(company_id)
 
+
+
     async def update(
         self,
         staff_role_id: int,
@@ -218,7 +220,6 @@ class StaffService:
         # 5. Create staff
         staff = Staff(**staff_data)
         staff = await self.repo.create(staff)
- 
         # 6. ✅ notify linked user — staff profile created
         if data.user_id:
             await self.notif.send(
@@ -233,9 +234,11 @@ class StaffService:
                 reference_id   = staff.staff_id,
                 reference_type = "staff",
             )
- 
         return staff
     
+
+
+
 
 
 

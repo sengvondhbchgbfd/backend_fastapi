@@ -50,8 +50,6 @@ class NotificationService:
             "reference_type": reference_type,
         })
 
-
-
         # 2. Push real-time via Redis Pub/Sub → WebSocket
         if self.redis_client:
             await publish_notification(
@@ -141,6 +139,8 @@ class NotificationService:
             reference_id   = data.reference_id,
             reference_type = data.reference_type,
         )
+
+        
 
     # -----------------------------------------------------------------------
     # MARK READ
